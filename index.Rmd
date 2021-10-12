@@ -11,6 +11,8 @@ devtools::install()
 .libPaths()
 ```
 
+
+
 ```{r, eval=F, echo=F}
 rmarkdown::render("index.Rmd")
 pkgdown::build_site()
