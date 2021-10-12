@@ -1,0 +1,20 @@
+#url: https://pkgdown.r-lib.org
+#title: Econometrics (MSB104) Part II: Time Series Analysis 
+#template:
+#  params:
+#    bootswatch: flatly
+navbar:
+  type: inverse
+  left:
+    - icon: fa-home 
+    - text: "Forelesningsnotater"
+      href: "articles/learning_objectives.html"
+    - text: "Anbefalte opppgaver"
+      href: "articles/exercises.html"
+    - text: "Asignment"
+    - text: "Overview"
+      href: "articles/cheatsheet.html"
+  right:
+    - icon: fa-github fa-lg
+      text: "github"
+      href: https://github.com/joernih/MSB104TimeSeriesJIH

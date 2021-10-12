@@ -1,0 +1,36 @@
+---
+title: "covid_19_analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{covid_19_analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r eval=T, echo=F, message=FALSE, warning=FALSE}
+library(MSB104TimeSeriesJIH)
+library(gridExtra)
+library(dplyr)
+library(ggplot2)
+```
+
+
+```{r eval=T, echo=F, message=FALSE, warning=FALSE}
+sel <- c('NOR','SWE','GBR')
+dfc <- MSB104TimeSeriesJIH::COVID19
+```
+
+# Covid-19 country analysis
+
+```{r eval=T, echo=F, message=FALSE, warning=FALSE}
+pgl <- plot19ts(sel_cou=sel,covid19df=dfc)
+pgl
+```
+

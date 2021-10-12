@@ -1,0 +1,41 @@
+---
+title: "Econometrics (MSB104) Part II: Time Series Analysis"
+output: github_document
+#output: html_document
+#output: html_notebook
+---
+
+```{r, eval=F, echo=F}
+devtools::document()
+devtools::install()
+.libPaths()
+```
+
+```{r, eval=F, echo=F}
+rmarkdown::render("index.Rmd")
+pkgdown::build_site()
+pkgdown::build_home()
+pkgdown::build_articles()
+#pkgdown::build_articles("timeplan.Rmd")
+system("brave index.html")
+# pkgdown <img src="man/figures/logo.png" align="right" alt="" width="120" />
+usethis::use_readme_rmd()
+usethis::use_news_md()
+usethis::use_github_links()
+```
+
+### Lectures
+
+```{r, eval=T, echo=F}
+#source('vignettes/rscript/timeplan.R')
+#lectureplan
+```
+<!--[Lenke her](https://docs.google.com/spreadsheets/d/1SLQfLprWCN8uZYyBBh6ZcwEfATbv60m4s3ekZjW0F8I/edit#gid=0)-->
+
+### Exercise session
+```{r, eval=T, echo=F}
+#exerciseplan
+```
+
+
+![](man/figures/ts.jpg)

@@ -1,0 +1,14 @@
+---
+title: "Today"
+output: html_notebook
+---
+
+
+- Three parts
+1. General questions (x %)
+1. Part I (y %)
+1. Part II (z %)
+  - Formal
+  - Application
+
+- 
