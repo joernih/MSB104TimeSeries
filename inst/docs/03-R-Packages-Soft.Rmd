@@ -540,10 +540,7 @@ plot19ts <- function(sel_cou=NULL,covid19df=NULL, yvar='hosp'){
 PrintBibliography(bib)
 ```
 
-```{r}
+```{r, eval=F}
 knitr::knit_exit()
 ```
-
-- Onsdag 4 timer og torsdag 6 timer
-- Jørn Inge Halvorsen kommer til å være på campus Haugesund onsdag 13.oktober og torsdag 14.oktober og vi legger opp til utvidet undervisning i MSB104 Økonometri disse dagene. Nærmere informasjon kommer og det vil også bli gjort timeplanendringer slik at vi er sikker på at det er rom på campus for økt aktivitet. Reserver begge disse to dagene til en god arbeidsøkt i MSB104.
 

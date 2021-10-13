@@ -1,27 +1,6 @@
-<<<<<<< HEAD
-pandoc: 2.14.0.2
-pkgdown: 1.6.1
-pkgdown_sha: ~
-articles: {}
-last_built: 2021-10-08T20:10Z
-=======
 pandoc: 2.11.3
 pkgdown: 1.6.1.9001
 pkgdown_sha: ce9781a15c7ea07df9fb17a11295ba4abec0b54b
-articles:
-  Exam_MSB104_Econometrics_S2021_Cont: Exam_MSB104_Econometrics_S2021_Cont.html
-  MSB104_Econometrics: MSB104_Econometrics.html
-  Application_Fertility_lagged: application/Application_Fertility_lagged.html
-  Application_Phillips_static: application/Application_Phillips_static.html
-  cheatsheet: cheatsheet.html
-  covid_19_analysis: covid_19_analysis.html
-  exercises: exercises.html
-  hello_world: hello_world.html
-  learning_objectives: learning_objectives.html
-<<<<<<< HEAD
-last_built: 2021-10-08T14:20Z
-=======
-last_built: 2021-10-08T14:14Z
->>>>>>> 738e3377d772e0473380aaf6b3d26b8d3da772b1
->>>>>>> 5926bcbe669ff4556d4ebf14abdf0223721a9440
+articles: {}
+last_built: 2021-10-12T21:59Z
 
