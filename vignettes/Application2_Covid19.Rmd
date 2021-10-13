@@ -1,0 +1,19 @@
+---
+title: "Application2_Covid19"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Application2_Covid19}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MSB104TimeSeriesJIH)
+```

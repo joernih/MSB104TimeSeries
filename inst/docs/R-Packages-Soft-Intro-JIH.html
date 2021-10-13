@@ -7,7 +7,7 @@
     <script src="libs/header-attrs-2.10/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"a6d43ba37fd94fbea9266dc07ce9e6db","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x6b7ebac53354232885cb8d6c6e26dbc","expires":1}</script>
     <script src="libs/himalaya-1.1.0/himalaya.js"></script>
     <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -92,7 +92,7 @@ Some sub-themes in relation to this that we will touch:
 
 ## Outline of today's lecture 
 
-![](03-R-Packages-Soft_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+![](R-Packages-Soft-Intro-JIH_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -517,14 +517,16 @@ usethis::use_data(COVID19, overwrite = TRUE)
 
 ```r
 #' This is a function for producing Covid-19 time series plot
+#' @importFrom magrittr %&gt;%
 #' @export
 plot19ts &lt;- function(sel_cou=NULL,covid19df=NULL, yvar='hosp'){
 	
-	c_cdf &lt;- sel_cou %&gt;% purrr::map(function(x,df=covid_sel_df){
-		print(x)
-		out &lt;- df %&gt;% dplyr::filter(id==x)
-		print(out)
-		gout &lt;- ggplot(out, aes(x=dayofyear,y=hosp, color=year)) + geom_point() + geom_line() + labs(title=x,"Day during the year", y="Hospitlalized")
+	c_cdf &lt;- sel_cou %&gt;% purrr::map(function(x,df_c=covid19df){
+		out &lt;- df_c %&gt;% dplyr::filter(id==x)
+		gout &lt;- ggplot(out, aes(x=dayofyear,y=hosp, color=year)) + 
+			geom_point() + 
+			geom_line() + 
+			labs(title=x,"Day during the year", y="Hospitlalized")
 	})
 }
 ```
@@ -552,9 +554,6 @@ organize, test, document, and share your
 code_. " O'Reilly Media, Inc.".
 
 
-```r
-knitr::knit_exit()
-```
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

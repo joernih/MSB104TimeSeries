@@ -1,6 +1,8 @@
 pandoc: 2.11.3
 pkgdown: 1.6.1.9001
 pkgdown_sha: ce9781a15c7ea07df9fb17a11295ba4abec0b54b
-articles: {}
-last_built: 2021-10-13T14:26Z
+articles:
+  Application1_HelloWorld: Application1_HelloWorld.html
+  Application2_Covid19: Application2_Covid19.html
+last_built: 2021-10-13T14:51Z
 

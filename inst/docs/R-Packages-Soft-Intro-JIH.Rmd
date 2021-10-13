@@ -35,8 +35,9 @@ xaringanExtra::use_panelset()
 ```
 
 ```{r, eval=F, include=F}
-xaringan::inf_mr("03-R-Packages-Soft.Rmd")
-rmarkdown::render("03-R-Packages-Soft.Rmd")
+filen <- "R-Packages-Soft-Intro-JIH.Rmd"
+xaringan::inf_mr(filen)
+rmarkdown::render("R-Packages-Soft-Intro-JIH.Rmd")
 system('brave 03-R-Packages-Soft.html')
 ```
 
@@ -90,7 +91,7 @@ Some sub-themes in relation to this that we will touch:
 ```{r include=FALSE}
 library("magrittr")
 
-toc <- readLines("03-R-Packages-Soft.Rmd")
+toc <- readLines(filen)
 tocc <- character()
 
 for (i in 1:length(toc)) {
@@ -235,14 +236,15 @@ Which gives us
 
 ```{r}
 hello <- function() {
-          tekst <- paste("Hello world!")
-	  print(tekst)
+	  print("Hello, world! My name is <insert your name here> ")
 }
 ```
 
 Change this to
 
 ```{r}
+#' This is a hello function with a name argument
+#' @export
 hello <- function(name=NULL) {
           tekst <- paste("Hello world! My name is", name)
 	  print(tekst)
@@ -544,7 +546,7 @@ plot19ts <- function(sel_cou=NULL,covid19df=NULL, yvar='hosp'){
 PrintBibliography(bib)
 ```
 
-```{r, eval=F}
+```{r, eval=T, echo=F}
 knitr::knit_exit()
 ```
 
