@@ -7,7 +7,7 @@
     <script src="libs/header-attrs-2.10/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x45b826eefd444e3835d5c3473c0ffc3","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"a6d43ba37fd94fbea9266dc07ce9e6db","expires":1}</script>
     <script src="libs/himalaya-1.1.0/himalaya.js"></script>
     <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -84,6 +84,7 @@ Some sub-themes in relation to this that we will touch:
 
 - [pgkdown](https://pkgdown.r-lib.org/)
 - [xaringan](https://github.com/yihui/xaringan)
+- [xaringanExtra](https://github.com/gadenbuie/xaringanExtra)
 
 ---
 
@@ -255,8 +256,9 @@ The exports helps you avoid conflicts with other packages by specifying which fu
 ```r
 #' This is a hello function with a name argument
 #' @export
-hello &lt;- function() {
-	  print("Hello, world! My name is &lt;insert your name here&gt; ")
+hello &lt;- function(name=NULL) {
+          tekst &lt;- paste("Hello world! My name is", name)
+	  print(tekst)
 }
 ```
 

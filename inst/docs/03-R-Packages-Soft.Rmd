@@ -83,6 +83,7 @@ Some sub-themes in relation to this that we will touch:
 
 - [pgkdown](https://pkgdown.r-lib.org/)
 - [xaringan](https://github.com/yihui/xaringan)
+- [xaringanExtra](https://github.com/gadenbuie/xaringanExtra)
 
 ---
 
@@ -268,8 +269,9 @@ The exports helps you avoid conflicts with other packages by specifying which fu
 ```{r, eval=F, include=T}
 #' This is a hello function with a name argument
 #' @export
-hello <- function() {
-	  print("Hello, world! My name is <insert your name here> ")
+hello <- function(name=NULL) {
+          tekst <- paste("Hello world! My name is", name)
+	  print(tekst)
 }
 ```
 
@@ -511,14 +513,16 @@ usethis::use_data(COVID19, overwrite = TRUE)
 
 ```{r eval=FALSE, include=TRUE}
 #' This is a function for producing Covid-19 time series plot
+#' @importFrom magrittr %>%
 #' @export
 plot19ts <- function(sel_cou=NULL,covid19df=NULL, yvar='hosp'){
 	
-	c_cdf <- sel_cou %>% purrr::map(function(x,df=covid_sel_df){
-		print(x)
-		out <- df %>% dplyr::filter(id==x)
-		print(out)
-		gout <- ggplot(out, aes(x=dayofyear,y=hosp, color=year)) + geom_point() + geom_line() + labs(title=x,"Day during the year", y="Hospitlalized")
+	c_cdf <- sel_cou %>% purrr::map(function(x,df_c=covid19df){
+		out <- df_c %>% dplyr::filter(id==x)
+		gout <- ggplot(out, aes(x=dayofyear,y=hosp, color=year)) + 
+			geom_point() + 
+			geom_line() + 
+			labs(title=x,"Day during the year", y="Hospitlalized")
 	})
 }
 ```
