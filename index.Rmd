@@ -24,18 +24,13 @@ usethis::use_news_md()
 usethis::use_github_links()
 ```
 
-### Lectures
-
-```{r, eval=T, echo=F}
-#source('vignettes/rscript/timeplan.R')
-#lectureplan
-```
-<!--[Lenke her](https://docs.google.com/spreadsheets/d/1SLQfLprWCN8uZYyBBh6ZcwEfATbv60m4s3ekZjW0F8I/edit#gid=0)-->
-
-### Exercise session
-```{r, eval=T, echo=F}
-#exerciseplan
-```
-
-
 ![](man/figures/ts.jpg)
+
+### Schedule
+
+- Module I
+
+- Module II
+
+- Module III
+

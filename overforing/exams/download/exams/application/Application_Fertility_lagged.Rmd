@@ -12,7 +12,6 @@ output:
 ### 1. Data sample (realized DGP)
 ```{r message=FALSE, warning=FALSE}
 # Loading data
-rm(list=ls())
 library(sandwich)
 library(lmtest)
 library(wooldridge)
