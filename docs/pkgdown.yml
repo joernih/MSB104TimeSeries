@@ -2,12 +2,8 @@ pandoc: 2.11.3
 pkgdown: 1.6.1.9001
 pkgdown_sha: ce9781a15c7ea07df9fb17a11295ba4abec0b54b
 articles:
-  Abc: Abc.html
-  Exam_MSB104_Econometrics_S2021_Cont: Exam_MSB104_Econometrics_S2021_Cont.html
-  Application_Fertility_lagged: application/Application_Fertility_lagged.html
-  Application_Phillips_static: application/Application_Phillips_static.html
   cheatsheet: cheatsheet.html
   exercises: exercises.html
   learning_objectives: learning_objectives.html
-last_built: 2021-10-14T07:40Z
+last_built: 2021-10-14T07:57Z
 

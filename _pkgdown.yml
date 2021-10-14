@@ -9,14 +9,14 @@ navbar:
     - icon: fa-home 
     - text: "Overview"
       href: "articles/cheatsheet.html"
-    - text: "Forelesningsnotater"
+    - text: "Lecture notes"
       href: "articles/learning_objectives.html"
-    - text: "Anbefalte opppgaver"
+    - text: "Exercises"
       href: "articles/exercises.html"
     - text: "Exam"
-      href: "articles/exercises.html"
+      href: "abc/MSB104_Econometrics.html"
     - text: "Exam2"
-      href: "articles/exercises.html"
+      href: "abc/Exam_MSB104_Econometrics_S2021_Cont.html"
   right:
     - icon: fa-github fa-lg
       text: "github"
