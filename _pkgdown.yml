@@ -7,13 +7,15 @@ navbar:
   type: inverse
   left:
     - icon: fa-home 
+    - text: "Overview"
+      href: "articles/cheatsheet.html"
     - text: "Forelesningsnotater"
       href: "articles/learning_objectives.html"
     - text: "Anbefalte opppgaver"
       href: "articles/exercises.html"
     - text: "Asignment"
-    - text: "Overview"
-      href: "articles/cheatsheet.html"
+    - text: "Abc"
+      href: "articles/abc.html"
   right:
     - icon: fa-github fa-lg
       text: "github"

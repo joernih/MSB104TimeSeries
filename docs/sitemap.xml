@@ -4,6 +4,27 @@
     <loc>/404.html</loc>
   </url>
   <url>
+    <loc>/articles/Abc.html</loc>
+  </url>
+  <url>
+    <loc>/articles/Application1_HelloWorld.html</loc>
+  </url>
+  <url>
+    <loc>/articles/Application2_Covid19.html</loc>
+  </url>
+  <url>
+    <loc>/articles/cheatsheet.html</loc>
+  </url>
+  <url>
+    <loc>/articles/exercises.html</loc>
+  </url>
+  <url>
+    <loc>/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>/articles/learning_objectives.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>

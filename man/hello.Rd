@@ -4,7 +4,7 @@
 \alias{hello}
 \title{This is a hello function with a name argument}
 \usage{
-hello()
+hello(name = NULL)
 }
 \description{
 This is a hello function with a name argument
