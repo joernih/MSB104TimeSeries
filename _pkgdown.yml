@@ -14,9 +14,12 @@ navbar:
     - text: "Exercises"
       href: "articles/exercises.html"
     - text: "Exam"
-      href: "abc/MSB104_Econometrics.html"
-    - text: "Exam2"
-      href: "abc/Exam_MSB104_Econometrics_S2021_Cont.html"
+      icon: fas fa-book
+      menu:
+      - text: "Exam 1"
+        href: "abc/MSB104_Econometrics.html"
+      - text: "Exam 2"
+        href: "abc/MSB104_Econometrics.html"
   right:
     - icon: fa-github fa-lg
       text: "github"
