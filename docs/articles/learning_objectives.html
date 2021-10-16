@@ -19,8 +19,6 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -63,7 +61,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/joernih/MSB104TimeSeriesJIH" class="external-link">
+  <a href="https://github.com/joernih/MSB104TimeSeriesJIH">
     <span class="fa fa-github fa-lg"></span>
      
     github
@@ -79,11 +77,11 @@
 
       
 
-      </header><script src="learning_objectives_files/header-attrs-2.10/header-attrs.js"></script><div class="row">
+      </header><script src="learning_objectives_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Part 2: Regression analysis with time series data</h1>
-                        <h4 data-toc-skip class="author">Jørn I. Halvorsen</h4>
+                        <h4 class="author">Jørn I. Halvorsen</h4>
             
       
       
@@ -95,10 +93,10 @@
     
 <div id="basic-regression-analysis-with-time-series-data" class="section level1">
 <h1 class="hasAnchor">
-<a href="#basic-regression-analysis-with-time-series-data" class="anchor" aria-hidden="true"></a>10: Basic regression analysis with time series data</h1>
+<a href="#basic-regression-analysis-with-time-series-data" class="anchor"></a>10: Basic regression analysis with time series data</h1>
 <div id="nature-of-time-series-data-abc" class="section level2">
 <h2 class="hasAnchor">
-<a href="#nature-of-time-series-data-abc" class="anchor" aria-hidden="true"></a>Nature of time series data abc</h2>
+<a href="#nature-of-time-series-data-abc" class="anchor"></a>Nature of time series data abc</h2>
 <ul>
 <li>Process (temporal): t=1,2,…,n</li>
 <li>Stochastic: {}</li>
@@ -110,10 +108,10 @@
 </div>
 <div id="examples-of-time-series-regression" class="section level2">
 <h2 class="hasAnchor">
-<a href="#examples-of-time-series-regression" class="anchor" aria-hidden="true"></a>Examples of time series regression</h2>
+<a href="#examples-of-time-series-regression" class="anchor"></a>Examples of time series regression</h2>
 <div id="static-model-equations" class="section level3">
 <h3 class="hasAnchor">
-<a href="#static-model-equations" class="anchor" aria-hidden="true"></a>Static model equations</h3>
+<a href="#static-model-equations" class="anchor"></a>Static model equations</h3>
 <ul>
 <li>Example model (1) Phillips-curve
 <ul>
@@ -124,7 +122,7 @@
 </div>
 <div id="finite-distributed-lagged-model" class="section level3">
 <h3 class="hasAnchor">
-<a href="#finite-distributed-lagged-model" class="anchor" aria-hidden="true"></a>Finite distributed lagged model</h3>
+<a href="#finite-distributed-lagged-model" class="anchor"></a>Finite distributed lagged model</h3>
 <ul>
 <li>General model
 <ul>
@@ -190,7 +188,7 @@
 </div>
 <div id="finite-sample-properties-of-ols-under-classical-assumptions-small-sample" class="section level2">
 <h2 class="hasAnchor">
-<a href="#finite-sample-properties-of-ols-under-classical-assumptions-small-sample" class="anchor" aria-hidden="true"></a>Finite sample properties of OLS under classical assumptions (small sample)</h2>
+<a href="#finite-sample-properties-of-ols-under-classical-assumptions-small-sample" class="anchor"></a>Finite sample properties of OLS under classical assumptions (small sample)</h2>
 <p><span class="math inline">\(y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}\)</span></p>
 <ul>
 <li><p>TS.1: Linear in parameters</p></li>
@@ -232,10 +230,10 @@
 </div>
 <div id="functional-form-dummy-variables-and-index-numbers" class="section level2">
 <h2 class="hasAnchor">
-<a href="#functional-form-dummy-variables-and-index-numbers" class="anchor" aria-hidden="true"></a>Functional form, dummy variables, and index numbers</h2>
+<a href="#functional-form-dummy-variables-and-index-numbers" class="anchor"></a>Functional form, dummy variables, and index numbers</h2>
 <div id="functional-form" class="section level3">
 <h3 class="hasAnchor">
-<a href="#functional-form" class="anchor" aria-hidden="true"></a>Functional form</h3>
+<a href="#functional-form" class="anchor"></a>Functional form</h3>
 <ul>
 <li><span class="math inline">\(deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}icu_{t-1} + \delta_{2}icu_{t-2}+u_{t}\)</span></li>
 <li><span class="math inline">\(log(deathn_{t})=\alpha_{0}+\delta_{0}log(icu_{t})+\delta_{1}log(icu_{t-1}) + \delta_{2}log(icu_{t-2})+u_{t}\)</span></li>
@@ -243,14 +241,14 @@
 </div>
 <div id="dummy-variables" class="section level3">
 <h3 class="hasAnchor">
-<a href="#dummy-variables" class="anchor" aria-hidden="true"></a>Dummy variables</h3>
+<a href="#dummy-variables" class="anchor"></a>Dummy variables</h3>
 <ul>
 <li><span class="math inline">\(inf_{t}=\beta_{0} + \beta_{1}unem_{t} + \beta_{t}lock_{t} + u_{t}\)</span></li>
 </ul>
 </div>
 <div id="index-numbers" class="section level3">
 <h3 class="hasAnchor">
-<a href="#index-numbers" class="anchor" aria-hidden="true"></a>Index numbers</h3>
+<a href="#index-numbers" class="anchor"></a>Index numbers</h3>
 <ul>
 <li><span class="math inline">\(inf_{t}=\beta_{0} + \beta_{1}unem_{t} + \beta_{t}stringindex_{t} + u_{t}\)</span></li>
 </ul>
@@ -258,10 +256,10 @@
 </div>
 <div id="trends-and-seasonality" class="section level2">
 <h2 class="hasAnchor">
-<a href="#trends-and-seasonality" class="anchor" aria-hidden="true"></a>Trends and seasonality</h2>
+<a href="#trends-and-seasonality" class="anchor"></a>Trends and seasonality</h2>
 <div id="trends" class="section level3">
 <h3 class="hasAnchor">
-<a href="#trends" class="anchor" aria-hidden="true"></a>Trends</h3>
+<a href="#trends" class="anchor"></a>Trends</h3>
 <ul>
 <li>Modelling a linear time trend
 <ul>
@@ -301,7 +299,7 @@
 </div>
 <div id="seasonality" class="section level3">
 <h3 class="hasAnchor">
-<a href="#seasonality" class="anchor" aria-hidden="true"></a>Seasonality</h3>
+<a href="#seasonality" class="anchor"></a>Seasonality</h3>
 <ul>
 <li>Quarterly:
 <ul>
@@ -314,16 +312,16 @@
 </div>
 <div id="further-issues-in-using-ols-with-time-series-data" class="section level1">
 <h1 class="hasAnchor">
-<a href="#further-issues-in-using-ols-with-time-series-data" class="anchor" aria-hidden="true"></a>11: Further issues in using OLS with time series data</h1>
+<a href="#further-issues-in-using-ols-with-time-series-data" class="anchor"></a>11: Further issues in using OLS with time series data</h1>
 <div id="stationarity-and-weekly-dependent-time-series" class="section level2">
 <h2 class="hasAnchor">
-<a href="#stationarity-and-weekly-dependent-time-series" class="anchor" aria-hidden="true"></a>Stationarity and weekly dependent time series</h2>
+<a href="#stationarity-and-weekly-dependent-time-series" class="anchor"></a>Stationarity and weekly dependent time series</h2>
 <div id="stationarity" class="section level3">
 <h3 class="hasAnchor">
-<a href="#stationarity" class="anchor" aria-hidden="true"></a>Stationarity</h3>
+<a href="#stationarity" class="anchor"></a>Stationarity</h3>
 <div id="stationarity-1" class="section level4">
 <h4 class="hasAnchor">
-<a href="#stationarity-1" class="anchor" aria-hidden="true"></a>Stationarity</h4>
+<a href="#stationarity-1" class="anchor"></a>Stationarity</h4>
 <p>A stochastical process <span class="math inline">\(\{x_{t};t=1,2,..,n\}\)</span> is stationary if for every collection of time indeces</p>
 <p><span class="math inline">\(1\leq t_{1}&lt;t_{1}&lt;..&gt;t_{m}\)</span> The joint distribution of <span class="math inline">\((x_{t_{1}}, x_{t_{2}},...,x_{t_{n}})\)</span> is the same as <span class="math inline">\((x_{t_{1+h}}, x_{t_{2+h}},...,x_{t_{n+h}})\)</span> for all <span class="math inline">\(h \geq 1\)</span></p>
 </div>
@@ -331,11 +329,11 @@
 </div>
 <div id="covariance-stationarity" class="section level2">
 <h2 class="hasAnchor">
-<a href="#covariance-stationarity" class="anchor" aria-hidden="true"></a>Covariance stationarity</h2>
+<a href="#covariance-stationarity" class="anchor"></a>Covariance stationarity</h2>
 <p>A stochastical process <span class="math inline">\(\{x_{t};t=1,2,..,n\}\)</span> is covariance stationarity if its expected value and variance constant over time, and the covariance only depends on <span class="math inline">\(h\)</span></p>
 <div id="weakly-dependency-i0---integrated-of-order-zero" class="section level3">
 <h3 class="hasAnchor">
-<a href="#weakly-dependency-i0---integrated-of-order-zero" class="anchor" aria-hidden="true"></a>Weakly dependency (I(0) - integrated of order zero)</h3>
+<a href="#weakly-dependency-i0---integrated-of-order-zero" class="anchor"></a>Weakly dependency (I(0) - integrated of order zero)</h3>
 <p>A stationary time series <span class="math inline">\(\{x_{t};t=1,2,..,n\}\)</span> is weekly dependent if <span class="math inline">\(x_{t}\)</span> and <span class="math inline">\(x_{t+h}\)</span> are almost independent as h increases without bond.</p>
 <p>A covariance stationary process is weekly dependent if the correlation between <span class="math inline">\(x_{t}\)</span> and <span class="math inline">\(x_{t+h}\)</span> goes to zero ‘sufficient quickly’ as <span class="math inline">\(h \rightarrow \infty\)</span>.</p>
 <p>Examples:</p>
@@ -357,7 +355,7 @@
 </div>
 <div id="asymptotic-properties-of-ols" class="section level2">
 <h2 class="hasAnchor">
-<a href="#asymptotic-properties-of-ols" class="anchor" aria-hidden="true"></a>Asymptotic properties of OLS</h2>
+<a href="#asymptotic-properties-of-ols" class="anchor"></a>Asymptotic properties of OLS</h2>
 <ul>
 <li><p>TS’.1: Linear in parameters and that <span class="math inline">\(\{ (y_{t},{\bf{x_{t}}}); t=1,2,...,n \}); t=1,2,...,n \}\)</span> are stationary and weekly dependent <span class="math inline">\(\Rightarrow\)</span> we can apply LLN (law of large numbers) and CLT (central limit teorem)</p></li>
 <li><p>TS’.2=TS.2: No perfect collinearity</p></li>
@@ -379,10 +377,10 @@
 </div>
 <div id="using-highly-persistent-time-series-i1---integrated-of-order-one-in-regression-analysis" class="section level2">
 <h2 class="hasAnchor">
-<a href="#using-highly-persistent-time-series-i1---integrated-of-order-one-in-regression-analysis" class="anchor" aria-hidden="true"></a>Using highly persistent time series (I(1) - integrated of order one) in regression analysis</h2>
+<a href="#using-highly-persistent-time-series-i1---integrated-of-order-one-in-regression-analysis" class="anchor"></a>Using highly persistent time series (I(1) - integrated of order one) in regression analysis</h2>
 <div id="random-walk" class="section level3">
 <h3 class="hasAnchor">
-<a href="#random-walk" class="anchor" aria-hidden="true"></a>Random walk</h3>
+<a href="#random-walk" class="anchor"></a>Random walk</h3>
 <p><span class="math inline">\(y_{t}=e_{t}+e_{t-1}+...+e_{1}+y_{0}\)</span></p>
 <ul>
 <li>Taking <span class="math inline">\(E(y_{t})\)</span> implies</li>
@@ -403,7 +401,7 @@
 </div>
 <div id="random-walk-with-drift" class="section level3">
 <h3 class="hasAnchor">
-<a href="#random-walk-with-drift" class="anchor" aria-hidden="true"></a>Random walk with drift</h3>
+<a href="#random-walk-with-drift" class="anchor"></a>Random walk with drift</h3>
 <p><span class="math inline">\(y_{t}=\alpha_{0} t + \alpha_{1t}+e_{t-1}+...+e_{1}+y_{0}\)</span></p>
 <ul>
 <li>Taking <span class="math inline">\(E(y_{t})\)</span> implies</li>
@@ -425,17 +423,17 @@
 </div>
 <div id="differencing-a-highly-persistent-time-series" class="section level3">
 <h3 class="hasAnchor">
-<a href="#differencing-a-highly-persistent-time-series" class="anchor" aria-hidden="true"></a>Differencing a highly persistent time series</h3>
+<a href="#differencing-a-highly-persistent-time-series" class="anchor"></a>Differencing a highly persistent time series</h3>
 <ul>
 <li><p>We can use the value of <span class="math inline">\(\hat{\rho}\)</span> (first-order autocorrelation of y_{t}) to help decide whether the process is I(1) or I(0).</p></li>
-<li><p>Formal tests exist (E.g. <a href="https://en.wikipedia.org/wiki/Dickey%E2%80%93Fuller_test" class="external-link">Dickey-Fuller test</a>), but not part of this curriculum</p></li>
+<li><p>Formal tests exist (E.g. <a href="https://en.wikipedia.org/wiki/Dickey%E2%80%93Fuller_test">Dickey-Fuller test</a>), but not part of this curriculum</p></li>
 <li><p>Both unit root and trend may be elimaniting by differencing: <span class="math inline">\(\Delta y_{t}=y_{t}-y_{t-1}=e_{t}\)</span></p></li>
 </ul>
 </div>
 </div>
 <div id="the-dynamically-complete-models-and-the-absence-of-serial-correlation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#the-dynamically-complete-models-and-the-absence-of-serial-correlation" class="anchor" aria-hidden="true"></a>The dynamically complete models and the absence of serial correlation</h2>
+<a href="#the-dynamically-complete-models-and-the-absence-of-serial-correlation" class="anchor"></a>The dynamically complete models and the absence of serial correlation</h2>
 <p>A model is said to be dynamically complete if enough lagged variables have been included as explanatory variables so that further lags do not help to explain the dependent variable: <span class="math inline">\(E(y_{t}|{\bf{x}_{t}}, {\bf{x}_{t-1}}, y_{t-1},...) = E(y_{t}|{\bf{x}}_{t})\)</span></p>
 <ul>
 <li>So once the explanatory variables <span class="math inline">\({\bf{x}_{t}}\)</span> in the model is controlled for, no further lags help to explain the current z.</li>
@@ -444,17 +442,17 @@
 </div>
 <div id="the-homoskedasticity-assumption-for-time-series-models" class="section level2">
 <h2 class="hasAnchor">
-<a href="#the-homoskedasticity-assumption-for-time-series-models" class="anchor" aria-hidden="true"></a>The homoskedasticity assumption for time series models</h2>
+<a href="#the-homoskedasticity-assumption-for-time-series-models" class="anchor"></a>The homoskedasticity assumption for time series models</h2>
 <p><span class="math inline">\(Var(u_{t}|{\bf{x_{t}}}) = Var(y_{t}|{\bf{x_{t}}}) = \sigma^{2}\)</span></p>
 <p>So even though <span class="math inline">\(y_{t}\)</span> is a linear function of <span class="math inline">\({\bf{x_{t}}}\)</span>, the <span class="math inline">\(Var(y_{t}|{\bf{x_{t}}})\)</span> must be constant.</p>
 </div>
 </div>
 <div id="serial-correlation-and-heteroskedasticity-in-time-series-regression" class="section level1">
 <h1 class="hasAnchor">
-<a href="#serial-correlation-and-heteroskedasticity-in-time-series-regression" class="anchor" aria-hidden="true"></a>12: Serial correlation and heteroskedasticity in time series regression</h1>
+<a href="#serial-correlation-and-heteroskedasticity-in-time-series-regression" class="anchor"></a>12: Serial correlation and heteroskedasticity in time series regression</h1>
 <div id="properties-of-ols-under-serial-correlated-errors" class="section level2">
 <h2 class="hasAnchor">
-<a href="#properties-of-ols-under-serial-correlated-errors" class="anchor" aria-hidden="true"></a>Properties of OLS under serial correlated errors</h2>
+<a href="#properties-of-ols-under-serial-correlated-errors" class="anchor"></a>Properties of OLS under serial correlated errors</h2>
 <ul>
 <li>Given that TS.1/TS’.1, TS.2/TS’.2 and TS.3/TS’3 still hold, OLS still unbiased/consistent <span class="math inline">\(\Rightarrow\)</span> point estimates and <span class="math inline">\(R^{2}\)</span> valid</li>
 <li>Serial correlation violation of TS.5/TS’ <span class="math inline">\(\Rightarrow\)</span>
@@ -467,13 +465,13 @@
 </div>
 <div id="testing-for-serial-correlation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#testing-for-serial-correlation" class="anchor" aria-hidden="true"></a>Testing for serial correlation</h2>
+<a href="#testing-for-serial-correlation" class="anchor"></a>Testing for serial correlation</h2>
 <div id="with-strictly-exogenous-regressors" class="section level3">
 <h3 class="hasAnchor">
-<a href="#with-strictly-exogenous-regressors" class="anchor" aria-hidden="true"></a>With strictly exogenous regressors</h3>
+<a href="#with-strictly-exogenous-regressors" class="anchor"></a>With strictly exogenous regressors</h3>
 <div id="t-test" class="section level4">
 <h4 class="hasAnchor">
-<a href="#t-test" class="anchor" aria-hidden="true"></a>t-test</h4>
+<a href="#t-test" class="anchor"></a>t-test</h4>
 <ul>
 <li>
 <span class="math inline">\(H_{0}:\rho=0\)</span> No serial correlation</li>
@@ -489,7 +487,7 @@
 </div>
 <div id="durbin-watson-test" class="section level4">
 <h4 class="hasAnchor">
-<a href="#durbin-watson-test" class="anchor" aria-hidden="true"></a>Durbin-Watson test</h4>
+<a href="#durbin-watson-test" class="anchor"></a>Durbin-Watson test</h4>
 <ul>
 <li>T-test is commonly considered to be better, so we will one consider t-test in this course.</li>
 </ul>
@@ -497,7 +495,7 @@
 </div>
 <div id="without-strictly-exogenous-regressors-general-breusch-godfrey-test-for-arq-serial-correlation" class="section level3">
 <h3 class="hasAnchor">
-<a href="#without-strictly-exogenous-regressors-general-breusch-godfrey-test-for-arq-serial-correlation" class="anchor" aria-hidden="true"></a>Without strictly exogenous regressors (General Breusch-Godfrey test for AR(q) serial correlation</h3>
+<a href="#without-strictly-exogenous-regressors-general-breusch-godfrey-test-for-arq-serial-correlation" class="anchor"></a>Without strictly exogenous regressors (General Breusch-Godfrey test for AR(q) serial correlation</h3>
 <ul>
 <li><ol style="list-style-type: lower-roman">
 <li>Run the OLS regression of <span class="math inline">\(y_{t}\)</span> on <span class="math inline">\(x_{t1},...,x_{tk}\)</span> and obtain the OLS residuals <span class="math inline">\(\hat{u}_{t}\)</span>
@@ -515,7 +513,7 @@
 </div>
 <div id="testing-for-higher-order-serial-correlation" class="section level3">
 <h3 class="hasAnchor">
-<a href="#testing-for-higher-order-serial-correlation" class="anchor" aria-hidden="true"></a>Testing for higher order serial correlation</h3>
+<a href="#testing-for-higher-order-serial-correlation" class="anchor"></a>Testing for higher order serial correlation</h3>
 <ul>
 <li>Se Woodford for AR(2)</li>
 <li>Harvey (1990) provides a general approach</li>
@@ -524,7 +522,7 @@
 </div>
 <div id="correcting-for-serial-correlation-with-strictly-exogenous-regressors" class="section level2">
 <h2 class="hasAnchor">
-<a href="#correcting-for-serial-correlation-with-strictly-exogenous-regressors" class="anchor" aria-hidden="true"></a>Correcting for serial correlation with strictly exogenous regressors</h2>
+<a href="#correcting-for-serial-correlation-with-strictly-exogenous-regressors" class="anchor"></a>Correcting for serial correlation with strictly exogenous regressors</h2>
 <p>If we detect serial correlation after applying some of the tests, we have to do something about it:</p>
 <ul>
 <li><p>Goal: model with complete dynamics <span class="math inline">\(\Rightarrow\)</span> need to respecify the model. Ex. FGLS (either Cochrane-Orcutt or Prais Winsten)</p></li>
@@ -533,7 +531,7 @@
 </div>
 <div id="differencing-and-serial-correlation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#differencing-and-serial-correlation" class="anchor" aria-hidden="true"></a>Differencing and serial correlation</h2>
+<a href="#differencing-and-serial-correlation" class="anchor"></a>Differencing and serial correlation</h2>
 <p>For <span class="math inline">\(y_{t}=\beta_{0}+\beta_{1}x_{t}+u_{t}\)</span>. We should differentiate if</p>
 <ul>
 <li>If <span class="math inline">\(u_{t}\)</span> follows a random walk, differencing will imply that <span class="math inline">\(\delta u_{t}\)</span> is serially uncorrelated</li>
@@ -542,7 +540,7 @@
 </div>
 <div id="serial-correlation-robust-inference-after-ols" class="section level2">
 <h2 class="hasAnchor">
-<a href="#serial-correlation-robust-inference-after-ols" class="anchor" aria-hidden="true"></a>Serial correlation-robust inference after OLS</h2>
+<a href="#serial-correlation-robust-inference-after-ols" class="anchor"></a>Serial correlation-robust inference after OLS</h2>
 <ul>
 <li>One can compute serial correlation-robust standard errors after OLS (Newey-West Standard Errors)</li>
 <li>HAC (heteroskedasticity and autocorrelation consistent) standard errors
@@ -564,17 +562,17 @@
 </ol></li>
 </ul>
 </li>
-<li>An implementation in R can be found <a href="https://www.r-econometrics.com/methods/hcrobusterrors/" class="external-link">here</a>
+<li>An implementation in R can be found <a href="https://www.r-econometrics.com/methods/hcrobusterrors/">here</a>
 </li>
 </ul>
 </div>
 <div id="heteroskedasticity-in-time-series-regression" class="section level2">
 <h2 class="hasAnchor">
-<a href="#heteroskedasticity-in-time-series-regression" class="anchor" aria-hidden="true"></a>Heteroskedasticity in time series regression</h2>
+<a href="#heteroskedasticity-in-time-series-regression" class="anchor"></a>Heteroskedasticity in time series regression</h2>
 <p>In recent years, it has become more popular to estimate models by OLS but to correct the standard errors for fairly arbitrary forms of serial correlation (and heteroskedasticity).</p>
 <div id="correction" class="section level3">
 <h3 class="hasAnchor">
-<a href="#correction" class="anchor" aria-hidden="true"></a>Correction</h3>
+<a href="#correction" class="anchor"></a>Correction</h3>
 <ul>
 <li>Receive less attention than serial correlation</li>
 <li>Heteroskedasticity-robust standard errors also work for time series
@@ -586,7 +584,7 @@
 </div>
 <div id="testing" class="section level3">
 <h3 class="hasAnchor">
-<a href="#testing" class="anchor" aria-hidden="true"></a>Testing</h3>
+<a href="#testing" class="anchor"></a>Testing</h3>
 <ul>
 <li>Heteroskedasticity test assumes the absence of serial correlation <span class="math inline">\(\Rightarrow\)</span>
 <ul>
@@ -600,10 +598,10 @@
 </div>
 <div id="simultanous-equations-models-sem" class="section level1">
 <h1 class="hasAnchor">
-<a href="#simultanous-equations-models-sem" class="anchor" aria-hidden="true"></a>16: Simultanous equations models (SEM)</h1>
+<a href="#simultanous-equations-models-sem" class="anchor"></a>16: Simultanous equations models (SEM)</h1>
 <div id="the-nature-of-simultanous-equations-models" class="section level2">
 <h2 class="hasAnchor">
-<a href="#the-nature-of-simultanous-equations-models" class="anchor" aria-hidden="true"></a>The nature of simultanous equations models</h2>
+<a href="#the-nature-of-simultanous-equations-models" class="anchor"></a>The nature of simultanous equations models</h2>
 <p>Endogeneity problem:</p>
 <ul>
 <li><ol style="list-style-type: decimal">
@@ -633,7 +631,7 @@
 </div>
 <div id="simultaneity-bias-in-ols" class="section level2">
 <h2 class="hasAnchor">
-<a href="#simultaneity-bias-in-ols" class="anchor" aria-hidden="true"></a>Simultaneity bias in OLS</h2>
+<a href="#simultaneity-bias-in-ols" class="anchor"></a>Simultaneity bias in OLS</h2>
 <ul>
 <li><span class="math inline">\(y_{1}=\alpha_{1}y_{2}+\beta_{1}z_{1}+u_{1}\)</span></li>
 <li><span class="math inline">\(y_{2}=\alpha_{2}y_{1}+\beta_{2}z_{2}+u_{2}\)</span></li>
@@ -646,7 +644,7 @@
 </div>
 <div id="identifying-and-estimating-a-structural-equations" class="section level2">
 <h2 class="hasAnchor">
-<a href="#identifying-and-estimating-a-structural-equations" class="anchor" aria-hidden="true"></a>Identifying and estimating a structural equations</h2>
+<a href="#identifying-and-estimating-a-structural-equations" class="anchor"></a>Identifying and estimating a structural equations</h2>
 <p>OLS is biased and inconsistent when applied to an equation in SEM 2SLS can be applied to a SEM</p>
 <p>Special case:</p>
 <ul>
@@ -658,17 +656,17 @@
 </div>
 <div id="system-with-more-than-two-equations" class="section level2">
 <h2 class="hasAnchor">
-<a href="#system-with-more-than-two-equations" class="anchor" aria-hidden="true"></a>(System with more than two equations)</h2>
+<a href="#system-with-more-than-two-equations" class="anchor"></a>(System with more than two equations)</h2>
 <p>Not covered in this course</p>
 </div>
 <div id="simultanous-equations-models-with-time-series" class="section level2">
 <h2 class="hasAnchor">
-<a href="#simultanous-equations-models-with-time-series" class="anchor" aria-hidden="true"></a>(Simultanous equations models with time series)</h2>
+<a href="#simultanous-equations-models-with-time-series" class="anchor"></a>(Simultanous equations models with time series)</h2>
 <p>Not covered in this course</p>
 </div>
 <div id="simultanous-equations-models-with-panel-data" class="section level2">
 <h2 class="hasAnchor">
-<a href="#simultanous-equations-models-with-panel-data" class="anchor" aria-hidden="true"></a>(Simultanous equations models with panel data)</h2>
+<a href="#simultanous-equations-models-with-panel-data" class="anchor"></a>(Simultanous equations models with panel data)</h2>
 <p>Not covered in this course</p>
 </div>
 </div>
@@ -685,13 +683,11 @@
 
 
       <footer><div class="copyright">
-  <p></p>
-<p>Developed by Jørn I. Halvorsen.</p>
+  <p>Developed by Jørn I. Halvorsen.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -699,8 +695,6 @@
 
   
 
-
-  
 
   </body>
 </html>

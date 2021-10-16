@@ -5,3 +5,5 @@ hello <- function(name=NULL) {
           tekst <- paste("Hello world! My name is", name)
 	  print(tekst)
 }
+
+
