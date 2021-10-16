@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This is a function for producing Covid-19 time series plot — plot19ts • MSB104TimeSeriesJIH</title>
+<title>This is a function for producing Covid-19 time series plot — plot19ts • MSB104TimeSeries</title>
 
 
 <!-- jquery -->
@@ -45,8 +45,6 @@
 
 
 
-
-
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -58,15 +56,9 @@
 
 
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -79,7 +71,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">MSB104TimeSeriesJIH</a>
+        <a class="navbar-link" href="../index.html">MSB104TimeSeries</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -96,16 +88,47 @@
   <a href="../articles/cheatsheet.html">Overview</a>
 </li>
 <li>
-  <a href="../articles/learning_objectives.html">Forelesningsnotater</a>
+  <a href="../articles/learning_objectives.html">Lecture notes</a>
 </li>
 <li>
-  <a href="../articles/exercises.html">Anbefalte opppgaver</a>
+  <a href="../articles/exercises.html">Exercises</a>
 </li>
-<li>
-  <a href="../articles/Exam_MSB104_Econometrics_S2021_Cont.html">Exam</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-book"></span>
+     
+    Exam
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../abc/MSB104_Econometrics.html">Exam 1</a>
+    </li>
+    <li>
+      <a href="../abc/MSB104_Econometrics.html">Exam 2</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="../articles/MSB104_Econometrics.html">Exam2</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-book"></span>
+     
+    Applications
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Application_Phillips_static.html">Phillips-curve</a>
+    </li>
+    <li>
+      <a href="../articles/Application_Fertility_lagged.html">Fertility</a>
+    </li>
+    <li>
+      <a href="../articles/application2_covid19_analysis.html">Covid-19</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -138,7 +161,7 @@
     <p>This is a function for producing Covid-19 time series plot</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>plot19ts</span><span class='op'>(</span>sel_cou <span class='op'>=</span> <span class='cn'>NULL</span>, covid19df <span class='op'>=</span> <span class='cn'>NULL</span>, yvar <span class='op'>=</span> <span class='st'>"hosp"</span><span class='op'>)</span></code></pre></div>
+    <pre class="usage"><span class='fu'>plot19ts</span><span class='op'>(</span>sel_cou <span class='op'>=</span> <span class='cn'>NULL</span>, covid19df <span class='op'>=</span> <span class='cn'>NULL</span>, yvar <span class='op'>=</span> <span class='st'>"hosp"</span><span class='op'>)</span></pre>
 
 
 
@@ -153,11 +176,11 @@
 
       <footer>
       <div class="copyright">
-  <p><p>Developed by Jørn I. Halvorsen.</p></p>
+  <p>Developed by Jørn I. Halvorsen.</p>
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -165,8 +188,6 @@
 
   
 
-
-  
 
   </body>
 </html>

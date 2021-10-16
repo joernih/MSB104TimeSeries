@@ -1,0 +1,82 @@
+---
+title: "application2_covid19_analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{application2_covid19_analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MSB104TimeSeries)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+```
+
+## Faktorer
+### Myndighetene
+- Nedstengning ("lockdown")
+  - innreise- og utreiseforbud
+- Antall personer som kan møtes
+- Hjemmekontor
+- Mundbind
+- Social distancing
+- Testing
+- Vaksine (kontrollert varierende grad)
+
+### Private
+- Social distancing
+- Mundbind
+- Antibac
+- 
+
+### Naturgitte
+- Influensasesong
+  - årstidene
+
+Hypoteste Årsak(?):
+Solys -> D-vitaminer -> Styrker immunforsvaret
+
+
+
+
+# Cost-Benefit tankegang
+
+< chn, aus, nwx-------------------- usa --      nor         swe, bel >
+
+
+------------------------------------
+
+## Covid-19 and hospitalization
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# data(package='MSB104TimeSeriesJIH')
+covidts <- MSB104TimeSeriesJIH::COVID19
+sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK')
+covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts)
+grid.arrange(grobs=covhos)
+covhos
+```
+
+## Covid-19 and deaths?
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+covdea <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='covdea')
+#grid.arrange(grobs=covdea)
+#covdea
+```
+## Covid-19 and deaths per 100k?
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+covdeak <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths_perc')
+#grid.arrange(grobs=covdeak)
+#covdeak
+```
+

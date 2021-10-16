@@ -20,7 +20,17 @@ navbar:
         href: "abc/MSB104_Econometrics.html"
       - text: "Exam 2"
         href: "abc/MSB104_Econometrics.html"
+    - text: "Applications"
+      icon: fas fa-book
+      menu:
+      - text: "Phillips-curve"
+        href: "articles/Application_Phillips_static.html"
+      - text: "Fertility"
+        href: "articles/Application_Fertility_lagged.html"
+      - text: "Covid-19"
+        href: "articles/application2_covid19_analysis.html"
   right:
     - icon: fa-github fa-lg
       text: "github"
       href: https://github.com/joernih/MSB104TimeSeriesJIH
+

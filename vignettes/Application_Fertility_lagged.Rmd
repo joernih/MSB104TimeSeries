@@ -1,0 +1,132 @@
+---
+title: "Application: Effects of personal exemption on fertility rates"
+author: "Jørn I. Halvorsen"
+# output:
+#   bookdown::html_document2:
+output:
+  html_document:
+    toc: false
+    toc_depth: 6
+---
+
+```{r, eval=F, echo=T}
+rmarkdown::render("exercises.Rmd",output_format=rmarkdown::html_notebook(css="css/OFF.css"),output_file="exercises.Rmd")
+```
+
+### 1. Data sample (realized DGP)
+```{r message=FALSE, warning=FALSE}
+# Loading data
+#rm(list=ls())
+library(sandwich)
+library(lmtest)
+library(wooldridge)
+library(ggplot2)
+library(plotly)
+fertility_rdgp <- fertil3 # Realized DGP
+```
+
+From `r fertility_rdgp$year[1]` to `r rev(fertility_rdgp$year)[1]`
+
+### 2. Data generating process (DGP) and its regression model
+
+Model specification 1:
+\begin{equation}
+gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-1} + u_{t}, t=1,2,...,n
+\end{equation}
+
+```{r}
+model_ferd <- lm(fertility_rdgp$gfr ~ fertility_rdgp$pe+ fertility_rdgp$pe_1+fertility_rdgp$pe_2)
+```
+
+Model specification 2:
+\begin{equation}
+\Delta gfr_{t} = \alpha_{0} + \delta_{0}\Delta pe_{t} + \delta_{1}\Delta pe_{t-1} + \delta_{2}\Delta pe_{t-1} + u_{t}, t=1,2,...,n
+\end{equation}
+
+```{r}
+model_ferdc <- lm(fertility_rdgp$cgfr ~ fertility_rdgp$cpe +fertility_rdgp$cpe_1+fertility_rdgp$cpe_2)
+```
+
+### 3. Model estimation
+
+```{r}
+ols_ferd <- summary(model_ferd)
+ols_ferdc <- summary(model_ferdc)
+```
+
+### 4. Diagnostics
+
+#### Detecting
+
+##### Time trends and/or weakly dependency (I(0) or I(1))
+
+###### Graphical
+
+Model specification 1:
+
+```{r}
+p1 <- ggplot2::ggplot(data=fertility_rdgp) + ggplot2::geom_line(aes(x=year,y=gfr))
+p2 <- ggplot2::ggplot(data=fertility_rdgp) + ggplot2::geom_line(aes(x=year,y=pe))
+p3 <- ggplot2::ggplot(data=fertility_rdgp) + ggplot2::geom_line(aes(x=year,y=pe_1))
+p4 <- ggplot2::ggplot(data=fertility_rdgp) + ggplot2::geom_line(aes(x=year,y=pe_2))
+gridExtra::grid.arrange(p1, p2, p3, p4,nrow = 1)
+```
+Model specification 2:
+
+```{r}
+cp1 <- ggplot2::ggplot(data=fertility_rdgp) + ggplot2::geom_line(aes(x=year,y=cgfr))
+cp2 <- ggplot2::ggplot(data=fertility_rdgp) + ggplot2::geom_line(aes(x=year,y=cpe))
+cp3 <- ggplot2::ggplot(data=fertility_rdgp) + ggplot2::geom_line(aes(x=year,y=cpe_1))
+cp4 <- ggplot2::ggplot(data=fertility_rdgp) + ggplot2::geom_line(aes(x=year,y=cpe_2))
+gridExtra::grid.arrange(cp1, cp2, cp3, cp4,nrow = 1)
+```
+
+
+###### Formally
+
+```{r eval=FALSE, include=FALSE}
+fertility_rdgp$lpe_1 <- dplyr::lag(fertility_rdgp$pe_1)
+lm(fertility_rdgp$pe_1 ~ fertility_rdgp$lpe_1)
+```
+
+
+##### Serial correlation
+
+```{r}
+par(mfrow=c(1,2))
+plot(model_ferd$res)
+plot(model_ferdc$res)
+```
+
+
+Option 1: t-test AR(1) on model 1
+
+```{r}
+## Serial correlation with strictly exogenous regressors
+#### Step 1: Find the estimated residual
+resval <- model_ferd$res
+#### Step 2: Estimat the estimated residual on itself
+model_ar <- lm(resval~lag(resval))
+#### Step 3: Show the results from the estimation
+summary(model_ar)
+```
+
+Option 2: Testing for serial correlation with general regressors on model 1
+
+```{r}
+## Perform Breusch-Godfrey test for first-order serial correlation:
+bgtest(fertility_rdgp$gfr ~ fertility_rdgp$pe_1+fertility_rdgp$pe_2)
+```
+
+### 7. Estimation and output results 
+#### Non-robust
+```{r}
+summary(model_ferdc, robust=FALSE)
+```
+
+#### Robust t-testing (HAC)
+```{r}
+# Robust t test
+coeftest(model_ferdc, vcov = vcovHC(model_ferdc, type = "HC0"))
+```
+

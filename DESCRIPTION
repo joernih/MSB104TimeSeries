@@ -1,4 +1,4 @@
-Package: MSB104TimeSeriesJIH
+Package: MSB104TimeSeries
 Title: For the time series part of the MSB104 course in econometrics
 Version: 0.0.0.9000
 Authors@R: 
