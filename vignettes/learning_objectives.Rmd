@@ -25,6 +25,9 @@ system('brave learning_objectives.html')
 #data(package='MSB104EconometricsJIH')
 ```
 # 10: Basic regression analysis with time series data 
+
+[Wooldridge 10](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH10_Wooldridge_7e%20PPT_2pp.pptx)
+
 ## Nature of time series data abc
 - Process (temporal): t=1,2,...,n
 - Stochastic: {}
@@ -131,6 +134,9 @@ Consequences of not including a trend:
 	- $y_{t}=\beta_{0}+ \alpha_{1}y_{t_1} +\delta_{1}aut_{t}+\delta_{2}sum_{t}+ \delta_{3}spr_{t}+u_{t}$
 
 # 11: Further issues in using OLS with time series data 
+
+[Wooldridge 11](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH11_Wooldridge_7e%20PPT_2pp.pptx)
+
 ## Stationarity and weekly dependent time series 
 
 ### Stationarity
@@ -250,6 +256,7 @@ $Var(u_{t}|{\bf{x_{t}}}) = Var(y_{t}|{\bf{x_{t}}}) = \sigma^{2}$
 So even though $y_{t}$ is a linear function of ${\bf{x_{t}}}$, the $Var(y_{t}|{\bf{x_{t}}})$ must be constant.
 
 # 12: Serial correlation and heteroskedasticity in time series regression 
+[Wooldridge 12](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH12_Wooldridge_7e%20PPT_2pp.pptx)
 
 ## Properties of OLS under serial correlated errors 
 - Given that TS.1/TS'.1, TS.2/TS'.2 and TS.3/TS'3 still hold, OLS still unbiased/consistent $\Rightarrow$ point estimates and $R^{2}$ valid 
@@ -324,7 +331,7 @@ In recent years, it has become more popular to estimate models by OLS but to cor
 	- After potential serial correlation corrected for, test for heteroskedasticity
 
 # 16: Simultanous equations models (SEM) 
-
+[Wooldridge 16](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH16_Wooldridge_7e%20PPT_2pp.pptx)
 ## The nature of simultanous equations models
 Endogeneity problem: 
 
