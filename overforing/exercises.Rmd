@@ -2,8 +2,8 @@
 title: "Part 2 and 3: Exercises"
 output:
   html_notebook:
-    css: OFF.css
-  pdf_document: default
+    toc: true
+    toc_depth: 3
 ---
 
 <div class="solution">

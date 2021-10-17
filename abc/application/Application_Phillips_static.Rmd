@@ -1,0 +1,102 @@
+---
+title: "Phillips-curve model estimation"
+#author: "Jørn I. Halvorsen"
+output:
+  html_notebook:
+    css: OFF.css
+#    css: ON.css
+    toc: true
+    toc_depth: 4
+---
+
+# Data sample (realized DGP)
+```{r message=FALSE, warning=FALSE}
+#knitr::purl("Applications_Phillips_static.Rmd")
+# Loading data
+rm(list=ls())
+library(sandwich)
+library(lmtest)
+library(wooldridge)
+library(ggplot2)
+library(plotly)
+phillips_rdgp <- phillips # Realized DGP
+write.csv(phillips_rdgp, file='/home/joernih/tmp/R/tmp.csv')
+```
+
+From `r phillips_rdgp$year[1]` to `r rev(phillips_rdgp$year)[1]`
+
+# Data generating process (DGP) and its regression model
+
+Model specification 1:
+\begin{equation}
+inf_{t} = \beta_{0} +\beta_{1}unem_{t} + u_{t}, t=1,2,...,n
+\end{equation}
+
+```{r}
+model_ph <- lm(phillips_rdgp$inf ~ phillips_rdgp$unem)
+```
+
+Model specification 2:
+\begin{equation}
+\Delta inf_{t} = \beta_{0} +\beta_{1} unem_{t} + u_{t}, t=1,2,...,n
+\end{equation}
+
+```{r}
+model_phc <- lm(phillips_rdgp$cinf ~ phillips_rdgp$unem)
+```
+
+# Model estimation
+
+```{r, echo=T, include=T}
+ols_ph <- summary(model_ph)
+ols_phc <-summary(model_phc)
+```
+
+# Diagnostics
+## Detecting
+### Time trends and/or weakly dependency (I(0) or I(1))
+
+#### Graphical
+
+```{r}
+ggplot2::ggplot(data=phillips_rdgp) + ggplot2::geom_line(aes(x=year,y=inf))
+ggplot2::ggplot(data=phillips_rdgp) + ggplot2::geom_line(aes(x=year,y=unem))
+ggplot2::ggplot(data=phillips_rdgp) + ggplot2::geom_line(aes(x=year,y=cinf))
+```
+
+#### Formally
+
+```{r eval=FALSE, include=FALSE}
+phillips_rdgp$linf <- dplyr::lag(phillips_rdgp$inf)
+phillips_rdgp$lunem <- dplyr::lag(phillips_rdgp$unem)
+lm(phillips_rdgp$inf ~ phillips_rdgp$linf)
+lm(phillips_rdgp$unem ~ phillips_rdgp$lunem)
+```
+
+# Estimation and output results for model 1
+## Non-robust
+```{r}
+summary(model_ph, robust=FALSE)
+```
+
+## Robust [(HAC)](https://www.r-econometrics.com/methods/hcrobusterrors/) t-testing
+
+```{r}
+# Robust t test
+coeftest(model_ph, vcov = vcovHC(model_ph, type = "HC0"))
+```
+
+# Estimation and output results for model 2
+
+## Non-robust
+```{r}
+summary(model_phc, robust=FALSE)
+```
+
+## Robust [(HAC)](https://www.r-econometrics.com/methods/hcrobusterrors/) t-testing
+
+```{r}
+# Robust t test
+coeftest(model_phc, vcov = vcovHC(model_phc, type = "HC0"))
+```
+

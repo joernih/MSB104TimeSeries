@@ -16,10 +16,10 @@ navbar:
     - text: "Exam"
       icon: fas fa-book
       menu:
-      - text: "Exam 1"
-        href: "abc/MSB104_Econometrics.html"
-      - text: "Exam 2"
-        href: "abc/MSB104_Econometrics.html"
+      - text: "Exam MSB104_F2020"
+        href: "abc/Exam_MSB104_Econometrics_F2020.html"
+      - text: "Exam MSB104_S2020 (continuation)"
+        href: "abc/Exam_MSB104_Econometrics_S2021_Cont.html"
     - text: "Applications"
       icon: fas fa-book
       menu:
@@ -32,5 +32,5 @@ navbar:
   right:
     - icon: fa-github fa-lg
       text: "github"
-      href: https://github.com/joernih/MSB104TimeSeriesJIH
+      href: https://github.com/joernih/MSB104TimeSeries
 
