@@ -45,13 +45,9 @@ library(gridExtra)
 Hypoteste Årsak(?):
 Solys -> D-vitaminer -> Styrker immunforsvaret
 
-
-
-
 # Cost-Benefit tankegang
 
 < chn, aus, nwx-------------------- usa --      nor         swe, bel >
-
 
 ------------------------------------
 
