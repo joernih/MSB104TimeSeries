@@ -22,6 +22,7 @@ system("brave index.html")
 usethis::use_readme_rmd()
 usethis::use_news_md()
 usethis::use_github_links()
+#git config credential.helper 'cache --timeout=3600'
 ```
 
 ![](man/figures/ts.jpg)
@@ -30,7 +31,7 @@ usethis::use_github_links()
 
 - Module I: 3. and 5. november
 
-- Module II: 17. and 19. november
+- Module II: 24. and 27. november
 
 - Module III(?): 1. og 2. december + Zoom meetings
 
