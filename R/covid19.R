@@ -11,13 +11,23 @@ plot19ts <- function(sel_cou=NULL,covid19df=NULL, yvar='hosp'){
 			labs(title=x,"Day during the year", y=yvar)
 	})
 }
+<<<<<<< HEAD
 #library(dplyr)
 #library(ggplot2)
 #covidts <- MSB104TimeSeriesJIH::covid19df
 #names(covidts)
+=======
+### data(package='MSB104TimeSeriesJIH')
+#library(ggplot2)
+#library(dplyr)
+#covidts <- MSB104TimeSeries::COVID19
+>>>>>>> 4473d709e08df56db7786e45e577560f824f934c
 #sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK')
 #covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='hosp')
 #covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths')
 #covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths_perc')
 #gridExtra::grid.arrange(grobs=covhos)
+<<<<<<< HEAD
 #covhos
+=======
+>>>>>>> 4473d709e08df56db7786e45e577560f824f934c
