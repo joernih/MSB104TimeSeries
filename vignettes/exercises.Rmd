@@ -15,9 +15,6 @@ output:
     toc_depth: 3
 ---
 
-<div class="solution">
-Sketch for solution
-</div>
 
 ```{R eval=F, include=F}
 rmarkdown::render("exercises.Rmd",output_file="exercises.html")

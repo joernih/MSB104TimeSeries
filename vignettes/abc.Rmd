@@ -1,0 +1,28 @@
+---
+title: "abc"
+#output: rmarkdown::html_vignette
+output:
+  html_document:
+    css: "css/off.css"
+vignette: >
+  %\VignetteIndexEntry{abc}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MSB104TimeSeries)
+```
+
+Fasit
+
+<div class="solution">
+DGP with (1) Temporal ordering of data and (2) Stochastic processes (which we furher can assume is generated from a specific regression model)
+</div>
