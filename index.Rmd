@@ -13,7 +13,7 @@ devtools::install()
 
 ```{r, eval=F, echo=F}
 rmarkdown::render("index.Rmd")
-,kgdown::build_site()
+pkgdown::build_site()
 pkgdown::build_home()
 pkgdown::build_articles()
 #pkgdown::build_articles("timeplan.Rmd")
@@ -36,15 +36,5 @@ usethis::use_github_links()
   	Wed. ~~17.~~:24 november: 11:15-14:00
 	Fri. ~~19.~~:27 november: 08:15-12:00
 
-<<<<<<< HEAD
-- Module III (week 48-49: Zoom/HGSD1077)?
-	Fri. 3. decemmber: 08:15-12:00 or Man. 6. december
-=======
-- Module II: 24. and 27. november
-
-- Module III(?): 1. og 2. december + Zoom meetings
->>>>>>> 4473d709e08df56db7786e45e577560f824f934c
-
 **Siste gang oppdatert: `r Sys.Date()`**
 
-~~
