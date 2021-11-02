@@ -69,6 +69,7 @@ class: inverse, center, middle
 ---
 
 
+
 Temporary change by 1 in period t
 Impact-propensity (general model)
 
