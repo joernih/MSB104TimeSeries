@@ -1,38 +1,57 @@
 ---
-title: "Part 2: Regression analysis with time series data"
+title: "Basic Regression Analysis with Timer Series data"
 author: "Jørn I. Halvorsen"
-#bibliography: bibliography.bib
-#output:
-#  xaringan::moon_reader:
-#    lib_dir: libs
-#    nature:
-#      highlightStyle: github
-#      highlightLines: true
-#      countIncrementalSlides: false
+date: "`r Sys.Date()`"
+###output:
+###  html_notebook:
+###    toc: yes
 output:
-  html_notebook:
-    toc: true
-    toc_depth: 3
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+tasklist: check path rstudio/R, toc, new png for repo, ??, ref
 ---
 
-```{r, eval=F, include=F}
-rmarkdown::render("learning_objectives.Rmd")
-system('brave learning_objectives.html')
+
+```{r xaringan-tile-view, echo=FALSE, message=F, warning=F}
+library(xaringan)
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_tile_view()
+#xaringanExtra::use_share_again()
+xaringanExtra::use_scribble()
+xaringanExtra::use_webcam()
+#xaringanExtra::use_slide_tone()
+xaringanExtra::use_panelset()
 ```
 
-```{r, eval=T, include=F}
-#library(MSB104EconometricsJIH)
-#data(package='MSB104EconometricsJIH')
+```{r, eval=F, include=F}
+filen <- "JIH_slides_learning_objectives.Rmd"
+xaringan::inf_mr(filen)
+rmarkdown::render(filen)
+system("brave presentations.html")
+servr::daemon_stop()
+`
+
 ```
+
+class: inverse, center, middle
+
 # 10: Basic regression analysis with time series data 
 
 [Wooldridge 10](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH10_Wooldridge_7e%20PPT_2pp.pptx)
 
-## Nature of time series data abc
+---
+
+## Nature of time series data
 - Process (temporal): t=1,2,...,n
 - Stochastic: {}
 - Variables: $(x_{1t},x_{2t},...,x_{kt},y_{t})$
 - Together: $\{(x_{1t},x_{2t},...,x_{kt},y_{t});t=1,2,..,n\}$
+
+---
 
 ## Examples of time series regression models
 ### Static models 
@@ -46,12 +65,9 @@ system('brave learning_objectives.html')
 	- $gfr_{t}=\alpha_{0}+\delta_{0}pe_{t}+\delta_{1}+pe_{t-1} + \delta_{2}pe_{t-2}+u_{t}$
 - Example model (2b) Covid-19
 	- $deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}+icu_{t-1} + \delta_{2}icu_{t-2}+u_{t}$
-<!--- Example model (3a) AR(1)
-	- $y_{t}=\rho y_{t-1} + e_{t}$
--->
-<!--- Example model (3b) MA(1)
-	- $y_{t}=\theta e_{t-1} + e_{t}$
--->
+
+---
+
 
 Temporary change by 1 in period t
 Impact-propensity (general model)
@@ -69,6 +85,8 @@ Long-run propensity (general model)
 - 2. periods: $\delta_{0}+\delta_{1}+\delta_{2}$
 - 3. periods: $\delta_{0}+\delta_{1}+\delta_{2}$
 
+---
+
 ## Finite sample properties of OLS under classical assumptions (small sample)
 $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 
@@ -78,6 +96,8 @@ $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 
 - TS.3: Zero conditional mean 
   - $E(u_{t}|\textbf{X})=0$ for $t=0,1,2,...,n$
+
+---
 
 - TS.4: No heteroskedasticity 
   - $Var(u_{t}|\textbf{X})=\sigma^2$ 
@@ -92,6 +112,10 @@ $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 1. TS.1, TS.2, TS.3, TS.4 og TS.5 $\Rightarrow$ OLS is BLUE
 1. TS.1, TS.2, TS.3, TS.4, TS.5 and TS.6 $\Rightarrow$ OLS estimatiors for $\beta_{j} \text{ where } j=0,1,..,k$ are normaly distributed
 
+
+---
+
+
 ## Functional form, dummy variables, and index numbers
 
 ### Functional form
@@ -103,7 +127,9 @@ $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 
 ### Index numbers
 - $inf_{t}=\beta_{0} + \beta_{1}unem_{t} + \beta_{t}stringindex_{t} + u_{t}$
-  
+
+---
+
 ## Trends and seasonality
 ### Trends
 - Modelling a linear time trend

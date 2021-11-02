@@ -1,9 +1,6 @@
 ---
 title: "abc"
-#output: rmarkdown::html_vignette
-output:
-  html_document:
-    css: "css/off.css"
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{abc}
   %\VignetteEngine{knitr::rmarkdown}
