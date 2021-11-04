@@ -10,16 +10,16 @@ title: "Part 2 and 3: Exercises"
 #      countIncrementalSlides: false
 output:
   html_document:
-    css: css/OFF.css
     toc: true
     toc_depth: 3
+    css: css/OFF.css
 ---
 
 
 ```{R eval=F, include=F}
-rmarkdown::render("exercises.Rmd",output_file="exercises.html")
-# rmarkdown::render("exercises.Rmd",output_format=rmarkdown::html_notebook(css="css/ON.css"),output_file="exercises.Rmd")
-# system('brave exercises.html')
+#rmarkdown::render("exercises.Rmd",output_file="exercises.html")
+#rmarkdown::render("exercises.Rmd",output_format=rmarkdown::html_notebook(css="css/ON.css"),output_file="exercises.Rmd")
+#system('brave exercises.html')
 ```
 
 ```{r, eval=T, include=F}
@@ -30,9 +30,9 @@ library(MSB104TimeSeries)
 # 10: Basic regression analysis with time series data 
 1. Explain the nature of time series data
 
-<div class="solution">
-DGP with (1) Temporal ordering of data and (2) Stochastic processes (which we furher can assume is generated from a specific regression model)
-</div>
+<!-- <div class="solution"> -->
+<!-- DGP with (1) Temporal ordering of data and (2) Stochastic processes (which we furher can assume is generated from a specific regression model) -->
+<!-- </div> -->
 
 2. We have the following finite distributed lagged model:
 \begin{equation}
@@ -43,84 +43,84 @@ y_{t}=\alpha+\delta_{0}z_{t}+\delta_{1}z_{t-1}+\delta_{2}z_{t-2}+u_{t}
 - t+1. periods: $\delta_{1}$
 - t+2. periods: $\delta_{2}$
 - t+3. periods: $0$
-<div class="solution">
-\begin{equation}
-y_{t}=\alpha+\delta_{0}z_{t}+\delta_{1}z_{t-1}+\delta_{2}z_{t-2}+u_{t}\\
-\text{Temporary change: + 1 in period t, otherwise c}\\
-y_{t-1}=\alpha+\delta_{0}c+\delta_{1}+\delta_{2}c+u_{t} \\
-y_{t}=\alpha+\delta_{0}(c+1)+\delta_{1}+\delta_{2}c+u_{t} \\
-y_{t+1}=\alpha+\delta_{0}c+\delta_{1}(c+1)+\delta_{2}c+u_{t} \\
-y_{t+2}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}(c+1)+u_{t} \\
-y_{t+3}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}+u_{t} \\
-\end{equation}
-Which implies:
-\begin{equation}
-y_{t}-y_{t-1} = \delta_{0}\\
-y_{t+1}-y_{t-1} = \delta_{1} \\
-y_{t+2}-y_{t-1} = \delta_{2}\\
-y_{t+3}-y_{t-1} = 0\\
-\end{equation}
-</div>
+<!-- <div class="solution"> -->
+<!-- \begin{equation} -->
+<!-- y_{t}=\alpha+\delta_{0}z_{t}+\delta_{1}z_{t-1}+\delta_{2}z_{t-2}+u_{t}\\ -->
+<!-- \text{Temporary change: + 1 in period t, otherwise c}\\ -->
+<!-- y_{t-1}=\alpha+\delta_{0}c+\delta_{1}+\delta_{2}c+u_{t} \\ -->
+<!-- y_{t}=\alpha+\delta_{0}(c+1)+\delta_{1}+\delta_{2}c+u_{t} \\ -->
+<!-- y_{t+1}=\alpha+\delta_{0}c+\delta_{1}(c+1)+\delta_{2}c+u_{t} \\ -->
+<!-- y_{t+2}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}(c+1)+u_{t} \\ -->
+<!-- y_{t+3}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}+u_{t} \\ -->
+<!-- \end{equation} -->
+<!-- Which implies: -->
+<!-- \begin{equation} -->
+<!-- y_{t}-y_{t-1} = \delta_{0}\\ -->
+<!-- y_{t+1}-y_{t-1} = \delta_{1} \\ -->
+<!-- y_{t+2}-y_{t-1} = \delta_{2}\\ -->
+<!-- y_{t+3}-y_{t-1} = 0\\ -->
+<!-- \end{equation} -->
+<!-- </div> -->
 
 b) Permanent change by 1 in period t
 - t periods: $\delta_{0}$
 - t+1. periods: $\delta_{0}+\delta_{1}$
 - t+2. periods: $\delta_{0}+\delta_{1}+\delta_{2}$
 - t+3. periods: $\delta_{0}+\delta_{1}+\delta_{2}$
-<div class="solution">
-\begin{equation}
-\text{Permanent change: change + 1 in period t and onwards}\\
-y_{t-1}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}c+u_{t} \\
-y_{t}=\alpha+\delta_{0}(c+1)+\delta_{1}+\delta_{2}c+u_{t} \\
-y_{t+1}=\alpha+\delta_{0}(c+1)+\delta_{1}(c+1)+\delta_{2}c+u_{t} \\
-y_{t+2}=\alpha+\delta_{0}(c+1)+\delta_{1}(c+1)+\delta_{2}(c+1)+u_{t} \\
-y_{t+3}=\alpha+\delta_{0}(c+1)+\delta_{1}(c+1)+\delta_{2}(c+1)+u_{t} \\
-\end{equation}
-Which implies
-\begin{equation}
-y_{t}-y_{t-1} = \delta_{0}\\
-y_{t+1}-y_{t-1} = \delta_{0} + \delta_{1} \\
-y_{t+2}-y_{t-1} = \delta_{0} + \delta_{1} + \delta_{2} \\
-y_{t+3}-y_{t-1} = \delta_{0} + \delta_{1} + \delta_{2} \text{ called the long-run multiplier} \\
-\end{equation}
-</div>
+<!-- <div class="solution"> -->
+<!-- \begin{equation} -->
+<!-- \text{Permanent change: change + 1 in period t and onwards}\\ -->
+<!-- y_{t-1}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}c+u_{t} \\ -->
+<!-- y_{t}=\alpha+\delta_{0}(c+1)+\delta_{1}+\delta_{2}c+u_{t} \\ -->
+<!-- y_{t+1}=\alpha+\delta_{0}(c+1)+\delta_{1}(c+1)+\delta_{2}c+u_{t} \\ -->
+<!-- y_{t+2}=\alpha+\delta_{0}(c+1)+\delta_{1}(c+1)+\delta_{2}(c+1)+u_{t} \\ -->
+<!-- y_{t+3}=\alpha+\delta_{0}(c+1)+\delta_{1}(c+1)+\delta_{2}(c+1)+u_{t} \\ -->
+<!-- \end{equation} -->
+<!-- Which implies -->
+<!-- \begin{equation} -->
+<!-- y_{t}-y_{t-1} = \delta_{0}\\ -->
+<!-- y_{t+1}-y_{t-1} = \delta_{0} + \delta_{1} \\ -->
+<!-- y_{t+2}-y_{t-1} = \delta_{0} + \delta_{1} + \delta_{2} \\ -->
+<!-- y_{t+3}-y_{t-1} = \delta_{0} + \delta_{1} + \delta_{2} \text{ called the long-run multiplier} \\ -->
+<!-- \end{equation} -->
+<!-- </div> -->
 
 4. Why do think the estimation of such coefficients could be of interest to policy makers?
-<div class="solution">
-If correctly specified, the estimated coefficents can be used to evalute the quantive impact for both a temporary or permanent change in policy variable.
-</div>
+<!-- <div class="solution"> -->
+<!-- If correctly specified, the estimated coefficents can be used to evalute the quantive impact for both a temporary or permanent change in policy variable. -->
+<!-- </div> -->
 5. What is meant by that OLS is BLUE?
-<div class="solution">
-In the class of linear unbiased estimator (which in OLS is ensured by TS.1-TS.3), the method of OLS (i.e., find the coefficients that minimizes the residual sum of squartes) is the one that provide estimator with least variance.
-</div>
+<!-- <div class="solution"> -->
+<!-- In the class of linear unbiased estimator (which in OLS is ensured by TS.1-TS.3), the method of OLS (i.e., find the coefficients that minimizes the residual sum of squartes) is the one that provide estimator with least variance. -->
+<!-- </div> -->
 6. Is OLS of any use if (a) TS.3 is violated or (b) TS.5?
-<div class="solution">
-If TS.5 is violated, yes, point estimates in form of predictions of, $R^{2}$ and $R^{2,adj}$ could provide usefull answers. 
-</div>
+<!-- <div class="solution"> -->
+<!-- If TS.5 is violated, yes, point estimates in form of predictions of, $R^{2}$ and $R^{2,adj}$ could provide usefull answers.  -->
+<!-- </div> -->
 7. What is the problem with spurious regression?
-<div class="solution">
-Violates TS.3/TS'3 if not taken into account. Generally implies too high value for $R^{2}$ and $R^{2,adj}$.
-</div>
+<!-- <div class="solution"> -->
+<!-- Violates TS.3/TS'3 if not taken into account. Generally implies too high value for $R^{2}$ and $R^{2,adj}$. -->
+<!-- </div> -->
 8. How can the problem of spurious regression be detected and solved?
 
-<div class="solution">
-1. Plot the time series. 
-1. If graph suspicous, check whether an estimation of a trend variable provides a significant value. 
-</div>
+<!-- <div class="solution"> -->
+<!-- 1. Plot the time series.  -->
+<!-- 1. If graph suspicous, check whether an estimation of a trend variable provides a significant value.  -->
+<!-- </div> -->
 
 9. How would you interpret a dummy variables?
 
-<div class="solution">
-Binary state variable for whether a condition is on or off.
-</div>
+<!-- <div class="solution"> -->
+<!-- Binary state variable for whether a condition is on or off. -->
+<!-- </div> -->
 
 10. Why do seasonality occur in time series data?
 
-<div class="solution">
-If a time series is observed at monthly or quarterly intervals (or even weekly or daily), it
-may exhibit seasonality. This could for example by christmas sale in Decemember, seasonal viruses that
-spreads more easily during some months of the year, weather and temprature conditions affect harvesting etc.
-</div>
+<!-- <div class="solution"> -->
+<!-- If a time series is observed at monthly or quarterly intervals (or even weekly or daily), it -->
+<!-- may exhibit seasonality. This could for example by christmas sale in Decemember, seasonal viruses that -->
+<!-- spreads more easily during some months of the year, weather and temprature conditions affect harvesting etc. -->
+<!-- </div> -->
 
 # 11: Further issues in using OLS with time series data 
 
@@ -134,122 +134,122 @@ Where $e_{t} \sim i.i.d. N(0,\sigma^2_{e})$
 1. For (a), (b) find its (i) expected value and (ii) one period ahead forecast.
 2. For (c) and (d) find its (i) expected value, (ii) variance, (iii) h-periods ahead forecast and (iv) correlation coefficient
 
-<div class="solution">
-(1) MA(1): $y_{t}=\alpha e_{t-1}+e_{t}$
-(i)
-\begin{equation}
-E(y_{t})=E(\alpha e_{t-1}+e_{t})=\alpha E(e_{t-1})+E(e_{t}))=0 \\
-\end{equation}
-(ii)
-\begin{equation}
-y_{t+1}=\alpha e_{t}+e_{t+1} \Rightarrow E(y_{t+1}|y_{t})=E(\alpha e_{t}+e_{t+1})=\alpha e_{t}
-\end{equation}
-(2) AR(1): $y_{t}=\rho y_{t-1}+e_{t}$
-(i)
-\begin{equation}
-E(y_{t})=E(\rho (\rho y_{t-2}+ e_{t-1}) +e_{t})= ... \text{(we skip this calcluations)} ... = E(\sum_{j=0}^{\infty} \rho^{j} e_{t}) = 0 \\
-\end{equation}
-(ii)
-\begin{equation}
-y_{t+1}=\rho y_{t}+e_{t+1} \Rightarrow E(y_{t+1}|y_{t}) = E(\rho y_{t}+e_{t+1}|y_{t})=\rho y_{t}$y_{t}=\rho y_{t-1}+e_{t}$
-\end{equation}
-(3) Random walk:
-\begin{equation}
-y_{t}=y_{t-1}+e_{t}\\
-(i)\\
-E(y_{t})=E(y_{t-2}+e_{t-1}+e_{t})=E(y_{0}+e_{1}+e_{2}...+e_{t})=E(y_{0})=y_{0}\\
-(ii)\\
-Var(y_{t})=Var(y_{0}+e_{1}+e_{2}...+e_{t})=t\sigma_{e}^{2}\\
-(iii)\\
-E(y_{t+h}|y_{t})=E(y_{t+h}+e_{t+h}|y_{t})=E(y_{t}+e_{t+h}+e_{t+h-1}+...+e_{t}|y_{t})=y_{t}\\
-(iv)\\
-Corr(y_{t+h},y_{t})=\frac{\sigma^{2}}{\sigma_{t+h}\sigma_{t}}=\frac{\sigma}{\sigma_{t+h}}=\sqrt{t/(t+h)} \\ 
-\text{this since } Cov(y_{t+h},y_{t})=Cov(y_{t}+e_{t+h-1}+e_{t+h-2}+...+e_{t},y_{t})=\sigma^{2}_{t}y_{t}=y_{t-1}+e_{t}\\
-\end{equation}
-(4) Random walk with drift:
-\begin{equation}
-y_{t}=\alpha_{0}+y_{t-1}+e_{t}\\
-(i)\\
-E(y_{t})=E(\alpha_{0} + \alpha_{0} + y_{t-2}+e_{t-1}+e_{t})=E(t\alpha_{0} + y_{0}+e_{1}+e_{2}...+e_{t})=E(t\alpha_{0} +y_{0})=t\alpha_{0} + y_{0}\\
-(ii)\\
-Var(y_{t})=Var(ty_{0}+e_{1}+e_{2}...+e_{t})=t\sigma_{e}^{2}\\
-(iii)\\
-E(y_{t+h}|y_{t})=E(\alpha_{0} + y_{t+h}+e_{t+h}|y_{t})=E(h\alpha_{0} + y_{t}+e_{t+h}+e_{t+h-1}+...+e_{t}|y_{t})=h\alpha_{0} + y_{t}\\
-(iv)\\
-Corr(y_{t+h},y_{t})=\frac{\sigma^{2}}{\sigma_{t+h}\sigma_{t}}=\frac{\sigma}{\sigma_{t+h}}=\sqrt{t/(t+h)} \\ 
-\text{this since } Cov(y_{t+h},y_{t})=Cov(y_{t}+e_{t+h-1}+e_{t+h-2}+...+e_{t},y_{t})=\sigma^{2}_{t}>
-\end{equation}
-</div>
+<!-- <div class="solution"> -->
+<!-- (1) MA(1): $y_{t}=\alpha e_{t-1}+e_{t}$ -->
+<!-- (i) -->
+<!-- \begin{equation} -->
+<!-- E(y_{t})=E(\alpha e_{t-1}+e_{t})=\alpha E(e_{t-1})+E(e_{t}))=0 \\ -->
+<!-- \end{equation} -->
+<!-- (ii) -->
+<!-- \begin{equation} -->
+<!-- y_{t+1}=\alpha e_{t}+e_{t+1} \Rightarrow E(y_{t+1}|y_{t})=E(\alpha e_{t}+e_{t+1})=\alpha e_{t} -->
+<!-- \end{equation} -->
+<!-- (2) AR(1): $y_{t}=\rho y_{t-1}+e_{t}$ -->
+<!-- (i) -->
+<!-- \begin{equation} -->
+<!-- E(y_{t})=E(\rho (\rho y_{t-2}+ e_{t-1}) +e_{t})= ... \text{(we skip this calcluations)} ... = E(\sum_{j=0}^{\infty} \rho^{j} e_{t}) = 0 \\ -->
+<!-- \end{equation} -->
+<!-- (ii) -->
+<!-- \begin{equation} -->
+<!-- y_{t+1}=\rho y_{t}+e_{t+1} \Rightarrow E(y_{t+1}|y_{t}) = E(\rho y_{t}+e_{t+1}|y_{t})=\rho y_{t}$y_{t}=\rho y_{t-1}+e_{t}$ -->
+<!-- \end{equation} -->
+<!-- (3) Random walk: -->
+<!-- \begin{equation} -->
+<!-- y_{t}=y_{t-1}+e_{t}\\ -->
+<!-- (i)\\ -->
+<!-- E(y_{t})=E(y_{t-2}+e_{t-1}+e_{t})=E(y_{0}+e_{1}+e_{2}...+e_{t})=E(y_{0})=y_{0}\\ -->
+<!-- (ii)\\ -->
+<!-- Var(y_{t})=Var(y_{0}+e_{1}+e_{2}...+e_{t})=t\sigma_{e}^{2}\\ -->
+<!-- (iii)\\ -->
+<!-- E(y_{t+h}|y_{t})=E(y_{t+h}+e_{t+h}|y_{t})=E(y_{t}+e_{t+h}+e_{t+h-1}+...+e_{t}|y_{t})=y_{t}\\ -->
+<!-- (iv)\\ -->
+<!-- Corr(y_{t+h},y_{t})=\frac{\sigma^{2}}{\sigma_{t+h}\sigma_{t}}=\frac{\sigma}{\sigma_{t+h}}=\sqrt{t/(t+h)} \\  -->
+<!-- \text{this since } Cov(y_{t+h},y_{t})=Cov(y_{t}+e_{t+h-1}+e_{t+h-2}+...+e_{t},y_{t})=\sigma^{2}_{t}y_{t}=y_{t-1}+e_{t}\\ -->
+<!-- \end{equation} -->
+<!-- (4) Random walk with drift: -->
+<!-- \begin{equation} -->
+<!-- y_{t}=\alpha_{0}+y_{t-1}+e_{t}\\ -->
+<!-- (i)\\ -->
+<!-- E(y_{t})=E(\alpha_{0} + \alpha_{0} + y_{t-2}+e_{t-1}+e_{t})=E(t\alpha_{0} + y_{0}+e_{1}+e_{2}...+e_{t})=E(t\alpha_{0} +y_{0})=t\alpha_{0} + y_{0}\\ -->
+<!-- (ii)\\ -->
+<!-- Var(y_{t})=Var(ty_{0}+e_{1}+e_{2}...+e_{t})=t\sigma_{e}^{2}\\ -->
+<!-- (iii)\\ -->
+<!-- E(y_{t+h}|y_{t})=E(\alpha_{0} + y_{t+h}+e_{t+h}|y_{t})=E(h\alpha_{0} + y_{t}+e_{t+h}+e_{t+h-1}+...+e_{t}|y_{t})=h\alpha_{0} + y_{t}\\ -->
+<!-- (iv)\\ -->
+<!-- Corr(y_{t+h},y_{t})=\frac{\sigma^{2}}{\sigma_{t+h}\sigma_{t}}=\frac{\sigma}{\sigma_{t+h}}=\sqrt{t/(t+h)} \\  -->
+<!-- \text{this since } Cov(y_{t+h},y_{t})=Cov(y_{t}+e_{t+h-1}+e_{t+h-2}+...+e_{t},y_{t})=\sigma^{2}_{t}> -->
+<!-- \end{equation} -->
+<!-- </div> -->
 
 2. What is the difference between weakly and strongly exogenous regressors? 
 
-<div class="solution">
-Weakly exogenous regressors consist of only the exogenous regressors included in the
-model specification related to the data generating process. Strongly exogenous regressors in addition consist of all the future and lagged variables of these variables.
-</div>
+<!-- <div class="solution"> -->
+<!-- Weakly exogenous regressors consist of only the exogenous regressors included in the -->
+<!-- model specification related to the data generating process. Strongly exogenous regressors in addition consist of all the future and lagged variables of these variables. -->
+<!-- </div> -->
 
 3. What is meant that time series is (a) $I(0)$ and (b) $I(1)$?
 
-<div class="solution">
-Weakly dependent time series are integrated of order zero (=I(0)). If a time series has to be differentiated in order to obtain a weakly dependent time series, it is called integrated of order one (I(1)).
-</div>
+<!-- <div class="solution"> -->
+<!-- Weakly dependent time series are integrated of order zero (=I(0)). If a time series has to be differentiated in order to obtain a weakly dependent time series, it is called integrated of order one (I(1)). -->
+<!-- </div> -->
 
 4. List some examples of time series that are (a) weakly dependent (b) highly persistent time series?
 
-<div class="solution">
-Examples of possible weakly dependent time series: unemployment, real interest rate \\
-Examples of highly persisten time series: oil prices, stock market (short term) and bit-coins
-</div>
+<!-- <div class="solution"> -->
+<!-- Examples of possible weakly dependent time series: unemployment, real interest rate \\ -->
+<!-- Examples of highly persisten time series: oil prices, stock market (short term) and bit-coins -->
+<!-- </div> -->
 
 5. Why is the assumption of $u_{t} \sim  N(0,\sigma^2_{u})$ not needed in large sample for the 
 estimated coefficient to be (asymptotically) normally distributed?
 
-<div class="solution">
-This is implicitly taken care of in TS'.1 (LLN and CLT) which implies that this hold as an approximation in large samples
-</div>
+<!-- <div class="solution"> -->
+<!-- This is implicitly taken care of in TS'.1 (LLN and CLT) which implies that this hold as an approximation in large samples -->
+<!-- </div> -->
 
 
 # 12: Serial correlation and heteroskedasticity in time series regression 
 1. What is the impact of serial correlation in a time series regression?
-<div class="solution">
-Statistical inference can not carried out.
-</div>
+<!-- <div class="solution"> -->
+<!-- Statistical inference can not carried out. -->
+<!-- </div> -->
 2. Is $R^{2}$ measured correctly under the presence of serial correlation?
-<div class="solution">
-Yes, given that TS'1.-TS'3 are satisfied.
-</div>
+<!-- <div class="solution"> -->
+<!-- Yes, given that TS'1.-TS'3 are satisfied. -->
+<!-- </div> -->
 3. What is meant by that OLS consistent but not unbiased?
-<div class="solution">
-OlS is consistent implies that as the sample size grows, the estimated coefficient they will converge towards its true values. Unbiased implies that before the realization of the data sample, it is more likely that the estimated coefficients is either higher or lower than its true value.
-</div>
+<!-- <div class="solution"> -->
+<!-- OlS is consistent implies that as the sample size grows, the estimated coefficient they will converge towards its true values. Unbiased implies that before the realization of the data sample, it is more likely that the estimated coefficients is either higher or lower than its true value. -->
+<!-- </div> -->
 4. Explain the difference between TS.1 and TS'1.
-<div class="solution">
-TS'.1 also assumes (1) Stationary (or covariance) stocastich process and (2) weekly dependent time series 
-</div>
+<!-- <div class="solution"> -->
+<!-- TS'.1 also assumes (1) Stationary (or covariance) stocastich process and (2) weekly dependent time series  -->
+<!-- </div> -->
 5. Why use robust serial correlation (HAC)?
-<div class="solution">
-Even with the presence of serial correlation, statistical inference (e.g., t-tests, F-testing) can be carried out.
-</div>
+<!-- <div class="solution"> -->
+<!-- Even with the presence of serial correlation, statistical inference (e.g., t-tests, F-testing) can be carried out. -->
+<!-- </div> -->
 
 # 16: Simultanous equations models (SEM) 
 1. Explain the three different forms of endogeneity problem?
-<div class="solution">
-1: Ommited variables (cf. Henrik's notes) 
-2: Measurement errors (cf. Henrik's notes)
-3: Simultaneity: The dependent variable in the regression model intereact simultanously with at least one of its regressors.
-</div>
+<!-- <div class="solution"> -->
+<!-- 1: Ommited variables (cf. Henrik's notes)  -->
+<!-- 2: Measurement errors (cf. Henrik's notes) -->
+<!-- 3: Simultaneity: The dependent variable in the regression model intereact simultanously with at least one of its regressors. -->
+<!-- </div> -->
 2. What is meant by a structural equation?
-<div class="solution">
-A structural equation is a equation that founded in econoimc theory and thereby provides the causal relationship between the varibles
-</div>
+<!-- <div class="solution"> -->
+<!-- A structural equation is a equation that founded in econoimc theory and thereby provides the causal relationship between the varibles -->
+<!-- </div> -->
 3. What is the problem of applying OLS to structural equation?
-<div class="solution">
-If simultaneity occurs, violates TS'3. Unbiased estimators
-</div>
+<!-- <div class="solution"> -->
+<!-- If simultaneity occurs, violates TS'3. Unbiased estimators -->
+<!-- </div> -->
 4. Which other method should be used and what is the identification condition for this to work properly (2-variable system)? 
-<div class="solution">
-Instrumental variable approach (two stage least square). Identification condition (two variable system): At least one variable from the equation we are estimating is included as a explanatory variable in the other equations.
-</div>
+<!-- <div class="solution"> -->
+<!-- Instrumental variable approach (two stage least square). Identification condition (two variable system): At least one variable from the equation we are estimating is included as a explanatory variable in the other equations. -->
+<!-- </div> -->
 
 
 ```{r include=FALSE, echo=F}
