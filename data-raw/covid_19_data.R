@@ -4,7 +4,7 @@ library(dplyr)
 library(lubridate)
 library(zoo)
 
-all_data <- COVID19::covid19(verbose = F)
+all_data <- COVID19::covid19<(verbose = F)
 unique(all_data$id)
 
 sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','IND')[1]

@@ -156,13 +156,28 @@ Consequences of not including a trend:
 - Yield bias OLS estimators if more than one variables are driven by an unobserved trending factors
 	- Spurious regression: But the usual and adjusted R-squared for time series regressions can be artificially high when the dependent variable is trending.
 
+
+---
+
+
 ### Seasonality
+
 - Quarterly:
 	- $y_{t}=\beta_{0}+ \alpha_{1}y_{t_1} +\delta_{1}aut_{t}+\delta_{2}sum_{t}+ \delta_{3}spr_{t}+u_{t}$
+
+
+---
+
+
+class: inverse, center, middle
 
 # 11: Further issues in using OLS with time series data 
 
 [Wooldridge 11](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH11_Wooldridge_7e%20PPT_2pp.pptx)
+
+
+---
+
 
 ## Stationarity and weekly dependent time series 
 
@@ -180,6 +195,8 @@ for all $h \geq 1$
 ## Covariance stationarity
 A stochastical process $\{x_{t};t=1,2,..,n\}$ is covariance stationarity if its expected value and variance constant over time, and the covariance only depends on $h$
 
+---
+
 ### Weakly dependency (I(0) - integrated of order zero)
 A stationary time series $\{x_{t};t=1,2,..,n\}$ is weekly dependent if $x_{t}$ and $x_{t+h}$ are almost independent as h increases without bond.
 
@@ -194,6 +211,9 @@ Examples:
   - Stable process ($|\rho|<1$) is weekly dependent
 
 <!-- Hybrid AR(1) and MA(1), ARMA(1) -->
+
+---
+
 
 ## Asymptotic properties of OLS   
 - TS'.1: Linear in parameters and that 
@@ -212,6 +232,8 @@ Examples:
 1. TS'.1, TS'.2 og TS'.3 $\Rightarrow plim \hat{\beta_{j}}=\beta_{j} \text{ for} j=0,1,2,...,k$ are consistent 
 
 1. TS'.1, TS'.2, TS'.3, TS'.4 og TS'.5 $\Rightarrow$ OLS estimators asymptotically normally distributed $\Rightarrow$ OLS estimator, t-,F-,LM statics asympotically valid
+
+---
 
 ## Using highly persistent time series (I(1) - integrated of order one) in regression analysis 
 
@@ -238,6 +260,9 @@ Regardless of how far in the future we want to predict, today's value is our bes
 $Corr(y_{t+h},y_{t})=\sqrt{t/(t+h)}$.
 Dependent on t (not constant)
 
+---
+
+
 ### Random walk with drift
 
 $y_{t}=\alpha_{0} t + \alpha_{1t}+e_{t-1}+...+e_{1}+y_{0}$
@@ -260,6 +285,8 @@ $E(y_{t+h}|y_{t})=\alpha_{0}h+y_{t}$
 $Corr(y_{t+h},y_{t})=\sqrt{t/(t+h)}$.
 Dependent on t (not constant)
 
+---
+
 ### Differencing a highly persistent time series
 
 - We can use the value of $\hat{\rho}$ (first-order autocorrelation of y_{t}) to help decide whether the process is I(1) or I(0).
@@ -269,6 +296,8 @@ Dependent on t (not constant)
 - Both unit root and trend may be elimaniting by differencing:
 $\Delta y_{t}=y_{t}-y_{t-1}=e_{t}$
 
+---
+
 ## The dynamically complete models and the absence of serial correlation
 A model is said to be dynamically complete if enough lagged variables have been included as explanatory variables so that further lags do not help to explain the dependent variable:
 $E(y_{t}|{\bf{x}_{t}}, {\bf{x}_{t-1}}, y_{t-1},...) = E(y_{t}|{\bf{x}}_{t})$
@@ -276,11 +305,20 @@ $E(y_{t}|{\bf{x}_{t}}, {\bf{x}_{t-1}}, y_{t-1},...) = E(y_{t}|{\bf{x}}_{t})$
 - So once the explanatory variables ${\bf{x}_{t}}$ in the model is controlled for, no further lags help to explain the current z.
 - Dynamic completness implies absence of serial correlation
 
+---
+
 ## The homoskedasticity assumption for time series models
 
 $Var(u_{t}|{\bf{x_{t}}}) = Var(y_{t}|{\bf{x_{t}}}) = \sigma^{2}$
 
 So even though $y_{t}$ is a linear function of ${\bf{x_{t}}}$, the $Var(y_{t}|{\bf{x_{t}}})$ must be constant.
+
+
+```{r, include=F}
+knitr::knit_exit()
+```
+---
+
 
 # 12: Serial correlation and heteroskedasticity in time series regression 
 [Wooldridge 12](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH12_Wooldridge_7e%20PPT_2pp.pptx)
@@ -466,3 +504,131 @@ Example: AR(1) with an intercept:
 
 - If $\rho<|1|$ weekly dependence (no unit root, I(0)) -> TS'1. not violated
 - If $\rho=1$ HP strongly dependence (unit root, I(1)) -> TS'1. violated 
+
+
+# 11: Further issues in using OLS with time series data 
+
+[Wooldridge 11](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH11_Wooldridge_7e%20PPT_2pp.pptx)
+
+## Stationarity and weekly dependent time series 
+
+### Stationarity
+#### Stationarity
+A stochastical process $\{x_{t};t=1,2,..,n\}$ is stationary if for every collection of time indeces
+$1\leq t_{1}<t_{1}<..>t_{m}$
+The joint distribution of
+$(x_{t_{1}}, x_{t_{2}},...,x_{t_{n}})$
+is the same as
+$(x_{t_{1+h}}, x_{t_{2+h}},...,x_{t_{n+h}})$
+for all $h \geq 1$
+
+### Covariance stationarity
+A stochastical process $\{x_{t};t=1,2,..,n\}$ is covariance stationarity if its 
+
+- Expected value constant over time, $E(x_t)=\mu$
+- Variance constant over time, $Var(x_t)=\sigma$
+- Covariance only depends on $h$, $Cov(x_{t+h},x_t)=f(h)$
+
+### Weakly dependency (I(0) - integrated of order zero)
+A stationary time series $\{x_{t};t=1,2,..,n\}$ is weekly dependent if $x_{t}$ and $x_{t+h}$ are almost independent as h increases without bond.
+
+A covariance stationary process is weekly dependent if the correlation between $x_{t}$ and $x_{t+h}$ goes to zero 'sufficient quickly' as $h \rightarrow \infty$.
+
+Examples:
+
+- MA(1) process $y_{t}=\alpha_{}e_{t-1}+e_{t}$
+  - The process is weekly dependent because observations that are more than one time period apart have nothing in common and therefore uncorrelated. 
+- AR(1) process $y_{t}=\rho_{1}y_{t-1}+e_{t}$
+  - $\Rightarrow Corr(y_{t},y_{t+h})=\rho_{1}^{h}$
+  - Stable process ($|\rho|<1$) is weekly dependent
+
+<!-- Hybrid AR(1) and MA(1), ARMA(1) -->
+
+## Asymptotic properties of OLS   
+- TS'.1: Linear in parameters and that 
+  $\{ (y_{t},{\bf{x_{t}}}); t=1,2,...,n  \}); t=1,2,...,n  \}$ are stationary and weekly dependent
+  $\Rightarrow$ we can apply LLN (law of large numbers) and CLT (central limit teorem)
+
+- TS'.2=TS.2: No perfect collinearity
+
+- TS'.3: Weakly exogenous
+  - $E(u_{t}|{\bf{}x_{t}})=0$ for $x_{t}=(x_{t1},x_{t2},...,x_{tk})$
+
+- TS'.4: $Var(u_{t}|{\bf{}x_{t}})=\sigma^2$ contemporanous heteroskedasticity
+
+- TS'.5: $Corr(u_{t},u_{s}|{\bf{}x_{t}},{\bf{}x_{s}})=0$ for $s \neq t$ No serial correlation
+
+1. TS'.1, TS'.2 og TS'.3 $\Rightarrow plim \hat{\beta_{j}}=\beta_{j} \text{ for} j=0,1,2,...,k$ are consistent 
+
+1. TS'.1, TS'.2, TS'.3, TS'.4 og TS'.5 $\Rightarrow$ OLS estimators asymptotically normally distributed $\Rightarrow$ OLS estimator, t-,F-,LM statics asympotically valid
+
+## Using highly persistent time series (I(1) - integrated of order one) in regression analysis 
+
+### Random walk
+$y_{t}=e_{t}+e_{t-1}+...+e_{1}+y_{0}$
+
+- Taking $E(y_{t})$ implies
+
+$E(y_{t})=y_{0}$.
+Does not depend on t (constant)
+
+- Taking $Var(y_{t})$ implies
+
+$Var(y_{t})=t\sigma^2_{e}$.
+Increases as a linear function over time $\Rightarrow$ not stationary
+
+- Forecasting period t+h ahead
+
+$E(y_{t+h}|y_{t})=y_{t}$.
+Regardless of how far in the future we want to predict, today's value is our best predictior
+
+- Finding $Corr(y_{t+h},y_{t})$ implies
+
+$Corr(y_{t+h},y_{t})=\sqrt{t/(t+h)}$.
+Dependent on t (not constant)
+
+### Random walk with drift
+
+$y_{t}=\alpha_{0} t + \alpha_{1t}+e_{t-1}+...+e_{1}+y_{0}$
+
+- Taking $E(y_{t})$ implies
+
+$E(y_{t})=\alpha_{0}t+y_{0}$
+
+- Taking $Var(y_{t})$  
+
+$Var(y_{t})=t\sigma^2_{e}$.
+same result as under RW
+
+- Forecasting t+h periods ahead 
+
+$E(y_{t+h}|y_{t})=\alpha_{0}h+y_{t}$
+
+- Finding $Corr(y_{t+h},y_{t})$ implies
+
+$Corr(y_{t+h},y_{t})=\sqrt{t/(t+h)}$.
+Dependent on t (not constant)
+
+### Differencing a highly persistent time series
+
+- We can use the value of $\hat{\rho}$ (first-order autocorrelation of y_{t}) to help decide whether the process is I(1) or I(0).
+
+- Formal tests exist (E.g. [Dickey-Fuller test](https://en.wikipedia.org/wiki/Dickey%E2%80%93Fuller_test)), but not part of this curriculum
+
+- Both unit root and trend may be elimaniting by differencing:
+$\Delta y_{t}=y_{t}-y_{t-1}=e_{t}$
+
+## Dynamically complete models and the absence of serial correlation
+A model is said to be dynamically complete if enough lagged variables have been included as explanatory variables so that further lags do not help to explain the dependent variable:
+$E(y_{t}|{\bf{x}_{t}}, {\bf{x}_{t-1}}, y_{t-1},...) = E(y_{t}|{\bf{x}}_{t})$
+
+- So once the explanatory variables ${\bf{x}_{t}}$ in the model is controlled for, no further lags help to explain the current z
+- Dynamic completness implies absence of serial correlation
+- Sequential exogenity implies that causal effects will correctly estimated, even with the absence of serial correlation
+
+## The homoskedasticity assumption for time series models
+
+$Var(u_{t}|{\bf{x_{t}}}) = Var(y_{t}|{\bf{x_{t}}}) = \sigma^{2}$
+
+So even though $y_{t}$ is a linear function of ${\bf{x_{t}}}$, the $Var(y_{t}|{\bf{x_{t}}})$ must be constant.
+

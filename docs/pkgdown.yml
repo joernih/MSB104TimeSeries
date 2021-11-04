@@ -1,12 +1,14 @@
-pandoc: 2.14.0.2
+pandoc: 2.14.2
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   Application_Fertility_lagged: Application_Fertility_lagged.html
   Application_Phillips_static: Application_Phillips_static.html
+  JIH_slides_learning_objectives: JIH_slides_learning_objectives.html
+  abc: abc.html
   application2_covid19_analysis: application2_covid19_analysis.html
   cheatsheet: cheatsheet.html
   exercises: exercises.html
   learning_objectives: learning_objectives.html
-last_built: 2021-10-31T09:49Z
+last_built: 2021-11-04T17:44Z
 

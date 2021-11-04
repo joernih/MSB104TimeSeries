@@ -10,7 +10,7 @@ author: "Jørn I. Halvorsen"
 #      highlightLines: true
 #      countIncrementalSlides: false
 output:
-  html_notebook:
+  html_document:
     toc: true
     toc_depth: 3
 ---
@@ -31,8 +31,8 @@ system('brave learning_objectives.html')
 ## Nature of time series data abc
 - Process (temporal): t=1,2,...,n
 - Stochastic: {}
-- Variables: $(x_{1t},x_{2t},...,x_{kt},y_{t})$
-- Together: $\{(x_{1t},x_{2t},...,x_{kt},y_{t});t=1,2,..,n\}$
+- Variables: $(x_{t1},x_{t2},...,x_{tk},y_{t})$
+- Together: $\{(x_{t1},x_{t1},...,x_{tk},y_{t});t=1,2,..,n\}$
 
 ## Examples of time series regression models
 ### Static models 
@@ -100,6 +100,7 @@ $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 
 ### Dummy variables
 - $inf_{t}=\beta_{0} + \beta_{1}unem_{t} + \beta_{t}lock_{t} + u_{t}$
+- $deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}+icu_{t-1} + \delta_{2}icu_{t-2}+\delta_{3}lock_{t-1}+u_{t}$
 
 ### Index numbers
 - $inf_{t}=\beta_{0} + \beta_{1}unem_{t} + \beta_{t}stringindex_{t} + u_{t}$
@@ -114,7 +115,6 @@ $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 	- $log(y_{t})=\alpha_{0}+\alpha_{1}t+e_{t}$   
 	- $E(log(y_{t}))=\alpha_{0}+\alpha_{1}t$
 	- $E(log(y_{t}/y_{y-1}))=\alpha_{1}(t-(t-1))=\alpha_{1}t$
-- Modelling a Gompertz time trend?
 
 When to include a trend?
 
@@ -142,7 +142,6 @@ Consequences of not including a trend:
 ### Stationarity
 #### Stationarity
 A stochastical process $\{x_{t};t=1,2,..,n\}$ is stationary if for every collection of time indeces
-
 $1\leq t_{1}<t_{1}<..>t_{m}$
 The joint distribution of
 $(x_{t_{1}}, x_{t_{2}},...,x_{t_{n}})$
@@ -150,8 +149,12 @@ is the same as
 $(x_{t_{1+h}}, x_{t_{2+h}},...,x_{t_{n+h}})$
 for all $h \geq 1$
 
-## Covariance stationarity
-A stochastical process $\{x_{t};t=1,2,..,n\}$ is covariance stationarity if its expected value and variance constant over time, and the covariance only depends on $h$
+### Covariance stationarity
+A stochastical process $\{x_{t};t=1,2,..,n\}$ is covariance stationarity if its 
+
+- Expected value constant over time, $E(x_t)=\mu$
+- Variance constant over time, $Var(x_t)=\sigma$
+- Covariance only depends on $h$, $Cov(x_{t+h},x_t)=f(h)$
 
 ### Weakly dependency (I(0) - integrated of order zero)
 A stationary time series $\{x_{t};t=1,2,..,n\}$ is weekly dependent if $x_{t}$ and $x_{t+h}$ are almost independent as h increases without bond.
@@ -242,12 +245,13 @@ Dependent on t (not constant)
 - Both unit root and trend may be elimaniting by differencing:
 $\Delta y_{t}=y_{t}-y_{t-1}=e_{t}$
 
-## The dynamically complete models and the absence of serial correlation
+## Dynamically complete models and the absence of serial correlation
 A model is said to be dynamically complete if enough lagged variables have been included as explanatory variables so that further lags do not help to explain the dependent variable:
 $E(y_{t}|{\bf{x}_{t}}, {\bf{x}_{t-1}}, y_{t-1},...) = E(y_{t}|{\bf{x}}_{t})$
 
-- So once the explanatory variables ${\bf{x}_{t}}$ in the model is controlled for, no further lags help to explain the current z.
+- So once the explanatory variables ${\bf{x}_{t}}$ in the model is controlled for, no further lags help to explain the current z
 - Dynamic completness implies absence of serial correlation
+- Sequential exogenity implies that causal effects will correctly estimated, even with the absence of serial correlation
 
 ## The homoskedasticity assumption for time series models
 
@@ -398,7 +402,7 @@ Not covered in this course
 ## (Simultanous equations models with panel data)
 Not covered in this course
 
-```{r, include=F}
+```{r include=F}
 knitr::knit_exit()
 ```
 
@@ -428,7 +432,6 @@ Prøveeksamen
 - If $\rho = 1$ Random walk
 	- $y_{t}=\rho y_{t-1} + e_{t}$
 
-
 Sequential exogenity
 
 Example: AR(1) without an intercept:
@@ -439,3 +442,17 @@ Example: AR(1) with an intercept:
 
 - If $\rho<|1|$ weekly dependence (no unit root, I(0)) -> TS'1. not violated
 - If $\rho=1$ HP strongly dependence (unit root, I(1)) -> TS'1. violated 
+
+
+# Introduction
+# Stationarity and weekly dependent time series
+# Asymptotic properties of OLS
+# Using highly persistent timer series in regression analysis
+# Complete dynamic models and the absence of serial correlation
+# The homoskedasticity assumption for time series models
+
+
+
+
+
+
