@@ -14,4 +14,4 @@ Econometrics (MSB104) Part II: Time Series Analysis
 -   Part I and II: Tips and preperation for the Exam (week 49: Zoom/?)
     -   Mon. 6. december
 
-**Siste gang oppdatert: 2021-11-04 20:37:23**
+**Siste gang oppdatert: 2021-11-11 00:31:27**

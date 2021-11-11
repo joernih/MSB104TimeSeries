@@ -7,21 +7,28 @@ plot19ts <- function(sel_cou=NULL,covid19df=NULL, yvar='hosp'){
 		out <- df_c %>% dplyr::filter(id==x)
 		gout <- ggplot(out, aes_string(x='dayofyear',y=yvar, color='year')) + 
 			geom_point() + 
-			geom_line() + 
+		geom_line() + 
 			labs(title=x,"Day during the year", y=yvar)
 	})
 }
-#library(dplyr)
-#library(ggplot2)
-#covidts <- MSB104TimeSeriesJIH::covid19df
-#names(covidts)
-### data(package='MSB104TimeSeriesJIH')
-#library(ggplot2)
-#library(dplyr)
-#covidts <- MSB104TimeSeries::COVID19
-#sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK')
-#covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='hosp')
-#covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths')
-#covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths_perc')
-#gridExtra::grid.arrange(grobs=covhos)
-#covhos
+
+#' @export
+k <- function(){
+    df <-  clipr::write_last_clip()
+}
+
+#' @export
+l <- function(){
+    open_command <- switch(Sys.info()[['sysname']],
+                           Windows= 'open',
+                           Linux  = 'xdg-open',
+                           Darwin = 'open')
+
+    #temp_file <- paste0('tmp/abc', '.xlsx')
+    temp_file <- paste0(tempfile(), '.xlsx')
+    df <-  clipr::write_last_clip()
+    openxlsx::write.xlsx(df, file = temp_file)
+    invisible(system(paste(open_command, temp_file),
+                     ignore.stdout = TRUE, ignore.stderr = TRUE))
+}
+
