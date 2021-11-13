@@ -65,16 +65,38 @@ gridExtra::grid.arrange(grobs=covhos)
 ###########################################################################################################################################################3
 library(dplyr)
 library(PxWebApiData)
+library(ggplot2)
 ssbdoede <- read.delim("ssbdoede.txt", header=FALSE)
 names(ssbdoede) <- c("Kjonn","Alder","Uke","Doede","Aar","Antall")
 
 ssbdoedec <- ssbdoede %>% 
 	dplyr::mutate(Doede=gsub("D\xf8de","Doede",Doede)) %>%
 	dplyr::mutate(Kjonn=gsub("Begge kj\xf8nn","Begge",Kjonn)) %>%
-	dplyr::mutate(Alder=gsub("Alle aldre","Alle",Alder)) %>%
+	dplyr::mutate(Alder=gsub("Alle aldre","-1",Alder)) %>%
 	dplyr::mutate(Alder=gsub(" \xe5r","",Alder)) %>%
 	dplyr::mutate(Alder=gsub(" \xe5r eller aldre","",Alder)) %>%
-	dplyr::mutate(Antall=as.numeric(Antall)) %>%
-	dplyr::filter(Aar%in%c("2020","2021"),Kjonn=='Begge',Alder=='Alle')
+	dplyr::mutate(Uke=gsub("Uke ","",Uke))
 
+alle_df <- ssbdoedec %>% dplyr::filter(Alder==-1) %>%
+	dplyr::filter(Aar%in%c("2020","2021","2019","2018")) %>%
+	dplyr::mutate(Aar=as.factor(Aar)) %>%
+	dplyr::arrange(Aar) %>%
+	dplyr::mutate(Antall=as.numeric(Antall)) %>%
+	dplyr::mutate(Uke=as.numeric(Uke)) %>%
+	dplyr::mutate(Alder=as.numeric(Alder)) 
+
+ggplot(dplyr::filter(alle_df,Kjonn=='Begge'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=20) + labs(x='ukenr',y='antall døde')
+ggplot(dplyr::filter(alle_df,Kjonn=='Kvinner'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=20) + labs(x='ukenr',y='antall døde')
+
+aldr_df <- ssbdoedec %>% dplyr::filter(Alder!=1) %>%
+	dplyr::filter(Aar%in%c("2020","2021","2019","2018")) %>%
+	dplyr::mutate(Aar=as.factor(Aar)) %>%
+	dplyr::arrange(Aar) %>%
+	dplyr::mutate(Antall=as.numeric(Antall)) %>%
+	dplyr::mutate(Uke=as.numeric(Uke)) %>%
+	dplyr::mutate(Alder=as.numeric(Alder)) %>%
+	dplyr::filter(Aar%in%c("2020","2021","2019","2018")) %>%
+	dplyr::mutate(Aar=as.factor(Aar)) %>%
+
+View(aldr_df)
 
