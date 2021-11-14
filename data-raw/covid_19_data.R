@@ -86,47 +86,28 @@ alle_df <- ssbdoedec %>% dplyr::filter(Alder==-1) %>%
 ggplot(dplyr::filter(alle_df,Kjonn=='Begge'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=22) + labs(x='ukenr',y='antall døde')
 ggplot(dplyr::filter(alle_df,Kjonn=='Kvinner'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=22) + labs(x='ukenr',y='antall døde')
 
-aldr_df2 <- ssbdoedec %>% 
+aldr_df2 <- ssbdoedec %>%
   # Filter
   dplyr::filter(Alder!=-1,Kjonn=='Begge') %>%
-  dplyr::filter(alder<100) %>%
-  dplyr::filter(Aar%in%c("2021")) %>%
+  dplyr::filter(Alder<100) %>%
+  dplyr::filter(Alder>0) %>%
+  dplyr::filter(Aar%in%c("2020","2021")) %>%
   # Intervall
-  dplyr::mutate(Interv=base::cut(Alder,breaks=seq(-1,100, by=25)))  %>%
+  dplyr::mutate(Interv=base::cut(Alder,breaks=seq(0,100, by=20)))  %>%
   # Prepreation and mutate
   dplyr::arrange(Kjonn,Aar,Alder,Uke) %>%
-  dplyr::group_by(Kjonn,Aar,Interv) %>%
-  dplyr::mutate(Antall=tidyr::replace_na(Antall,0)) %>%
-  dplyr::mutate(Antallinter=cumsum(Antall)) %>%
-  dplyr::mutate(Interv=as.factor(Interv)) %>%
-  #dplyr::filter(Alder>0) %>%
-  dplyr::ungroup() 
-
-View(aldr_df2)
-tail(aldr_df2)
-
+  dplyr::group_by(Kjonn,Aar,Interv,Uke) %>%
+  #dplyr::mutate(Antall=tidyr::replace_na(Antall,0)) %>%
+  dplyr::mutate(Antallinter=sum(Antall,na.rm=T)) %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(Uke<44)
 ###########################################################################################################################################################3
-ggplot(dplyr::filter(aldr_df2,Kjonn=='Begge'), aes(x=Uke,y=Antallinter, fill=Interv)) + geom_point() + geom_smooth()
-ggplot(dplyr::filter(aldr_df2,Kjonn=='Begge'), aes(x=Uke,y=Antallinter, fill=interaction(Aar,Interv))) + geom_point() + geom_smooth()
+df1 <- dplyr::filter(aldr_df2,Alder>60)
+g1 <- ggplot(df1, aes(x=Uke,y=Antallinter, color=interaction(Interv,Aar))) + geom_point() + geom_smooth() + labs(x='ukenr',y='antall døde')
+df2 <- dplyr::filter(aldr_df2,Alder<60,Alder>40)
+g2 <- ggplot(df2, aes(x=Uke,y=Antallinter, color=interaction(Interv,Aar))) + geom_point() + geom_smooth() + labs(x='ukenr',y='antall døde')
+df3 <- dplyr::filter(aldr_df2,Alder<40)
+g3 <- ggplot(df3, aes(x=Uke,y=Antallinter, color=interaction(Interv,Aar))) + geom_point() + geom_smooth() + labs(x='ukenr',y='antall døde')
 
-
-
-library(tidyverse)
-
-
-df <- iris %>% 
-   mutate(statusl = factor(ifelse(Sepal.Length<5,'Small length', 'Large length')),
-          statusw = factor(ifelse(Sepal.Width<3,'Small width', 'Large width')))  
-
-ggplot(df,aes(Petal.Length, fill=interaction(statusl, statusw))) +
-         geom_density(alpha = 0.2) + xlab("Petal Length")
-
-View(df)
-
-
-
-
-
-
-
+gridExtra::grid.arrange(g1,g2,g3)
 
