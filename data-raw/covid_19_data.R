@@ -1,4 +1,5 @@
 ## code to prepare `DATASET` dataset goes here
+###########################################################################################################################################################3
 library(MSB104TimeSeries)
 library(COVID19)
 library(dplyr)
@@ -6,8 +7,7 @@ library(lubridate)
 library(zoo)
 library(PxWebApiData)
 library(ggplot2)
-
-####
+###########################################################################################################################################################3
 all_data <- COVID19::covid19(verbose = F)
 unique(all_data$id)
 #   [1] "ABW" "AFG" "AGO" "AIA" "ALB" "AND" "ARE"
@@ -43,7 +43,6 @@ unique(all_data$id)
 # [211] "UKR" "URY" "USA" "UZB" "VAT" "VCT" "VEN"
 # [218] "VGB" "VIR" "VNM" "VUT" "WLF" "WSM" "YEM"
 # [225] "ZAF" "ZMB" "ZWE"
-
 sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','IND','JPN')
 COVID19 <- all_data %>% dplyr::filter(id%in%sel_cou) %>%
 # Datering
@@ -69,34 +68,65 @@ library(ggplot2)
 ssbdoede <- read.delim("ssbdoede.txt", header=FALSE)
 names(ssbdoede) <- c("Kjonn","Alder","Uke","Doede","Aar","Antall")
 
-ssbdoedec <- ssbdoede %>% 
+ssbdoedec <- ssbdoede %>%
 	dplyr::mutate(Doede=gsub("D\xf8de","Doede",Doede)) %>%
 	dplyr::mutate(Kjonn=gsub("Begge kj\xf8nn","Begge",Kjonn)) %>%
 	dplyr::mutate(Alder=gsub("Alle aldre","-1",Alder)) %>%
 	dplyr::mutate(Alder=gsub(" \xe5r","",Alder)) %>%
 	dplyr::mutate(Alder=gsub(" \xe5r eller aldre","",Alder)) %>%
-	dplyr::mutate(Uke=gsub("Uke ","",Uke))
+	dplyr::mutate(Uke=gsub("Uke ","",Uke)) %>%
+	dplyr::mutate(Alder=as.numeric(Alder)) %>%
+	dplyr::mutate(Uke=as.numeric(Uke)) %>%
+	dplyr::mutate(Antall=as.numeric(Antall))
 
 alle_df <- ssbdoedec %>% dplyr::filter(Alder==-1) %>%
-	dplyr::filter(Aar%in%c("2020","2021","2019","2018")) %>%
-	dplyr::mutate(Aar=as.factor(Aar)) %>%
-	dplyr::arrange(Aar) %>%
-	dplyr::mutate(Antall=as.numeric(Antall)) %>%
-	dplyr::mutate(Uke=as.numeric(Uke)) %>%
-	dplyr::mutate(Alder=as.numeric(Alder)) 
+  dplyr::mutate(Aar=as.factor(Aar)) %>%
+  dplyr::filter(Aar%in%c("2020","2021","2019","2018")) %>% dplyr::arrange(Aar)
 
-ggplot(dplyr::filter(alle_df,Kjonn=='Begge'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=20) + labs(x='ukenr',y='antall døde')
-ggplot(dplyr::filter(alle_df,Kjonn=='Kvinner'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=20) + labs(x='ukenr',y='antall døde')
+ggplot(dplyr::filter(alle_df,Kjonn=='Begge'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=22) + labs(x='ukenr',y='antall døde')
+ggplot(dplyr::filter(alle_df,Kjonn=='Kvinner'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=22) + labs(x='ukenr',y='antall døde')
 
-aldr_df <- ssbdoedec %>% dplyr::filter(Alder!=1) %>%
-	dplyr::filter(Aar%in%c("2020","2021","2019","2018")) %>%
-	dplyr::mutate(Aar=as.factor(Aar)) %>%
-	dplyr::arrange(Aar) %>%
-	dplyr::mutate(Antall=as.numeric(Antall)) %>%
-	dplyr::mutate(Uke=as.numeric(Uke)) %>%
-	dplyr::mutate(Alder=as.numeric(Alder)) %>%
-	dplyr::filter(Aar%in%c("2020","2021","2019","2018")) %>%
-	dplyr::mutate(Aar=as.factor(Aar)) %>%
+aldr_df2 <- ssbdoedec %>% 
+  # Filter
+  dplyr::filter(Alder!=-1,Kjonn=='Begge') %>%
+  dplyr::filter(alder<100) %>%
+  dplyr::filter(Aar%in%c("2021")) %>%
+  # Intervall
+  dplyr::mutate(Interv=base::cut(Alder,breaks=seq(-1,100, by=25)))  %>%
+  # Prepreation and mutate
+  dplyr::arrange(Kjonn,Aar,Alder,Uke) %>%
+  dplyr::group_by(Kjonn,Aar,Interv) %>%
+  dplyr::mutate(Antall=tidyr::replace_na(Antall,0)) %>%
+  dplyr::mutate(Antallinter=cumsum(Antall)) %>%
+  dplyr::mutate(Interv=as.factor(Interv)) %>%
+  #dplyr::filter(Alder>0) %>%
+  dplyr::ungroup() 
 
-View(aldr_df)
+View(aldr_df2)
+tail(aldr_df2)
+
+###########################################################################################################################################################3
+ggplot(dplyr::filter(aldr_df2,Kjonn=='Begge'), aes(x=Uke,y=Antallinter, fill=Interv)) + geom_point() + geom_smooth()
+ggplot(dplyr::filter(aldr_df2,Kjonn=='Begge'), aes(x=Uke,y=Antallinter, fill=interaction(Aar,Interv))) + geom_point() + geom_smooth()
+
+
+
+library(tidyverse)
+
+
+df <- iris %>% 
+   mutate(statusl = factor(ifelse(Sepal.Length<5,'Small length', 'Large length')),
+          statusw = factor(ifelse(Sepal.Width<3,'Small width', 'Large width')))  
+
+ggplot(df,aes(Petal.Length, fill=interaction(statusl, statusw))) +
+         geom_density(alpha = 0.2) + xlab("Petal Length")
+
+View(df)
+
+
+
+
+
+
+
 

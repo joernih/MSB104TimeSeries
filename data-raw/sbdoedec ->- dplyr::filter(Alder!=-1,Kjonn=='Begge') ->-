@@ -1,0 +1,55 @@
+cumsum                  package:base                   R Documentation
+
+_C_u_m_u_l_a_t_i_v_e _S_u_m_s, _P_r_o_d_u_c_t_s, _a_n_d _E_x_t_r_e_m_e_s
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Returns a vector whose elements are the cumulative sums, products,
+     minima or maxima of the elements of the argument.
+
+_U_s_a_g_e:
+
+     cumsum(x)
+     cumprod(x)
+     cummax(x)
+     cummin(x)
+     
+_A_r_g_u_m_e_n_t_s:
+
+       x: a numeric or complex (not ‘cummin’ or ‘cummax’) object, or an
+          object that can be coerced to one of these.
+
+_D_e_t_a_i_l_s:
+
+     These are generic functions: methods can be defined for them
+     individually or via the ‘Math’ group generic.
+
+_V_a_l_u_e:
+
+     A vector of the same length and type as ‘x’ (after coercion),
+     except that ‘cumprod’ returns a numeric vector for integer input
+     (for consistency with ‘*’).  Names are preserved.
+
+     An ‘NA’ value in ‘x’ causes the corresponding and following
+     elements of the return value to be ‘NA’, as does integer overflow
+     in ‘cumsum’ (with a warning).
+
+_S_4 _m_e_t_h_o_d_s:
+
+     ‘cumsum’ and ‘cumprod’ are S4 generic functions: methods can be
+     defined for them individually or via the ‘Math’ group generic.
+     ‘cummax’ and ‘cummin’ are individually S4 generic functions.
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) _The New S
+     Language_.  Wadsworth & Brooks/Cole. (‘cumsum’ only.)
+
+_E_x_a_m_p_l_e_s:
+
+     cumsum(1:10)
+     cumprod(1:10)
+     cummin(c(3:1, 2:0, 4:2))
+     cummax(c(3:1, 2:0, 4:2))
+     
+
