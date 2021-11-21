@@ -76,6 +76,6 @@ df2 <- dplyr::filter(aldr_df2,Alder<60,Alder>40)
 g2 <- ggplot(df2, aes(x=Uke,y=Antallinter, color=interaction(Interv,Aar))) + geom_point() + geom_smooth() + labs(x='ukenr',y='antall døde')
 df3 <- dplyr::filter(aldr_df2,Alder<40)
 g3 <- ggplot(df3, aes(x=Uke,y=Antallinter, color=interaction(Interv,Aar))) + geom_point() + geom_smooth() + labs(x='ukenr',y='antall døde')
-
 gridExtra::grid.arrange(g1,g2,g3)
+###########################################################################################################################################################3
 
