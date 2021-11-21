@@ -336,7 +336,9 @@ In recent years, it has become more popular to estimate models by OLS but to cor
 
 # 16: Simultanous equations models (SEM) 
 [Wooldridge 16](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH16_Wooldridge_7e%20PPT_2pp.pptx)
+
 ## The nature of simultanous equations models
+
 Endogeneity problem: 
 
 - (1) Measurement error 
