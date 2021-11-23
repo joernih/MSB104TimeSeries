@@ -278,7 +278,7 @@ So even though $y_{t}$ is a linear function of ${\bf{x_{t}}}$, the $Var(y_{t}|{\
 	- $Var(e_{t}|u_{t}, u_{t-1}, u_{t-2})=Var(e_{t})=\sigma^{2}_{e}$
 
 #### Durbin-Watson test
-- T-test is commonly considered to be better, so we will one consider t-test in this course.
+- T-test is commonly considered to be better, so we will only consider t-test in this course.
 
 ### Without strictly exogenous regressors (General Breusch-Godfrey test for AR(q) serial correlation
 - (i) Run the OLS regression of $y_{t}$ on $x_{t1},...,x_{tk}$ and obtain the OLS residuals $\hat{u}_{t}$
