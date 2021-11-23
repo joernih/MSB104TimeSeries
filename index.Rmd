@@ -1,5 +1,5 @@
 ---
-title: "Econometrics (MSB104) Part II: Time Series Analysis"
+title: "Econometrics (MSB104/ØSS114) Part II: Time Series Analysis"
 output: github_document
 #output: html_document
 #output: html_notebook

@@ -1,4 +1,4 @@
-Econometrics (MSB104) Part II: Time Series Analysis
+Econometrics (MSB104/ØSS114) Part II: Time Series Analysis
 ================
 
 ![](man/figures/ts.jpg)
@@ -14,4 +14,4 @@ Econometrics (MSB104) Part II: Time Series Analysis
 -   Part I and II: Tips and preperation for the Exam (week 49: Zoom/?)
     -   Mon. 6. december
 
-**Siste gang oppdatert: 2021-11-23 22:54:09**
+**Siste gang oppdatert: 2021-11-23 23:16:22**
