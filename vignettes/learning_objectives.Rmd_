@@ -20,21 +20,19 @@ rmarkdown::render("learning_objectives.Rmd")
 system('brave learning_objectives.html')
 ```
 
-class: inverse, center, middle
-
+```{r, eval=T, include=F}
+#library(MSB104EconometricsJIH)
+#data(package='MSB104EconometricsJIH')
+```
 # 10: Basic regression analysis with time series data 
 
 [Wooldridge 10](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH10_Wooldridge_7e%20PPT_2pp.pptx)
 
----
-
-## Nature of time series data
+## Nature of time series data abc
 - Process (temporal): t=1,2,...,n
 - Stochastic: {}
-- Variables: $(x_{1t},x_{2t},...,x_{kt},y_{t})$
-- Together: $\{(x_{1t},x_{2t},...,x_{kt},y_{t});t=1,2,..,n\}$
-
----
+- Variables: $(x_{t1},x_{t2},...,x_{tk},y_{t})$
+- Together: $\{(x_{t1},x_{t1},...,x_{tk},y_{t});t=1,2,..,n\}$
 
 ## Examples of time series regression models
 ### Static models 
@@ -48,10 +46,12 @@ class: inverse, center, middle
 	- $gfr_{t}=\alpha_{0}+\delta_{0}pe_{t}+\delta_{1}+pe_{t-1} + \delta_{2}pe_{t-2}+u_{t}$
 - Example model (2b) Covid-19
 	- $deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}+icu_{t-1} + \delta_{2}icu_{t-2}+u_{t}$
-
----
-
-
+<!--- Example model (3a) AR(1)
+	- $y_{t}=\rho y_{t-1} + e_{t}$
+-->
+<!--- Example model (3b) MA(1)
+	- $y_{t}=\theta e_{t-1} + e_{t}$
+-->
 
 Temporary change by 1 in period t
 Impact-propensity (general model)
@@ -69,8 +69,6 @@ Long-run propensity (general model)
 - 2. periods: $\delta_{0}+\delta_{1}+\delta_{2}$
 - 3. periods: $\delta_{0}+\delta_{1}+\delta_{2}$
 
----
-
 ## Finite sample properties of OLS under classical assumptions (small sample)
 $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 
@@ -80,8 +78,6 @@ $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 
 - TS.3: Zero conditional mean 
   - $E(u_{t}|\textbf{X})=0$ for $t=0,1,2,...,n$
-
----
 
 - TS.4: No heteroskedasticity 
   - $Var(u_{t}|\textbf{X})=\sigma^2$ 
@@ -96,10 +92,6 @@ $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 1. TS.1, TS.2, TS.3, TS.4 og TS.5 $\Rightarrow$ OLS is BLUE
 1. TS.1, TS.2, TS.3, TS.4, TS.5 and TS.6 $\Rightarrow$ OLS estimatiors for $\beta_{j} \text{ where } j=0,1,..,k$ are normaly distributed
 
-
----
-
-
 ## Functional form, dummy variables, and index numbers
 
 ### Functional form
@@ -108,12 +100,11 @@ $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 
 ### Dummy variables
 - $inf_{t}=\beta_{0} + \beta_{1}unem_{t} + \beta_{t}lock_{t} + u_{t}$
+- $deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}+icu_{t-1} + \delta_{2}icu_{t-2}+\delta_{3}lock_{t-1}+u_{t}$
 
 ### Index numbers
 - $inf_{t}=\beta_{0} + \beta_{1}unem_{t} + \beta_{t}stringindex_{t} + u_{t}$
-
----
-
+  
 ## Trends and seasonality
 ### Trends
 - Modelling a linear time trend
@@ -124,7 +115,6 @@ $y_{t}=\beta_{0}+\beta_{1}x_{t1}+\beta_{2}x_{t1}+...+\beta_{k}x_{t1}+u_{t}$
 	- $log(y_{t})=\alpha_{0}+\alpha_{1}t+e_{t}$   
 	- $E(log(y_{t}))=\alpha_{0}+\alpha_{1}t$
 	- $E(log(y_{t}/y_{y-1}))=\alpha_{1}(t-(t-1))=\alpha_{1}t$
-- Modelling a Gompertz time trend?
 
 When to include a trend?
 
@@ -139,35 +129,19 @@ Consequences of not including a trend:
 - Yield bias OLS estimators if more than one variables are driven by an unobserved trending factors
 	- Spurious regression: But the usual and adjusted R-squared for time series regressions can be artificially high when the dependent variable is trending.
 
-
----
-
-
 ### Seasonality
-
 - Quarterly:
 	- $y_{t}=\beta_{0}+ \alpha_{1}y_{t_1} +\delta_{1}aut_{t}+\delta_{2}sum_{t}+ \delta_{3}spr_{t}+u_{t}$
-
-
----
-
-
-class: inverse, center, middle
 
 # 11: Further issues in using OLS with time series data 
 
 [Wooldridge 11](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH11_Wooldridge_7e%20PPT_2pp.pptx)
-
-
----
-
 
 ## Stationarity and weekly dependent time series 
 
 ### Stationarity
 #### Stationarity
 A stochastical process $\{x_{t};t=1,2,..,n\}$ is stationary if for every collection of time indeces
-
 $1\leq t_{1}<t_{1}<..>t_{m}$
 The joint distribution of
 $(x_{t_{1}}, x_{t_{2}},...,x_{t_{n}})$
@@ -175,10 +149,12 @@ is the same as
 $(x_{t_{1+h}}, x_{t_{2+h}},...,x_{t_{n+h}})$
 for all $h \geq 1$
 
-## Covariance stationarity
-A stochastical process $\{x_{t};t=1,2,..,n\}$ is covariance stationarity if its expected value and variance constant over time, and the covariance only depends on $h$
+### Covariance stationarity
+A stochastical process $\{x_{t};t=1,2,..,n\}$ is covariance stationarity if its 
 
----
+- Expected value constant over time, $E(x_t)=\mu$
+- Variance constant over time, $Var(x_t)=\sigma$
+- Covariance only depends on $h$, $Cov(x_{t+h},x_t)=f(h)$
 
 ### Weakly dependency (I(0) - integrated of order zero)
 A stationary time series $\{x_{t};t=1,2,..,n\}$ is weekly dependent if $x_{t}$ and $x_{t+h}$ are almost independent as h increases without bond.
@@ -194,9 +170,6 @@ Examples:
   - Stable process ($|\rho|<1$) is weekly dependent
 
 <!-- Hybrid AR(1) and MA(1), ARMA(1) -->
-
----
-
 
 ## Asymptotic properties of OLS   
 - TS'.1: Linear in parameters and that 
@@ -215,8 +188,6 @@ Examples:
 1. TS'.1, TS'.2 og TS'.3 $\Rightarrow plim \hat{\beta_{j}}=\beta_{j} \text{ for} j=0,1,2,...,k$ are consistent 
 
 1. TS'.1, TS'.2, TS'.3, TS'.4 og TS'.5 $\Rightarrow$ OLS estimators asymptotically normally distributed $\Rightarrow$ OLS estimator, t-,F-,LM statics asympotically valid
-
----
 
 ## Using highly persistent time series (I(1) - integrated of order one) in regression analysis 
 
@@ -243,9 +214,6 @@ Regardless of how far in the future we want to predict, today's value is our bes
 $Corr(y_{t+h},y_{t})=\sqrt{t/(t+h)}$.
 Dependent on t (not constant)
 
----
-
-
 ### Random walk with drift
 
 $y_{t}=\alpha_{0} t + \alpha_{1t}+e_{t-1}+...+e_{1}+y_{0}$
@@ -268,8 +236,6 @@ $E(y_{t+h}|y_{t})=\alpha_{0}h+y_{t}$
 $Corr(y_{t+h},y_{t})=\sqrt{t/(t+h)}$.
 Dependent on t (not constant)
 
----
-
 ### Differencing a highly persistent time series
 
 - We can use the value of $\hat{\rho}$ (first-order autocorrelation of y_{t}) to help decide whether the process is I(1) or I(0).
@@ -279,16 +245,13 @@ Dependent on t (not constant)
 - Both unit root and trend may be elimaniting by differencing:
 $\Delta y_{t}=y_{t}-y_{t-1}=e_{t}$
 
----
-
-## The dynamically complete models and the absence of serial correlation
+## Dynamically complete models and the absence of serial correlation
 A model is said to be dynamically complete if enough lagged variables have been included as explanatory variables so that further lags do not help to explain the dependent variable:
 $E(y_{t}|{\bf{x}_{t}}, {\bf{x}_{t-1}}, y_{t-1},...) = E(y_{t}|{\bf{x}}_{t})$
 
-- So once the explanatory variables ${\bf{x}_{t}}$ in the model is controlled for, no further lags help to explain the current z.
+- So once the explanatory variables ${\bf{x}_{t}}$ in the model is controlled for, no further lags help to explain the current z
 - Dynamic completness implies absence of serial correlation
-
----
+- Sequential exogenity implies that causal effects will correctly estimated, even with the absence of serial correlation
 
 ## The homoskedasticity assumption for time series models
 
@@ -296,15 +259,8 @@ $Var(u_{t}|{\bf{x_{t}}}) = Var(y_{t}|{\bf{x_{t}}}) = \sigma^{2}$
 
 So even though $y_{t}$ is a linear function of ${\bf{x_{t}}}$, the $Var(y_{t}|{\bf{x_{t}}})$ must be constant.
 
----
-
-class: inverse, center, middle
-
 # 12: Serial correlation and heteroskedasticity in time series regression 
 [Wooldridge 12](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH12_Wooldridge_7e%20PPT_2pp.pptx)
-
----
-
 
 ## Properties of OLS under serial correlated errors 
 - Given that TS.1/TS'.1, TS.2/TS'.2 and TS.3/TS'3 still hold, OLS still unbiased/consistent $\Rightarrow$ point estimates and $R^{2}$ valid 
@@ -312,23 +268,17 @@ class: inverse, center, middle
 	- OLS inefficient (no longer BLUE) 
 	- Standard errors (typically underestimated), t-,F and LM- statistics not valid
 
----
-
-
 ## Testing for serial correlation 
 ### With strictly exogenous regressors
 #### t-test
 - $H_{0}:\rho=0$ No serial correlation
-- $H_{1}:|\rho|<1$ Serial correlation
+- $H_{1}:\rho=0$ Serial correlation
 - Assume that
 	- $E(e_{t}|u_{t}, u_{t-1}, u_{t-2})=0$ 
 	- $Var(e_{t}|u_{t}, u_{t-1}, u_{t-2})=Var(e_{t})=\sigma^{2}_{e}$
 
 #### Durbin-Watson test
-- T-test is commonly considered to be better, so we will one consider t-test in this course.
-
----
-
+- T-test is commonly considered to be better, so we will only consider t-test in this course.
 
 ### Without strictly exogenous regressors (General Breusch-Godfrey test for AR(q) serial correlation
 - (i) Run the OLS regression of $y_{t}$ on $x_{t1},...,x_{tk}$ and obtain the OLS residuals $\hat{u}_{t}$
@@ -340,7 +290,6 @@ class: inverse, center, middle
 - Se Woodford for AR(2)
 - Harvey (1990) provides a general approach
 
----
 
 ## Correcting for serial correlation with strictly exogenous regressors
 
@@ -350,8 +299,6 @@ If we detect serial correlation after applying some of the tests, we have to do 
 
 - For model with incomplete dynamics $\Rightarrow$ find a way to carry out statistical inference. Ex. Serial Correlation-Robust  Inference after OLS
 
----
-
 ## Differencing and serial correlation
 
 For $y_{t}=\beta_{0}+\beta_{1}x_{t}+u_{t}$. We should differentiate 
@@ -360,8 +307,6 @@ if
 - If $u_{t}$ follows a random walk, differencing will imply that $\delta u_{t}$ is serially uncorrelated
 - If $u_{t}$ do not follow a random walk, but the estimation of $\rho$ on its lagged value is high, differencing
   will eliminate most of the autocorrelation.
-
----
 
 ## Serial correlation-robust inference after OLS
 
@@ -373,11 +318,11 @@ if
 	- (iv) Compute $se(\hat{\beta_{j}})=\left[\frac{\text{"}se(\hat{\beta_{j}})\text{"}}{\hat{\sigma}} \right ]^{2}\sqrt{v}$
 - An implementation in R can be found [here](https://www.econometrics-with-r.org/15-4-hac-standard-errors.html)
 
----
-
 ## Heteroskedasticity in time series regression
 
 In recent years, it has become more popular to estimate models by OLS but to correct the standard errors for fairly arbitrary forms of serial correlation (and heteroskedasticity).
+
+### Correction
 
 - Receive less attention than serial correlation
 - Heteroskedasticity-robust standard errors also work for time series
@@ -389,15 +334,8 @@ In recent years, it has become more popular to estimate models by OLS but to cor
 	- Test for serial correlation (heteroskedasticy-robust test)
 	- After potential serial correlation corrected for, test for heteroskedasticity
 
----
-
-class: inverse, center, middle
-
 # 16: Simultanous equations models (SEM) 
-
 [Wooldridge 16](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH16_Wooldridge_7e%20PPT_2pp.pptx)
-
----
 
 ## The nature of simultanous equations models
 
@@ -409,8 +347,6 @@ Endogeneity problem:
 
 SEM model: each equation in the system should have a ceteris paribus, causal interpreation
 
----
-
 Example: Supply and labor demand
 
 Set of three equations:
@@ -418,8 +354,6 @@ Set of three equations:
 - $h_{s}=\alpha_{1}w+\beta_{1}z_{1}+u_{1}$
 - $h_{d}=\alpha_{2}w+\beta_{2}z_{2}+u_{2}$
 - $h_{s}=h_{d}=h$
-
----
 
 Which can be combined into a set of two equations of a 
 simultanous equations model (SEM):
@@ -430,18 +364,13 @@ simultanous equations model (SEM):
 Endogenous:$h_{i},w_{i}$
 Exogenous: $z_{i,1}, z_{i,2}$
 
----
-
 ## Simultaneity bias in OLS
-
 - $y_{1}=\alpha_{1}y_{2}+\beta_{1}z_{1}+u_{1}$
 - $y_{2}=\alpha_{2}y_{1}+\beta_{2}z_{2}+u_{2}$
 
 Solve for the reduced form equation $y_{22}$
 $y_{2}=\alpha_{2}(\alpha_{1}y_{2}+\beta_{1}z_{1}+u_{1})+\beta_{2}z_{2}+u_{2}$
 $y_{2}(1-\alpha_{2}\alpha_{1})=\alpha_{2}\beta_{1}z_{1}+\beta_{2}z_{2}+\alpha_{2}u_{1}+u_{2}$
-
----
 
 Assume that $\alpha_{2}\alpha_{1}\neq0$ 
 
@@ -451,8 +380,6 @@ Where the reduced form parameters and errors
 - $\pi_{21}\equiv\frac{\alpha_{2}\beta_{1}}{(1-\alpha_{2}\alpha_{1})}$
 
 $\alpha_{2} \neq 0 \rightarrow$ simultaneity bias
-
----
 
 ## Identifying and estimating a structural equations
 
@@ -468,26 +395,66 @@ Given a random sample of (q,p,z), which of the equations (identified equation) a
 
 z_{1} can be used as an IV-variable in the demand equation
 
----
-
 ## (System with more than two equations)
 Not covered in this course
-
----
 
 ## (Simultanous equations models with time series)
 Not covered in this course
 
----
-
 ## (Simultanous equations models with panel data)
 Not covered in this course
 
----
-
-```{r, include=F}
+```{r include=F}
 knitr::knit_exit()
 ```
+
+
+# Repetition time series data (2 hours)
+## Data realization
+
+## Data generation process
+
+## Model estimation
+
+## Properties
+
+## Diagnostics
+
+## Estimation results
+
+Tasks:
+Asymptotic
+Eksamen 
+Prøveeksamen
+
+- Example model (3)
+	- $y_{t}=\rho y_{t-1} + e_{t}$
+- If $|\rho| < 1$ AR(1) process
+	- $y_{t}=\rho y_{t-1} + e_{t}$
+- If $\rho = 1$ Random walk
+	- $y_{t}=\rho y_{t-1} + e_{t}$
+
+Sequential exogenity
+
+Example: AR(1) without an intercept:
+- $y_{t}=\alpha_{0}+\rho y_{t-1} + e_{t}$
+
+Example: AR(1) with an intercept:
+- $y_{t}=\alpha_{0}+\rho y_{t-1} + e_{t}$
+
+- If $\rho<|1|$ weekly dependence (no unit root, I(0)) -> TS'1. not violated
+- If $\rho=1$ HP strongly dependence (unit root, I(1)) -> TS'1. violated 
+
+
+# Introduction
+# Stationarity and weekly dependent time series
+# Asymptotic properties of OLS
+# Using highly persistent timer series in regression analysis
+# Complete dynamic models and the absence of serial correlation
+# The homoskedasticity assumption for time series models
+
+
+
 
 
 

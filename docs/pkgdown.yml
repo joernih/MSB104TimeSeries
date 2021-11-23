@@ -1,4 +1,4 @@
-pandoc: 2.14.0.2
+pandoc: 2.14.2
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
@@ -10,5 +10,5 @@ articles:
   cheatsheet: cheatsheet.html
   exercises: exercises.html
   learning_objectives: learning_objectives.html
-last_built: 2021-11-23T16:16Z
+last_built: 2021-11-23T21:53Z
 
