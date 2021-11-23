@@ -8,44 +8,11 @@ library(zoo)
 library(PxWebApiData)
 library(ggplot2)
 ###########################################################################################################################################################3
-all_data <- COVID19::covid19(verbose = F)
-unique(all_data$id)
-#   [1] "ABW" "AFG" "AGO" "AIA" "ALB" "AND" "ARE"
-#   [8] "ARG" "ARM" "ASM" "ATG" "AUS" "AUT" "AZE"
-#  [15] "BDI" "BEL" "BEN" "BES" "BFA" "BGD" "BGR"
-#  [22] "BHR" "BHS" "BIH" "BLR" "BLZ" "BMU" "BOL"
-#  [29] "BRA" "BRB" "BRN" "BTN" "BWA" "CAC" "CAF"
-#  [36] "CAN" "CHE" "CHL" "CHN" "CIV" "CMR" "COD"
-#  [43] "COG" "COK" "COL" "COM" "CPV" "CRI" "CUB"
-#  [50] "CUW" "CYM" "CYP" "CZE" "DEU" "DJI" "DMA"
-#  [57] "DNK" "DOM" "DPC" "DZA" "ECU" "EGY" "ERI"
-#  [64] "ESP" "EST" "ETH" "FIN" "FJI" "FLK" "FRA"
-#  [71] "FRO" "FSM" "GAB" "GBR" "GEO" "GHA" "GIB"
-#  [78] "GIN" "GLP" "GMB" "GNB" "GNQ" "GPC" "GRC"
-#  [85] "GRD" "GRL" "GTM" "GUF" "GUM" "GUY" "HND"
-#  [92] "HRV" "HTI" "HUN" "IDN" "IMN" "IND" "IRL"
-#  [99] "IRN" "IRQ" "ISL" "ISR" "ITA" "JAM" "JOR"
-# [106] "JPN" "KAZ" "KEN" "KGZ" "KHM" "KIR" "KNA"
-# [113] "KOR" "KWT" "LAO" "LBN" "LBR" "LBY" "LCA"
-# [120] "LIE" "LKA" "LSO" "LTU" "LUX" "LVA" "MAR"
-# [127] "MCO" "MDA" "MDG" "MDV" "MEX" "MHL" "MKD"
-# [134] "MLI" "MLT" "MMR" "MNE" "MNG" "MNP" "MOZ"
-# [141] "MRT" "MSR" "MSZ" "MTQ" "MUS" "MWI" "MYS"
-# [148] "MYT" "NAM" "NCL" "NER" "NGA" "NIC" "NLD"
-# [155] "NOR" "NPL" "NZL" "OMN" "PAK" "PAN" "PER"
-# [162] "PHL" "PLW" "PNG" "POL" "PRI" "PRT" "PRY"
-# [169] "PSE" "PYF" "QAT" "REU" "RKS" "ROU" "RUS"
-# [176] "RWA" "SAU" "SDN" "SEN" "SGP" "SHN" "SLB"
-# [183] "SLE" "SLV" "SMR" "SOM" "SRB" "SSD" "STP"
-# [190] "SUR" "SVK" "SVN" "SWE" "SWZ" "SXM" "SYC"
-# [197] "SYR" "TCA" "TCD" "TGO" "THA" "TJK" "TLS"
-# [204] "TON" "TTO" "TUN" "TUR" "TWN" "TZA" "UGA"
-# [211] "UKR" "URY" "USA" "UZB" "VAT" "VCT" "VEN"
-# [218] "VGB" "VIR" "VNM" "VUT" "WLF" "WSM" "YEM"
-# [225] "ZAF" "ZMB" "ZWE"
-sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','IND','JPN')
+sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','IND','JPN')[1]
+all_data <- COVID19::covid19(country=sel_cou ,verbose = F)
+
+# NULL
 COVID19 <- all_data %>% dplyr::filter(id%in%sel_cou) %>%
-# Datering
 dplyr::mutate(year=as.factor(lubridate::year(date))) %>%
 dplyr::mutate(dayofyear=lubridate::yday(date)) %>%
 dplyr::select(id,date,confirmed,deaths,hosp,dayofyear,year,population) %>%
@@ -53,6 +20,7 @@ dplyr::mutate(c_deaths=deaths-dplyr::lag(deaths)) %>%
 dplyr::mutate(ma_deaths=round(rollmean(c_deaths,k=7, fill=NA)),digits=4) %>%
 dplyr::mutate(ma_deaths_perc=(ma_deaths/population)*100000)
 usethis::use_data(COVID19, overwrite = TRUE)
+View(all_data)
 ###########################################################################################################################################################3
 covidts <- COVID19
 sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','JPN')
