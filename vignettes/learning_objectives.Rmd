@@ -316,7 +316,7 @@ if
 	- (ii) Compute the residuals $\hat{r}_{t}:t=1,...,n$, then form $\hat{a}_{t}=\hat{u}_{t}\hat{r}_{t}$
 	- (iii) For your choice of $g$, compute $\hat{v}$
 	- (iv) Compute $se(\hat{\beta_{j}})=\left[\frac{\text{"}se(\hat{\beta_{j}})\text{"}}{\hat{\sigma}} \right ]^{2}\sqrt{v}$
-- An implementation in R can be found [here](https://www.r-econometrics.com/methods/hcrobusterrors/)
+- An implementation in R can be found [here](https://www.econometrics-with-r.org/15-4-hac-standard-errors.html)
 
 ## Heteroskedasticity in time series regression
 
