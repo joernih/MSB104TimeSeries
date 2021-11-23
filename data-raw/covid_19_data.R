@@ -8,10 +8,10 @@ library(zoo)
 library(PxWebApiData)
 library(ggplot2)
 ###########################################################################################################################################################3
-sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','IND','JPN')[1]
-all_data <- COVID19::covid19(country=sel_cou ,verbose = F)
-
-# NULL
+sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','IND','JPN')[c(1:2)]
+all_data <- COVID19::covid19(country=sel_cou, level=1,verbose = T)
+unique(all_data$id)
+###
 COVID19 <- all_data %>% dplyr::filter(id%in%sel_cou) %>%
 dplyr::mutate(year=as.factor(lubridate::year(date))) %>%
 dplyr::mutate(dayofyear=lubridate::yday(date)) %>%
