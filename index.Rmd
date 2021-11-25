@@ -9,7 +9,7 @@ output: github_document
 devtools::document()
 devtools::install()
 .libPaths()
-
+```
 
 ```{r, eval=F, echo=F}
 rmarkdown::render("index.Rmd")
