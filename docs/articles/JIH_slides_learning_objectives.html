@@ -109,7 +109,7 @@
 
       
 
-      </header><script src="JIH_slides_learning_objectives_files/header-attrs-2.11/header-attrs.js"></script><script type="application/json" id="xaringanExtra-editable-docid">{"id":"eb9dac6ac33047eba343e3b4da5e3c85","expires":1}</script><script src="JIH_slides_learning_objectives_files/himalaya-1.1.0/himalaya.js"></script><script src="JIH_slides_learning_objectives_files/js-cookie-3.0.0/js.cookie.js"></script><link href="JIH_slides_learning_objectives_files/editable-0.2.6/editable.css" rel="stylesheet">
+      </header><script src="JIH_slides_learning_objectives_files/header-attrs-2.11/header-attrs.js"></script><script type="application/json" id="xaringanExtra-editable-docid">{"id":"x0fba3dfdd374eccb7c51f69f544c8e9","expires":1}</script><script src="JIH_slides_learning_objectives_files/himalaya-1.1.0/himalaya.js"></script><script src="JIH_slides_learning_objectives_files/js-cookie-3.0.0/js.cookie.js"></script><link href="JIH_slides_learning_objectives_files/editable-0.2.6/editable.css" rel="stylesheet">
 <script src="JIH_slides_learning_objectives_files/editable-0.2.6/editable.js"></script><link href="JIH_slides_learning_objectives_files/tile-view-0.2.6/tile-view.css" rel="stylesheet">
 <script src="JIH_slides_learning_objectives_files/tile-view-0.2.6/tile-view.js"></script><script src="JIH_slides_learning_objectives_files/fabric-4.3.1/fabric.min.js"></script><link href="JIH_slides_learning_objectives_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet">
 <script src="JIH_slides_learning_objectives_files/xaringanExtra-scribble-0.0.1/scribble.js"></script><script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script><script src="JIH_slides_learning_objectives_files/xaringanExtra-webcam-0.0.1/webcam.js"></script><script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script><link href="JIH_slides_learning_objectives_files/panelset-0.2.6/panelset.css" rel="stylesheet">
@@ -119,7 +119,7 @@
       <h1 data-toc-skip>Basic Regression Analysis with Timer Series data</h1>
                         <h4 class="author">Jørn I. Halvorsen</h4>
             
-            <h4 class="date">2021-11-23</h4>
+            <h4 class="date">2021-11-24</h4>
       
       
       <div class="hidden name"><code>JIH_slides_learning_objectives.Rmd</code></div>
@@ -172,12 +172,12 @@
 </li>
 <li>Example model (2a) Fertility
 <ul>
-<li><span class="math inline">\(gfr_{t}=\alpha_{0}+\delta_{0}pe_{t}+\delta_{1}+pe_{t-1} + \delta_{2}pe_{t-2}+u_{t}\)</span></li>
+<li><span class="math inline">\(gfr_{t}=\alpha_{0}+\delta_{0}pe_{t}+\delta_{1}pe_{t-1} + \delta_{2}pe_{t-2}+u_{t}\)</span></li>
 </ul>
 </li>
 <li>Example model (2b) Covid-19
 <ul>
-<li><span class="math inline">\(deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}+icu_{t-1} + \delta_{2}icu_{t-2}+u_{t}\)</span></li>
+<li><span class="math inline">\(deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}icu_{t-1} + \delta_{2}icu_{t-2}+u_{t}\)</span></li>
 </ul>
 </li>
 </ul>
@@ -486,7 +486,8 @@
 <p>A model is said to be dynamically complete if enough lagged variables have been included as explanatory variables so that further lags do not help to explain the dependent variable: <span class="math inline">\(E(y_{t}|{\bf{x}_{t}}, {\bf{x}_{t-1}}, y_{t-1},...) = E(y_{t}|{\bf{x}}_{t})\)</span></p>
 <ul>
 <li>So once the explanatory variables <span class="math inline">\({\bf{x}_{t}}\)</span> in the model is controlled for, no further lags help to explain the current z.</li>
-<li>Dynamic completness implies absence of serial correlation</li>
+<li>Dynamic completness implies absence of serial correlation.</li>
+<li>If sequential exogenity holds, causual effects will be correctly estimated, even with the presence of serial correlation in the error term.</li>
 </ul>
 <hr>
 </div>
@@ -531,7 +532,7 @@
 <li>
 <span class="math inline">\(H_{0}:\rho=0\)</span> No serial correlation</li>
 <li>
-<span class="math inline">\(H_{1}:\rho=0\)</span> Serial correlation</li>
+<span class="math inline">\(H_{1}:|\rho|&lt;1\)</span> Serial correlation</li>
 <li>Assume that
 <ul>
 <li><span class="math inline">\(E(e_{t}|u_{t}, u_{t-1}, u_{t-2})=0\)</span></li>

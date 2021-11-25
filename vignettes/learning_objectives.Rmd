@@ -45,9 +45,9 @@ class: inverse, center, middle
 - General model
   - $y=\alpha+\delta_{0}z_{t}+\delta_{1}z_{t-1}+\delta_{t-2}z_{2}+...+\delta_{N}z_{t-N}+u_{t}$
 - Example model (2a) Fertility
-	- $gfr_{t}=\alpha_{0}+\delta_{0}pe_{t}+\delta_{1}+pe_{t-1} + \delta_{2}pe_{t-2}+u_{t}$
+	- $gfr_{t}=\alpha_{0}+\delta_{0}pe_{t}+\delta_{1}pe_{t-1} + \delta_{2}pe_{t-2}+u_{t}$
 - Example model (2b) Covid-19
-	- $deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}+icu_{t-1} + \delta_{2}icu_{t-2}+u_{t}$
+	- $deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}icu_{t-1} + \delta_{2}icu_{t-2}+u_{t}$
 
 ---
 
@@ -286,7 +286,8 @@ A model is said to be dynamically complete if enough lagged variables have been 
 $E(y_{t}|{\bf{x}_{t}}, {\bf{x}_{t-1}}, y_{t-1},...) = E(y_{t}|{\bf{x}}_{t})$
 
 - So once the explanatory variables ${\bf{x}_{t}}$ in the model is controlled for, no further lags help to explain the current z.
-- Dynamic completness implies absence of serial correlation
+- Dynamic completness implies absence of serial correlation.
+- If sequential exogenity holds, causual effects will be correctly estimated, even with the presence of serial correlation in the error term.
 
 ---
 
@@ -305,8 +306,8 @@ class: inverse, center, middle
 
 ---
 
-
 ## Properties of OLS under serial correlated errors 
+
 - Given that TS.1/TS'.1, TS.2/TS'.2 and TS.3/TS'3 still hold, OLS still unbiased/consistent $\Rightarrow$ point estimates and $R^{2}$ valid 
 - Serial correlation violation of TS.5/TS' $\Rightarrow$
 	- OLS inefficient (no longer BLUE) 
@@ -399,7 +400,7 @@ class: inverse, center, middle
 
 ---
 
-## The nature of simultanous equations models
+## The nature of simultanous equations models (SEM)
 
 Endogeneity problem: 
 
@@ -407,9 +408,9 @@ Endogeneity problem:
 - (2) Omitted variables 
 - (3) **Simultaneity: one or more of the explanatory variables are jointly determined with the dependent variable**
 
-SEM model: each equation in the system should have a ceteris paribus, causal interpreation
-
 ---
+
+SEM model: each equation in the system should have a ceteris paribus, causal interpreation
 
 Example: Supply and labor demand
 
@@ -419,16 +420,19 @@ Set of three equations:
 - $h_{d}=\alpha_{2}w+\beta_{2}z_{2}+u_{2}$
 - $h_{s}=h_{d}=h$
 
----
-
 Which can be combined into a set of two equations of a 
-simultanous equations model (SEM):
+simultaneous equations model (SEM):
 
 - $h_{i}=\alpha_{1}w_{i}+\beta_{1}z_{i,1}+u_{i,1}$
 - $h_{i}=\alpha_{2}w_{i}+\beta_{2}z_{i,2}+u_{i,2}$
 
-Endogenous:$h_{i},w_{i}$
-Exogenous: $z_{i,1}, z_{i,2}$
+Endogenous:
+$$h_i,w_i$$
+
+Exogenous: 
+$$z_{i,1}, z_{i,2}$$
+
+
 
 ---
 

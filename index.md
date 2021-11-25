@@ -5,13 +5,14 @@ Econometrics (MSB104/ØSS114) Part II: Time Series Analysis
 
 ### Schedule
 
--   Module I (week 44: Zoom/HGSD1077)
+-   Module I (week 44: Zoom/HGSD1077) Haugesund and Bergen
     -   Wed. 3. november: 12:15-16:00
     -   Fri. 5. november: 10:15-14:00
--   Module II: (week 47: Zoom/HGSD1077)
+-   Module II: (week 47: Zoom/HGSD1077) Haugesund
     -   Wed. 24 november: 12:15-16:00
     -   Fri. 27 november: 10:15-14:00
--   Part I and II: Tips and preperation for the Exam (week 49: Zoom/?)
+-   Part I and II: Last year’s exam, questions from the students, how to
+    preperare for the exam (week 49: Zoom/?)
     -   Mon. 6. december
 
-**Siste gang oppdatert: 2021-11-23 23:16:22**
+**Siste gang oppdatert: 2021-11-25 12:27:25**

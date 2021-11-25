@@ -49,7 +49,7 @@ library(knitr)
 ```{r echo=F, message=FALSE, warning=FALSE}
 colnames <- c("", "Omitted variables (e.g, (1) trend (2) lagging)", "Highly persistent time series (I(1))", "Serial correlation", "Heteroskedasticity", "Simultaneity")
 c1 <- c("Violation", "Detecting", "Correcting")
-c2 <- c("TS.3/TS'.3", "Graphical", "(1) Inclulde time trend, (2) more lags")
+c2 <- c("TS.3/TS'.3", "Graphical/(formal) Economic theory", "(1) Inclulde time trend, (2) more lags")
 c3 <- c("TS'.1", "Graphical/(formal)", "First differentiating (I(0) $\\sim \\Delta$ I(1))")
 c4 <- c("TS.5/TS'.5", "Testing with or without strictly exogenous regressors", "Transformation/Robust standard errors (HAC)")
 c5 <- c("TS.4/TS'.4", "Testing", "Transformation/Robust standard errors")
