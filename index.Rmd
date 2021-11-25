@@ -37,7 +37,7 @@ https://elastic-turing-41462a.netlify.app/
   	- Wed. 24 november: 12:15-16:00 Haugesund and Bergen
 	- Fri. 27 november: 10:15-14:00 Haugesund
 - Part I and II: Last year's exam, questions from the students, how to preperare for the exam (week 49: Zoom/?) 
-  - Mon. 6. december
+  - Mon. 6. december Haugesund and Bergen
   
 **Siste gang oppdatert: `r Sys.time()`**
 

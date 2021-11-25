@@ -13,6 +13,6 @@ Econometrics (MSB104/ØSS114) Part II: Time Series Analysis
     -   Fri. 27 november: 10:15-14:00 Haugesund
 -   Part I and II: Last year’s exam, questions from the students, how to
     preperare for the exam (week 49: Zoom/?)
-    -   Mon. 6. december
+    -   Mon. 6. december Haugesund and Bergen
 
-**Siste gang oppdatert: 2021-11-25 13:50:18**
+**Siste gang oppdatert: 2021-11-25 13:52:30**
