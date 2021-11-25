@@ -282,6 +282,7 @@ $\Delta y_{t}=y_{t}-y_{t-1}=e_{t}$
 ---
 
 ## The dynamically complete models and the absence of serial correlation
+
 A model is said to be dynamically complete if enough lagged variables have been included as explanatory variables so that further lags do not help to explain the dependent variable:
 $E(y_{t}|{\bf{x}_{t}}, {\bf{x}_{t-1}}, y_{t-1},...) = E(y_{t}|{\bf{x}}_{t})$
 
@@ -394,7 +395,7 @@ In recent years, it has become more popular to estimate models by OLS but to cor
 
 class: inverse, center, middle
 
-# 16: Simultanous equations models (SEM) 
+# 16: Simultanous equations models (SEM) (only for MSB104)
 
 [Wooldridge 16](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH16_Wooldridge_7e%20PPT_2pp.pptx)
 
@@ -432,8 +433,6 @@ $$h_i,w_i$$
 Exogenous: 
 $$z_{i,1}, z_{i,2}$$
 
-
-
 ---
 
 ## Simultaneity bias in OLS
@@ -445,9 +444,7 @@ Solve for the reduced form equation $y_{22}$
 $y_{2}=\alpha_{2}(\alpha_{1}y_{2}+\beta_{1}z_{1}+u_{1})+\beta_{2}z_{2}+u_{2}$
 $y_{2}(1-\alpha_{2}\alpha_{1})=\alpha_{2}\beta_{1}z_{1}+\beta_{2}z_{2}+\alpha_{2}u_{1}+u_{2}$
 
----
-
-Assume that $\alpha_{2}\alpha_{1}\neq0$ 
+Assume that $\alpha_{2}\alpha_{1}\neq1$ 
 
 $y_{2}=\pi_{21}z_{1}+\pi_{22}z_{2}+v_{2}$
 
@@ -470,7 +467,28 @@ Special case:
 
 Given a random sample of (q,p,z), which of the equations (identified equation) above can be estimated by 2SLS
 
-z_{1} can be used as an IV-variable in the demand equation
+$z_1$ can be used as an IV-variable in the demand equations
+
+---
+
+## Estimation of simultaneous equation systems by 2SLS
+
+- Given the identification condition holds, the parameters of a simultaneous equations system can be consistenly estimated by 2SLS.
+1. For this, in a first stage, each endogenous variable is regressed on the full list of exogenous variables (reduced form regressions).
+2. In a second stage, the system equations are estimated by OLS but with the endogenous regressors being replaced by predictions from stage one.Not covered in this course
+
+---
+
+## (Simultanous equations models with panel data)
+Not covered in this course
+
+---
+
+```{r, include=F}
+knitr::knit_exit()
+```
+
+
 
 ---
 

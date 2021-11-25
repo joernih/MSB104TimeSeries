@@ -109,7 +109,7 @@
 
       
 
-      </header><script src="JIH_slides_learning_objectives_files/header-attrs-2.11/header-attrs.js"></script><script type="application/json" id="xaringanExtra-editable-docid">{"id":"x0fba3dfdd374eccb7c51f69f544c8e9","expires":1}</script><script src="JIH_slides_learning_objectives_files/himalaya-1.1.0/himalaya.js"></script><script src="JIH_slides_learning_objectives_files/js-cookie-3.0.0/js.cookie.js"></script><link href="JIH_slides_learning_objectives_files/editable-0.2.6/editable.css" rel="stylesheet">
+      </header><script src="JIH_slides_learning_objectives_files/header-attrs-2.11/header-attrs.js"></script><script type="application/json" id="xaringanExtra-editable-docid">{"id":"a8b576e706314e2aa082f8f1e1059280","expires":1}</script><script src="JIH_slides_learning_objectives_files/himalaya-1.1.0/himalaya.js"></script><script src="JIH_slides_learning_objectives_files/js-cookie-3.0.0/js.cookie.js"></script><link href="JIH_slides_learning_objectives_files/editable-0.2.6/editable.css" rel="stylesheet">
 <script src="JIH_slides_learning_objectives_files/editable-0.2.6/editable.js"></script><link href="JIH_slides_learning_objectives_files/tile-view-0.2.6/tile-view.css" rel="stylesheet">
 <script src="JIH_slides_learning_objectives_files/tile-view-0.2.6/tile-view.js"></script><script src="JIH_slides_learning_objectives_files/fabric-4.3.1/fabric.min.js"></script><link href="JIH_slides_learning_objectives_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet">
 <script src="JIH_slides_learning_objectives_files/xaringanExtra-scribble-0.0.1/scribble.js"></script><script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script><script src="JIH_slides_learning_objectives_files/xaringanExtra-webcam-0.0.1/webcam.js"></script><script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script><link href="JIH_slides_learning_objectives_files/panelset-0.2.6/panelset.css" rel="stylesheet">
@@ -119,7 +119,7 @@
       <h1 data-toc-skip>Basic Regression Analysis with Timer Series data</h1>
                         <h4 class="author">Jørn I. Halvorsen</h4>
             
-            <h4 class="date">2021-11-24</h4>
+            <h4 class="date">2021-11-25</h4>
       
       
       <div class="hidden name"><code>JIH_slides_learning_objectives.Rmd</code></div>
@@ -655,14 +655,14 @@
 </div>
 </div>
 </div>
-<div id="simultanous-equations-models-sem" class="section level1">
+<div id="simultanous-equations-models-sem-only-for-msb104" class="section level1">
 <h1 class="hasAnchor">
-<a href="#simultanous-equations-models-sem" class="anchor"></a>16: Simultanous equations models (SEM)</h1>
+<a href="#simultanous-equations-models-sem-only-for-msb104" class="anchor"></a>16: Simultanous equations models (SEM) (only for MSB104)</h1>
 <p><a href="https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH16_Wooldridge_7e%20PPT_2pp.pptx">Wooldridge 16</a></p>
 <hr>
-<div id="the-nature-of-simultanous-equations-models" class="section level2">
+<div id="the-nature-of-simultanous-equations-models-sem" class="section level2">
 <h2 class="hasAnchor">
-<a href="#the-nature-of-simultanous-equations-models" class="anchor"></a>The nature of simultanous equations models</h2>
+<a href="#the-nature-of-simultanous-equations-models-sem" class="anchor"></a>The nature of simultanous equations models (SEM)</h2>
 <p>Endogeneity problem:</p>
 <ul>
 <li><ol style="list-style-type: decimal">
@@ -675,8 +675,8 @@
 <li><strong>Simultaneity: one or more of the explanatory variables are jointly determined with the dependent variable</strong></li>
 </ol></li>
 </ul>
-<p>SEM model: each equation in the system should have a ceteris paribus, causal interpreation</p>
 <hr>
+<p>SEM model: each equation in the system should have a ceteris paribus, causal interpreation</p>
 <p>Example: Supply and labor demand</p>
 <p>Set of three equations:</p>
 <ul>
@@ -684,13 +684,13 @@
 <li><span class="math inline">\(h_{d}=\alpha_{2}w+\beta_{2}z_{2}+u_{2}\)</span></li>
 <li><span class="math inline">\(h_{s}=h_{d}=h\)</span></li>
 </ul>
-<hr>
-<p>Which can be combined into a set of two equations of a simultanous equations model (SEM):</p>
+<p>Which can be combined into a set of two equations of a simultaneous equations model (SEM):</p>
 <ul>
 <li><span class="math inline">\(h_{i}=\alpha_{1}w_{i}+\beta_{1}z_{i,1}+u_{i,1}\)</span></li>
 <li><span class="math inline">\(h_{i}=\alpha_{2}w_{i}+\beta_{2}z_{i,2}+u_{i,2}\)</span></li>
 </ul>
-<p>Endogenous:<span class="math inline">\(h_{i},w_{i}\)</span> Exogenous: <span class="math inline">\(z_{i,1}, z_{i,2}\)</span></p>
+<p>Endogenous: <span class="math display">\[h_i,w_i\]</span></p>
+<p>Exogenous: <span class="math display">\[z_{i,1}, z_{i,2}\]</span></p>
 <hr>
 </div>
 <div id="simultaneity-bias-in-ols" class="section level2">
@@ -701,8 +701,7 @@
 <li><span class="math inline">\(y_{2}=\alpha_{2}y_{1}+\beta_{2}z_{2}+u_{2}\)</span></li>
 </ul>
 <p>Solve for the reduced form equation <span class="math inline">\(y_{22}\)</span> <span class="math inline">\(y_{2}=\alpha_{2}(\alpha_{1}y_{2}+\beta_{1}z_{1}+u_{1})+\beta_{2}z_{2}+u_{2}\)</span> <span class="math inline">\(y_{2}(1-\alpha_{2}\alpha_{1})=\alpha_{2}\beta_{1}z_{1}+\beta_{2}z_{2}+\alpha_{2}u_{1}+u_{2}\)</span></p>
-<hr>
-<p>Assume that <span class="math inline">\(\alpha_{2}\alpha_{1}\neq0\)</span></p>
+<p>Assume that <span class="math inline">\(\alpha_{2}\alpha_{1}\neq1\)</span></p>
 <p><span class="math inline">\(y_{2}=\pi_{21}z_{1}+\pi_{22}z_{2}+v_{2}\)</span></p>
 <p>Where the reduced form parameters and errors - <span class="math inline">\(\pi_{21}\equiv\frac{\alpha_{2}\beta_{1}}{(1-\alpha_{2}\alpha_{1})}\)</span></p>
 <p><span class="math inline">\(\alpha_{2} \neq 0 \rightarrow\)</span> simultaneity bias</p>
@@ -718,19 +717,19 @@
 <li><span class="math inline">\(h=\alpha_{2}w+u_{2}\)</span></li>
 </ul>
 <p>Given a random sample of (q,p,z), which of the equations (identified equation) above can be estimated by 2SLS</p>
-<p>z_{1} can be used as an IV-variable in the demand equation</p>
+<p><span class="math inline">\(z_1\)</span> can be used as an IV-variable in the demand equations</p>
 <hr>
 </div>
-<div id="system-with-more-than-two-equations" class="section level2">
+<div id="estimation-of-simultaneous-equation-systems-by-2sls" class="section level2">
 <h2 class="hasAnchor">
-<a href="#system-with-more-than-two-equations" class="anchor"></a>(System with more than two equations)</h2>
-<p>Not covered in this course</p>
-<hr>
-</div>
-<div id="simultanous-equations-models-with-time-series" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simultanous-equations-models-with-time-series" class="anchor"></a>(Simultanous equations models with time series)</h2>
-<p>Not covered in this course</p>
+<a href="#estimation-of-simultaneous-equation-systems-by-2sls" class="anchor"></a>Estimation of simultaneous equation systems by 2SLS</h2>
+<ul>
+<li>Given the identification condition holds, the parameters of a simultaneous equations system can be consistenly estimated by 2SLS.</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>For this, in a first stage, each endogenous variable is regressed on the full list of exogenous variables (reduced form regressions).</li>
+<li>In a second stage, the system equations are estimated by OLS but with the endogenous regressors being replaced by predictions from stage one.Not covered in this course</li>
+</ol>
 <hr>
 </div>
 <div id="simultanous-equations-models-with-panel-data" class="section level2">
