@@ -8,19 +8,20 @@ library(zoo)
 library(PxWebApiData)
 library(ggplot2)
 ###########################################################################################################################################################3
-sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','IND','JPN')[c(1:2)]
+sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','IND','JPN')
 all_data <- COVID19::covid19(country=sel_cou, level=1,verbose = T)
-unique(all_data$id)
+unique(all_data$iso_alpha_3)
+# [1] "2b1b6cf9" "03dcf038"
+# [1] "2b1b6cf9" "03dcf038"
 ###
-COVID19 <- all_data %>% dplyr::filter(id%in%sel_cou) %>%
+COVID19 <- all_data %>%  dplyr::filter(iso_alpha_3%in%sel_cou) %>%
 dplyr::mutate(year=as.factor(lubridate::year(date))) %>%
 dplyr::mutate(dayofyear=lubridate::yday(date)) %>%
-dplyr::select(id,date,confirmed,deaths,hosp,dayofyear,year,population) %>%
+dplyr::select(iso_alpha_3,date,confirmed,deaths,hosp,dayofyear,year,population) %>%
 dplyr::mutate(c_deaths=deaths-dplyr::lag(deaths)) %>%
 dplyr::mutate(ma_deaths=round(rollmean(c_deaths,k=7, fill=NA)),digits=4) %>%
 dplyr::mutate(ma_deaths_perc=(ma_deaths/population)*100000)
 usethis::use_data(COVID19, overwrite = TRUE)
-View(all_data)
 ###########################################################################################################################################################3
 covidts <- COVID19
 sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','JPN')
@@ -78,4 +79,5 @@ df3 <- dplyr::filter(aldr_df2,Alder<40)
 g3 <- ggplot(df3, aes(x=Uke,y=Antallinter, color=interaction(Interv,Aar))) + geom_point() + geom_smooth() + labs(x='ukenr',y='antall døde')
 gridExtra::grid.arrange(g1,g2,g3)
 ###########################################################################################################################################################3
-
+x <- covid19(c("Italy", "US"), level = 3)
+View(head(x))

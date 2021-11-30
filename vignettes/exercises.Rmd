@@ -6,7 +6,7 @@ output:
     toc_depth: 3
 ---
 
-- [Lenke til PDF-versjon løsningsforslag]()
+- [Lenke til PDF-versjon løsningsforslag](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/solutions/Exercises_solutions.pdf)
 
 ```{R eval=F, include=F}
 rmarkdown::render("exercises.Rmd",output_format=rmarkdown::html_notebook(css="css/OFF.css"),output_file="exercises.Rmd")

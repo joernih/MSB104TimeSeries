@@ -4,7 +4,7 @@
 plot19ts <- function(sel_cou=NULL,covid19df=NULL, yvar='hosp'){
 	
 	c_cdf <- sel_cou %>% purrr::map(function(x,df_c=covid19df){
-		out <- df_c %>% dplyr::filter(id==x)
+		out <- df_c %>% dplyr::filter(iso_alpha_3==x)
 		gout <- ggplot(out, aes_string(x='dayofyear',y=yvar, color='year')) + 
 			geom_point() + 
 		geom_line() + 
