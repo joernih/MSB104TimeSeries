@@ -4,10 +4,10 @@
     <title>R-packages</title>
     <meta charset="utf-8" />
     <meta name="author" content="Jørn I. Halvorsen" />
-    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x6b7ebac53354232885cb8d6c6e26dbc","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"f7d06a39c3b045bfb4ba3d5e61e95e0b","expires":1}</script>
     <script src="libs/himalaya-1.1.0/himalaya.js"></script>
     <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -30,7 +30,7 @@ class: center, middle, inverse, title-slide
 # R-packages
 ## A soft introduction
 ### Jørn I. Halvorsen
-### 2018/06/1 (updated: 2021-10-13)
+### 2018/06/1 (updated: 2021-11-30)
 
 ---
 
@@ -220,8 +220,7 @@ Which gives us
 
 ```r
 hello &lt;- function() {
-          tekst &lt;- paste("Hello world!")
-	  print(tekst)
+	  print("Hello, world! My name is &lt;insert your name here&gt; ")
 }
 ```
 
@@ -229,6 +228,8 @@ Change this to
 
 
 ```r
+#' This is a hello function with a name argument
+#' @export
 hello &lt;- function(name=NULL) {
           tekst &lt;- paste("Hello world! My name is", name)
 	  print(tekst)
@@ -284,7 +285,7 @@ A built package can be found in one of these paths
 ```
 
 ```
-## [1] "/home/joernih/R/x86_64-pc-linux-gnu-library/4.0"
+## [1] "/home/joernih/R/x86_64-pc-linux-gnu-library/4.1"
 ## [2] "/usr/lib/R/library"
 ```
 

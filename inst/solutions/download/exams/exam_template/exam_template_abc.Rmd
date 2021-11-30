@@ -1,0 +1,69 @@
+---
+output:
+  bookdown::html_document2:
+#    css: AV.css
+    css: PAA.css
+    toc: false
+    toc_depth: 3
+---
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" } },
+  });
+</script>
+<style>
+.mjx-mrow a {
+  color: black;
+  pointer-events: none;
+  cursor: default;
+}
+</style>
+
+![](bilder/hvl_logo.png)
+
+<h1><center>**Eksamen**</center></h1>
+
+<div class="losning">
+<h1><center>**SENSORVEILEDNING**</center></h1>
+</div>
+
+<h2>**Emnekode**: ØKB1115</h2> 
+
+<h2>**Eksamensdato**: 29.05.2020</h2> 
+
+<h2>**Målform**: Bokmål</h2> 
+
+<h2>**Tillatte hjelpemidler**: Alle skriftlige hjelpemidler</h2> 
+
+<h2>**Kursansvarlig**: Jørn I. Halvorsen (jiha@hvl.no)</h2> 
+
+<h2>**Generell informasjon:**
+Eksamen består av tre deler + symbolliste (på totalt 6 sider). Alle delene har lik vekt. De to første delen av oppgavesettet (del 1 og del 2) er det mulig å svare fullstendig på gjennom korte og poengterte svar</h2>
+
+<h2>**Merk:** Direkte sitering av tekst skal inn i referanselisten</h2>
+
+<h2>**Bruk av tidligere pensumbok i kurset:** Les merknad helt til slutt i oppgaveteksten</h2>
+
+<div class="abc">
+</div>
+
+# Spørsmål 1
+## Abc
+## Def
+
+# Spørsmål 2
+## Abc
+## Def
+
+```{r include=FALSE}
+knitr::knit_exit()
+```
+
+<div class="solution">
+</div>
+
+```{r, child=c('one.Rmd')}
+```
+
+
