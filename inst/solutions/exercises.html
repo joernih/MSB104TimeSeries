@@ -170,17 +170,15 @@ pre code {
 
 
 <div class="solution">
-<p>Sketch for solution</p>
+<p>Solution proposal</p>
 </div>
 <div id="basic-regression-analysis-with-time-series-data" class="section level1">
 <h1>10: Basic regression analysis with time series data</h1>
 <ol style="list-style-type: decimal">
-<li>Explain the nature of time series data</li>
-</ol>
+<li>Explain the nature of time series data
 <div class="solution">
-<p>DGP with (1) Temporal ordering of data and (2) Stochastic processes (which we furher can assume is generated from a specific regression model)</p>
-</div>
-<ol start="2" style="list-style-type: decimal">
+<p>Time series data characterized by its (1) temporal ordering of data and where (2) realized data variables represent sequences of draws from a underlying stochastical process.The process can further be specified to be generated from a specific regression model.</p>
+</div></li>
 <li>We have the following finite distributed lagged model: <span class="math display">\[\begin{equation}
 y_{t}=\alpha+\delta_{0}z_{t}+\delta_{1}z_{t-1}+\delta_{2}z_{t-2}+u_{t}
 \end{equation}\]</span></li>
@@ -195,11 +193,11 @@ y_{t}=\alpha+\delta_{0}z_{t}+\delta_{1}z_{t-1}+\delta_{2}z_{t-2}+u_{t}
 <p><span class="math display">\[\begin{equation}
 y_{t}=\alpha+\delta_{0}z_{t}+\delta_{1}z_{t-1}+\delta_{2}z_{t-2}+u_{t}\\
 \text{Temporary change: + 1 in period t, otherwise c}\\
-y_{t-1}=\alpha+\delta_{0}c+\delta_{1}+\delta_{2}c+u_{t} \\
-y_{t}=\alpha+\delta_{0}(c+1)+\delta_{1}+\delta_{2}c+u_{t} \\
+y_{t-1}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}c+u_{t} \\
+y_{t}=\alpha+\delta_{0}(c+1)+\delta_{1}c+\delta_{2}c+u_{t} \\
 y_{t+1}=\alpha+\delta_{0}c+\delta_{1}(c+1)+\delta_{2}c+u_{t} \\
 y_{t+2}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}(c+1)+u_{t} \\
-y_{t+3}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}+u_{t} \\
+y_{t+3}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}c+u_{t} \\
 \end{equation}\]</span> Which implies: <span class="math display">\[\begin{equation}
 y_{t}-y_{t-1} = \delta_{0}\\
 y_{t+1}-y_{t-1} = \delta_{1} \\
@@ -220,7 +218,7 @@ y_{t+3}-y_{t-1} = 0\\
 <p><span class="math display">\[\begin{equation}
 \text{Permanent change: change + 1 in period t and onwards}\\
 y_{t-1}=\alpha+\delta_{0}c+\delta_{1}c+\delta_{2}c+u_{t} \\
-y_{t}=\alpha+\delta_{0}(c+1)+\delta_{1}+\delta_{2}c+u_{t} \\
+y_{t}=\alpha+\delta_{0}(c+1)+\delta_{1}c+\delta_{2}c+u_{t} \\
 y_{t+1}=\alpha+\delta_{0}(c+1)+\delta_{1}(c+1)+\delta_{2}c+u_{t} \\
 y_{t+2}=\alpha+\delta_{0}(c+1)+\delta_{1}(c+1)+\delta_{2}(c+1)+u_{t} \\
 y_{t+3}=\alpha+\delta_{0}(c+1)+\delta_{1}(c+1)+\delta_{2}(c+1)+u_{t} \\
@@ -235,40 +233,33 @@ y_{t+3}-y_{t-1} = \delta_{0} + \delta_{1} + \delta_{2} \text{ called the long-ru
 <ol start="4" style="list-style-type: decimal">
 <li>Why do think the estimation of such coefficients could be of interest to policy makers?
 <div class="solution">
-<p>If correctly specified, the estimated coefficents can be used to evalute the quantive impact for both a temporary or permanent change in policy variable.</p>
+<p>If correctly specified, the model lends itself to a causal interpretation (cerius paribus) which implies that the estimated coefficients can be used to evaluate the quantitative impact for both a temporary and permanent change to the policy variables.</p>
 </div></li>
 <li>What is meant by that OLS is BLUE?
 <div class="solution">
-<p>In the class of linear unbiased estimator (which in OLS is ensured by TS.1-TS.3), the method of OLS (i.e., find the coefficients that minimizes the residual sum of squartes) is the one that provide estimator with least variance.</p>
+<p>In the class of linear unbiased estimator (which in OLS is ensured by TS.1-TS.3), the method of OLS (i.e., find the coefficients that minimizes the residual sum of squartes) is the one that provide estimators with the least variance.</p>
 </div></li>
 <li>Is OLS of any use if (a) TS.3 is violated or (b) TS.5?
 <div class="solution">
-<p>If TS.5 is violated, yes, point estimates in form of predictions of, <span class="math inline">\(R^{2}\)</span> and <span class="math inline">\(R^{2,adj}\)</span> could provide usefull answers.</p>
+<p>If only TS.5 is violated, OLS will still be unbiased in small samples. As such valid point estimates can be obtained so that the model can be used for forecasting and <span class="math inline">\(R ^2\)</span> provides valuable information. If TS.3 violates, coefficients unbiased and as such hold no usefull interpretation.</p>
 </div></li>
 <li>What is the problem with spurious regression?
 <div class="solution">
-<p>Violates TS.3/TS’3 if not taken into account. Generally implies too high value for <span class="math inline">\(R^{2}\)</span> and <span class="math inline">\(R^{2,adj}\)</span>.</p>
+<p>Spurious regression implies finding a strong relationship between two variables simply because each is growing over time, and such implies artificial high value for both <span class="math inline">\(R^{2}\)</span> and <span class="math inline">\(R^{2,adj}\)</span>. This will violate TS.3/TS’3 assumption if not controlled for by adding a time trend.</p>
 </div></li>
-<li>How can the problem of spurious regression be detected and solved?</li>
-</ol>
+<li>How can the problem of spurious regression be detected and solved?
 <div class="solution">
-<ol style="list-style-type: decimal">
-<li>Plot the time series.</li>
-<li>If graph suspicous, check whether an estimation of a trend variable provides a significant value.</li>
-</ol>
-</div>
-<ol start="9" style="list-style-type: decimal">
-<li>How would you interpret a dummy variables?</li>
-</ol>
+<p>Step 1.: Plot the time series involved. Step 2.: If the plots look suspicious, check whether an estimation of a trend variable provides a significant value.</p>
+</div></li>
+<li>How would you interpret a dummy variables?
 <div class="solution">
-<p>Binary state variable for whether a condition is on or off.</p>
-</div>
-<ol start="10" style="list-style-type: decimal">
-<li>Why do seasonality occur in time series data?</li>
-</ol>
+<p>Binary state variable for whether a condition is active (=1) or inactive (=0)</p>
+</div></li>
+<li>Why do seasonality occur in time series data?
 <div class="solution">
-<p>If a time series is observed at monthly or quarterly intervals (or even weekly or daily), it may exhibit seasonality. This could for example by christmas sale in Decemember, seasonal viruses that spreads more easily during some months of the year, weather and temprature conditions affect harvesting etc.</p>
-</div>
+<p>If time series are observed at a monthly or quarterly intervals (or even weekly or daily), it may exhibit seasonality. For instance Christmas sale in December, viruses spread more easliy during some months of the year, or weather and temperature conditions affect harvesting.</p>
+</div></li>
+</ol>
 </div>
 <div id="further-issues-in-using-ols-with-time-series-data" class="section level1">
 <h1>11: Further issues in using OLS with time series data</h1>
@@ -309,24 +300,24 @@ y_{t+1}=\alpha e_{t}+e_{t+1} \Rightarrow E(y_{t+1}|y_{t})=E(\alpha e_{t}+e_{t+1}
 </ol>
 <ol style="list-style-type: lower-roman">
 <li><span class="math display">\[\begin{equation}
-E(y_{t})=E(\rho (\rho y_{t-2}+ e_{t-1}) +e_{t})= ... \text{(we skip this calcluations)} ... = E(\sum_{j=0}^{\infty} \rho^{j} e_{t}) = 0 \\
+E(y_{t})=E(\rho (\rho y_{t-2}+ e_{t-1}) +e_{t})= ... \text{(we skip this calcluations in this course)} ... = E(\sum_{j=0}^{\infty} \rho^{j} e_{t}) = 0 \\
 \end{equation}\]</span></li>
 <li><span class="math display">\[\begin{equation}
-y_{t+1}=\rho y_{t}+e_{t+1} \Rightarrow E(y_{t+1}|y_{t}) = E(\rho y_{t}+e_{t+1}|y_{t})=\rho y_{t}$y_{t}=\rho y_{t-1}+e_{t}$
+y_{t+1}=\rho y_{t}+e_{t+1} \Rightarrow E(y_{t+1}|y_{t}) = E(\rho y_{t}+e_{t+1}|y_{t})=\rho y_{t}
 \end{equation}\]</span></li>
 </ol>
 <ol start="3" style="list-style-type: decimal">
 <li>Random walk: <span class="math display">\[\begin{equation}
 y_{t}=y_{t-1}+e_{t}\\
 (i)\\
-E(y_{t})=E(y_{t-2}+e_{t-1}+e_{t})=E(y_{0}+e_{1}+e_{2}...+e_{t})=E(y_{0})=y_{0}\\
+E(y_{t})=E(y_{t-2}+e_{t-1}+e_{t})=E(y_{0}+e_{1}+e_{2}+...+e_{t})=E(y_{0})=y_{0}\\
 (ii)\\
 Var(y_{t})=Var(y_{0}+e_{1}+e_{2}...+e_{t})=t\sigma_{e}^{2}\\
 (iii)\\
 E(y_{t+h}|y_{t})=E(y_{t+h}+e_{t+h}|y_{t})=E(y_{t}+e_{t+h}+e_{t+h-1}+...+e_{t}|y_{t})=y_{t}\\
 (iv)\\
 Corr(y_{t+h},y_{t})=\frac{\sigma^{2}}{\sigma_{t+h}\sigma_{t}}=\frac{\sigma}{\sigma_{t+h}}=\sqrt{t/(t+h)} \\ 
-\text{this since } Cov(y_{t+h},y_{t})=Cov(y_{t}+e_{t+h-1}+e_{t+h-2}+...+e_{t},y_{t})=\sigma^{2}_{t}y_{t}=y_{t-1}+e_{t}\\
+\text{this since } Cov(y_{t+h},y_{t})=Cov(y_{t}+e_{t+h-1}+e_{t+h-2}+...+e_{t},y_{t})=\sigma^{2}_{t}y_{t}=y_{t-1}+e_{t}
 \end{equation}\]</span></li>
 <li>Random walk with drift: <span class="math display">\[\begin{equation}
 y_{t}=\alpha_{0}+y_{t-1}+e_{t}\\
@@ -346,25 +337,25 @@ Corr(y_{t+h},y_{t})=\frac{\sigma^{2}}{\sigma_{t+h}\sigma_{t}}=\frac{\sigma}{\sig
 <li>What is the difference between weakly and strongly exogenous regressors?</li>
 </ol>
 <div class="solution">
-<p>Weakly exogenous regressors consist of only the exogenous regressors included in the model specification related to the data generating process. Strongly exogenous regressors in addition consist of all the future and lagged variables of these variables.</p>
+<p>Weakly exogenous regressors consist only of exogenous regressors that are included in the model specification related to the data generating process. Strongly exogenous regressors consist also of all the future and lagged variables of these variables.</p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>What is meant that time series is (a) <span class="math inline">\(I(0)\)</span> and (b) <span class="math inline">\(I(1)\)</span>?</li>
 </ol>
 <div class="solution">
-<p>Weakly dependent time series are integrated of order zero (=I(0)). If a time series has to be differentiated in order to obtain a weakly dependent time series, it is called integrated of order one (I(1)).</p>
+<p>Weakly dependent time series are integrated of order zero ( <span class="math inline">\(I(0)\)</span> ). If a time serie variable has to be differentiated in order to obtain a weakly dependent time series, it is called integrated of order one ( <span class="math inline">\(I(1)\)</span> ).</p>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>List some examples of time series that are (a) weakly dependent (b) highly persistent time series?</li>
 </ol>
 <div class="solution">
-<p>Examples of possible weakly dependent time series: unemployment, real interest rate \ Examples of highly persisten time series: oil prices, stock market (short term) and bit-coins</p>
+<p>Examples of possible weakly dependent time series: unemployment, real interest rate \ Examples of highly persistent time series: oil prices, stock market (short term) and bit-coins</p>
 </div>
 <ol start="5" style="list-style-type: decimal">
 <li>Why is the assumption of <span class="math inline">\(u_{t} \sim N(0,\sigma^2_{u})\)</span> not needed in large sample for the estimated coefficient to be (asymptotically) normally distributed?</li>
 </ol>
 <div class="solution">
-<p>This is implicitly taken care of in TS’.1 (LLN and CLT) which implies that this hold as an approximation in large samples</p>
+<p>This is implicitly taken care of in TS’.1 (low of large numbers and central limit theorem) which implies that normality hold as an approximation for large samples</p>
 </div>
 </div>
 <div id="serial-correlation-and-heteroskedasticity-in-time-series-regression" class="section level1">
@@ -372,44 +363,45 @@ Corr(y_{t+h},y_{t})=\frac{\sigma^{2}}{\sigma_{t+h}\sigma_{t}}=\frac{\sigma}{\sig
 <ol style="list-style-type: decimal">
 <li>What is the impact of serial correlation in a time series regression?
 <div class="solution">
-<p>Statistical inference can not carried out.</p>
+<p>OLS no longer efficient in small samples and statistical inference can not carried out.</p>
 </div></li>
 <li>Is <span class="math inline">\(R^{2}\)</span> measured correctly under the presence of serial correlation?
 <div class="solution">
 <p>Yes, given that TS’1.-TS’3 are satisfied.</p>
 </div></li>
-<li>What is meant by that OLS consistent but not unbiased?
+<li>What is meant by that OLS consistent but <del>not</del> biased?
 <div class="solution">
-<p>OlS is consistent implies that as the sample size grows, the estimated coefficient they will converge towards its true values. Unbiased implies that before the realization of the data sample, it is more likely that the estimated coefficients is either higher or lower than its true value.</p>
+<p>That OLS is consistent implies that as the sample size grows, the estimated coefficients will converge towards its true values. Unbiased implies that before the realization of the data sample, it is more likely that the estimated coefficients is either higher or lower than its true value.</p>
 </div></li>
 <li>Explain the difference between TS.1 and TS’1.
 <div class="solution">
-<p>TS’.1 also assumes (1) Stationary (or covariance) stocastich process and (2) weekly dependent time series</p>
+<p>The difference is that TS’.1 also assumes (1) Stationary (or covariance) stocastich process and (2) weekly dependent time series</p>
 </div></li>
 <li>Why use robust serial correlation (HAC)?
 <div class="solution">
-<p>Even with the presence of serial correlation, statistical inference (e.g., t-tests, F-testing) can be carried out.</p>
+<p>Even with the presence of serial correlation, statistical inference (e.g., t-tests, F-testing) can be carried out in the form of rubust estimators.</p>
 </div></li>
 </ol>
 </div>
 <div id="simultanous-equations-models-sem" class="section level1">
-<h1>16: Simultanous equations models (SEM)</h1>
+<h1>16 Simultanous equations models (SEM)</h1>
+<p><br> <strong>Only for MSB104</strong></p>
 <ol style="list-style-type: decimal">
 <li>Explain the three different forms of endogeneity problem?
 <div class="solution">
-<p>1: Ommited variables (cf. Henrik’s notes) 2: Measurement errors (cf. Henrik’s notes) 3: Simultaneity: The dependent variable in the regression model intereact simultanously with at least one of its regressors.</p>
+<p>1: Ommited variables (cf. part I) 2: Measurement errors (cf. part I) 3: Simultaneity: The dependent variable in the regression model intereacts simultanously with at least one of its regressors.</p>
 </div></li>
 <li>What is meant by a structural equation?
 <div class="solution">
-<p>A structural equation is a equation that founded in econoimc theory and thereby provides the causal relationship between the varibles</p>
+<p>A structural equation is an equation founded in economic theory, as such provides the causal relationship between the variables included in the equation.</p>
 </div></li>
 <li>What is the problem of applying OLS to structural equation?
 <div class="solution">
-<p>If simultaneity occurs, violates TS’3. Unbiased estimators</p>
+<p>If simultaneity occurs, TS’.3 will be violated (which implies that TS.3), so estimators will no longer be consisten or unibased.</p>
 </div></li>
 <li>Which other method should be used and what is the identification condition for this to work properly (2-variable system)?
 <div class="solution">
-<p>Instrumental variable approach (two stage least square). Identification condition (two variable system): At least one variable from the equation we are estimating is included as a explanatory variable in the other equations.</p>
+<p>Instrumental variable approach in form of a two-stage least square procedure can be used. The rank condition is sufficient and necessary condition for this method to work properly: At least one variable from the equation we are estimating is included as a explanatory variable in the other equation.</p>
 </div></li>
 </ol>
 </div>
