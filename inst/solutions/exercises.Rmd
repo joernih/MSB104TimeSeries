@@ -2,7 +2,7 @@
 title: "Part 2 and 3: Exercises"
 output:
   html_document:
-    css: css/ON.css
+    css: css/OFF.css
     toc: no
     toc_depth: 3
 ---

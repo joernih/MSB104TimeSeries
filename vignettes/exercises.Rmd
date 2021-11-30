@@ -6,3 +6,85 @@ output:
     toc_depth: 3
 ---
 
+- [Lenke til PDF-versjon løsningsforslag]()
+
+```{R eval=F, include=F}
+rmarkdown::render("exercises.Rmd",output_format=rmarkdown::html_notebook(css="css/OFF.css"),output_file="exercises.Rmd")
+rmarkdown::render("exercises.Rmd",output_format=rmarkdown::html_notebook(css="css/ON.css"),output_file="exercises.Rmd")
+system('brave exercises.html')
+```
+
+```{r, eval=T, include=F}
+#library(MSB104EconometricsJIH)
+#data(package='MSB104EconometricsJIH')
+```
+
+# 10: Basic regression analysis with time series data 
+1. Explain the nature of time series data
+
+2. We have the following finite distributed lagged model:
+\begin{equation}
+y_{t}=\alpha+\delta_{0}z_{t}+\delta_{1}z_{t-1}+\delta_{2}z_{t-2}+u_{t}
+\end{equation}
+3. Show that a) Temporary change by 1 in period t can be written as:
+- t periods: $\delta_{0}$
+- t+1. periods: $\delta_{1}$
+- t+2. periods: $\delta_{2}$
+- t+3. periods: $0$
+
+b) Permanent change by 1 in period t
+- t periods: $\delta_{0}$
+- t+1. periods: $\delta_{0}+\delta_{1}$
+- t+2. periods: $\delta_{0}+\delta_{1}+\delta_{2}$
+- t+3. periods: $\delta_{0}+\delta_{1}+\delta_{2}$
+
+4. Why do think the estimation of such coefficients could be of interest to policy makers?
+5. What is meant by that OLS is BLUE?
+6. Is OLS of any use if (a) TS.3 is violated or (b) TS.5?
+7. What is the problem with spurious regression?
+8. How can the problem of spurious regression be detected and solved?
+9. How would you interpret a dummy variables?
+10. Why do seasonality occur in time series data?
+
+# 11: Further issues in using OLS with time series data 
+
+We have that:
+
+- (a) MA(1) process: $y_{t}=\alpha_{}e_{t-1}+e_{t}$\
+- (b) AR(1) process: $y_{t}=\rho y_{t-1}+e_{t}$, where we assume that $|\rho|<1$
+- (c) Random walk: $y_{t}=\rho y_{t-1}+e_{t}$ \ 
+- (d) Random walk with drift: $y_{t}=\alpha_{0}+\rho y_{t-1}+e_{t}$
+Where $e_{t} \sim i.i.d. N(0,\sigma^2_{e})$
+
+1. For (a), (b) find its (i) expected value and (ii) one period ahead forecast.
+For (c) and (d) find its (i) expected value, (ii) variance, (iii) h-periods ahead forecast and (iv) correlation coefficient
+
+2. What is the difference between weakly and strongly exogenous regressors? 
+
+3. What is meant that time series is (a) $I(0)$ and (b) $I(1)$?
+
+4. List some examples of time series that are (a) weakly dependent (b) highly persistent time series?
+
+5. Why is the assumption of $u_{t} \sim  N(0,\sigma^2_{u})$ not needed in large sample for the  estimated coefficient to be (asymptotically) normally distributed?
+
+# 12: Serial correlation and heteroskedasticity in time series regression 
+1. What is the impact of serial correlation in a time series regression?
+2. Is $R^{2}$ measured correctly under the presence of serial correlation?
+3. What is meant by that OLS consistent but ~~not~~ biased?
+4. Explain the difference between TS.1 and TS'1.
+5. Why use robust serial correlation (HAC)?
+
+# 16 Simultanous equations models (SEM) 
+<br>
+**Only for MSB104**
+
+1. Explain the three different forms of endogeneity problem?
+2. What is meant by a structural equation?
+3. What is the problem of applying OLS to structural equation?
+4. Which other method should be used and what is the identification condition for this to work properly (2-variable system)? 
+
+```{r include=FALSE}
+knitr::knit_exit()
+```
+
+
