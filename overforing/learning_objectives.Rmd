@@ -24,6 +24,7 @@ system('brave learning_objectives.html')
 #library(MSB104EconometricsJIH)
 #data(package='MSB104EconometricsJIH')
 ```
+
 # 10: Basic regression analysis with time series data 
 ## Nature of time series data abc
 - Process (temporal): t=1,2,...,n
@@ -323,7 +324,7 @@ In recent years, it has become more popular to estimate models by OLS but to cor
 	- Test for serial correlation (heteroskedasticy-robust test)
 	- After potential serial correlation corrected for, test for heteroskedasticity
 
-# 16: Simultanous equations models (SEM) 
+# 16: Simultanous equations models (SEM) -- only for MSB104 students 
 
 ## The nature of simultanous equations models
 Endogeneity problem: 
@@ -396,39 +397,3 @@ knitr::knit_exit()
 ```
 
 
-# Repetition time series data (2 hours)
-## Data realization
-
-## Data generation process
-
-## Model estimation
-
-## Properties
-
-## Diagnostics
-
-## Estimation results
-
-Tasks:
-Asymptotic
-Eksamen 
-Prøveeksamen
-
-- Example model (3)
-	- $y_{t}=\rho y_{t-1} + e_{t}$
-- If $|\rho| < 1$ AR(1) process
-	- $y_{t}=\rho y_{t-1} + e_{t}$
-- If $\rho = 1$ Random walk
-	- $y_{t}=\rho y_{t-1} + e_{t}$
-
-
-Sequential exogenity
-
-Example: AR(1) without an intercept:
-- $y_{t}=\alpha_{0}+\rho y_{t-1} + e_{t}$
-
-Example: AR(1) with an intercept:
-- $y_{t}=\alpha_{0}+\rho y_{t-1} + e_{t}$
-
-- If $\rho<|1|$ weekly dependence (no unit root, I(0)) -> TS'1. not violated
-- If $\rho=1$ HP strongly dependence (unit root, I(1)) -> TS'1. violated 

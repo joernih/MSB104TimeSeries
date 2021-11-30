@@ -123,21 +123,24 @@
 
     
     
+<p>class: inverse, center, middle</p>
 <div id="basic-regression-analysis-with-time-series-data" class="section level1">
 <h1 class="hasAnchor">
 <a href="#basic-regression-analysis-with-time-series-data" class="anchor"></a>10: Basic regression analysis with time series data</h1>
 <p><a href="https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH10_Wooldridge_7e%20PPT_2pp.pptx">Wooldridge 10</a></p>
-<div id="nature-of-time-series-data-abc" class="section level2">
+<hr>
+<div id="nature-of-time-series-data" class="section level2">
 <h2 class="hasAnchor">
-<a href="#nature-of-time-series-data-abc" class="anchor"></a>Nature of time series data abc</h2>
+<a href="#nature-of-time-series-data" class="anchor"></a>Nature of time series data</h2>
 <ul>
 <li>Process (temporal): t=1,2,…,n</li>
 <li>Stochastic: {}</li>
-<li>Variables: <span class="math inline">\((x_{t1},x_{t2},...,x_{tk},y_{t})\)</span>
+<li>Variables: <span class="math inline">\((x_{1t},x_{2t},...,x_{kt},y_{t})\)</span>
 </li>
-<li>Together: <span class="math inline">\(\{(x_{t1},x_{t1},...,x_{tk},y_{t});t=1,2,..,n\}\)</span>
+<li>Together: <span class="math inline">\(\{(x_{1t},x_{2t},...,x_{kt},y_{t});t=1,2,..,n\}\)</span>
 </li>
 </ul>
+<hr>
 </div>
 <div id="examples-of-time-series-regression-models" class="section level2">
 <h2 class="hasAnchor">
@@ -164,21 +167,16 @@
 </li>
 <li>Example model (2a) Fertility
 <ul>
-<li><span class="math inline">\(gfr_{t}=\alpha_{0}+\delta_{0}pe_{t}+\delta_{1}+pe_{t-1} + \delta_{2}pe_{t-2}+u_{t}\)</span></li>
+<li><span class="math inline">\(gfr_{t}=\alpha_{0}+\delta_{0}pe_{t}+\delta_{1}pe_{t-1} + \delta_{2}pe_{t-2}+u_{t}\)</span></li>
 </ul>
 </li>
 <li>Example model (2b) Covid-19
 <ul>
-<li>
-<span class="math inline">\(deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}+icu_{t-1} + \delta_{2}icu_{t-2}+u_{t}\)</span> <!--- Example model (3a) AR(1)
-  - $y_{t}=\rho y_{t-1} + e_{t}$
---> <!--- Example model (3b) MA(1)
-  - $y_{t}=\theta e_{t-1} + e_{t}$
--->
-</li>
+<li><span class="math inline">\(deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}icu_{t-1} + \delta_{2}icu_{t-2}+u_{t}\)</span></li>
 </ul>
 </li>
 </ul>
+<hr>
 <p>Temporary change by 1 in period t Impact-propensity (general model)</p>
 <ul>
 <li><ol start="0" style="list-style-type: decimal">
@@ -217,6 +215,7 @@
 </li>
 </ol></li>
 </ul>
+<hr>
 </div>
 </div>
 <div id="finite-sample-properties-of-ols-under-classical-assumptions-small-sample" class="section level2">
@@ -234,20 +233,20 @@
 </li>
 </ul>
 </li>
-<li>
-<p>TS.4: No heteroskedasticity</p>
+</ul>
+<hr>
+<ul>
+<li>TS.4: No heteroskedasticity
 <ul>
 <li><span class="math inline">\(Var(u_{t}|\textbf{X})=\sigma^2\)</span></li>
 </ul>
 </li>
-<li>
-<p>TS.5: No serial correlation</p>
+<li>TS.5: No serial correlation
 <ul>
 <li><span class="math inline">\(Corr(u_{t},u_{s}|\textbf{X})=0 for s \neq t\)</span></li>
 </ul>
 </li>
-<li>
-<p>TS.6: Normality</p>
+<li>TS.6: Normality
 <ul>
 <li>
 <span class="math inline">\(u_{t}\)</span> i.i.d. distributed <span class="math inline">\(\sim N(0,\sigma^2)\)</span>
@@ -260,6 +259,7 @@
 <li>TS.1, TS.2, TS.3, TS.4 og TS.5 <span class="math inline">\(\Rightarrow\)</span> OLS is BLUE</li>
 <li>TS.1, TS.2, TS.3, TS.4, TS.5 and TS.6 <span class="math inline">\(\Rightarrow\)</span> OLS estimatiors for <span class="math inline">\(\beta_{j} \text{ where } j=0,1,..,k\)</span> are normaly distributed</li>
 </ol>
+<hr>
 </div>
 <div id="functional-form-dummy-variables-and-index-numbers" class="section level2">
 <h2 class="hasAnchor">
@@ -277,7 +277,6 @@
 <a href="#dummy-variables" class="anchor"></a>Dummy variables</h3>
 <ul>
 <li><span class="math inline">\(inf_{t}=\beta_{0} + \beta_{1}unem_{t} + \beta_{t}lock_{t} + u_{t}\)</span></li>
-<li><span class="math inline">\(deathn_{t}=\alpha_{0}+\delta_{0}icu_{t}+\delta_{1}+icu_{t-1} + \delta_{2}icu_{t-2}+\delta_{3}lock_{t-1}+u_{t}\)</span></li>
 </ul>
 </div>
 <div id="index-numbers" class="section level3">
@@ -286,6 +285,7 @@
 <ul>
 <li><span class="math inline">\(inf_{t}=\beta_{0} + \beta_{1}unem_{t} + \beta_{t}stringindex_{t} + u_{t}\)</span></li>
 </ul>
+<hr>
 </div>
 </div>
 <div id="trends-and-seasonality" class="section level2">
@@ -313,6 +313,7 @@
 <li><span class="math inline">\(E(log(y_{t}/y_{y-1}))=\alpha_{1}(t-(t-1))=\alpha_{1}t\)</span></li>
 </ul>
 </li>
+<li>Modelling a Gompertz time trend?</li>
 </ul>
 <p>When to include a trend?</p>
 <ul>
@@ -329,6 +330,7 @@
 </ul>
 </li>
 </ul>
+<hr>
 </div>
 <div id="seasonality" class="section level3">
 <h3 class="hasAnchor">
@@ -340,6 +342,8 @@
 </ul>
 </li>
 </ul>
+<hr>
+<p>class: inverse, center, middle</p>
 </div>
 </div>
 </div>
@@ -347,6 +351,7 @@
 <h1 class="hasAnchor">
 <a href="#further-issues-in-using-ols-with-time-series-data" class="anchor"></a>11: Further issues in using OLS with time series data</h1>
 <p><a href="https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH11_Wooldridge_7e%20PPT_2pp.pptx">Wooldridge 11</a></p>
+<hr>
 <div id="stationarity-and-weekly-dependent-time-series" class="section level2">
 <h2 class="hasAnchor">
 <a href="#stationarity-and-weekly-dependent-time-series" class="anchor"></a>Stationarity and weekly dependent time series</h2>
@@ -356,22 +361,16 @@
 <div id="stationarity-1" class="section level4">
 <h4 class="hasAnchor">
 <a href="#stationarity-1" class="anchor"></a>Stationarity</h4>
-<p>A stochastical process <span class="math inline">\(\{x_{t};t=1,2,..,n\}\)</span> is stationary if for every collection of time indeces <span class="math inline">\(1\leq t_{1}&lt;t_{1}&lt;..&gt;t_{m}\)</span> The joint distribution of <span class="math inline">\((x_{t_{1}}, x_{t_{2}},...,x_{t_{n}})\)</span> is the same as <span class="math inline">\((x_{t_{1+h}}, x_{t_{2+h}},...,x_{t_{n+h}})\)</span> for all <span class="math inline">\(h \geq 1\)</span></p>
+<p>A stochastical process <span class="math inline">\(\{x_{t};t=1,2,..,n\}\)</span> is stationary if for every collection of time indeces</p>
+<p><span class="math inline">\(1\leq t_{1}&lt;t_{1}&lt;..&gt;t_{m}\)</span> The joint distribution of <span class="math inline">\((x_{t_{1}}, x_{t_{2}},...,x_{t_{n}})\)</span> is the same as <span class="math inline">\((x_{t_{1+h}}, x_{t_{2+h}},...,x_{t_{n+h}})\)</span> for all <span class="math inline">\(h \geq 1\)</span></p>
 </div>
 </div>
-<div id="covariance-stationarity" class="section level3">
-<h3 class="hasAnchor">
-<a href="#covariance-stationarity" class="anchor"></a>Covariance stationarity</h3>
-<p>A stochastical process <span class="math inline">\(\{x_{t};t=1,2,..,n\}\)</span> is covariance stationarity if its</p>
-<ul>
-<li>Expected value constant over time, <span class="math inline">\(E(x_t)=\mu\)</span>
-</li>
-<li>Variance constant over time, <span class="math inline">\(Var(x_t)=\sigma\)</span>
-</li>
-<li>Covariance only depends on <span class="math inline">\(h\)</span>, <span class="math inline">\(Cov(x_{t+h},x_t)=f(h)\)</span>
-</li>
-</ul>
 </div>
+<div id="covariance-stationarity" class="section level2">
+<h2 class="hasAnchor">
+<a href="#covariance-stationarity" class="anchor"></a>Covariance stationarity</h2>
+<p>A stochastical process <span class="math inline">\(\{x_{t};t=1,2,..,n\}\)</span> is covariance stationarity if its expected value and variance constant over time, and the covariance only depends on <span class="math inline">\(h\)</span></p>
+<hr>
 <div id="weakly-dependency-i0---integrated-of-order-zero" class="section level3">
 <h3 class="hasAnchor">
 <a href="#weakly-dependency-i0---integrated-of-order-zero" class="anchor"></a>Weakly dependency (I(0) - integrated of order zero)</h3>
@@ -391,7 +390,7 @@
 </ul>
 </li>
 </ul>
-<!-- Hybrid AR(1) and MA(1), ARMA(1) -->
+<!-- Hybrid AR(1) and MA(1), ARMA(1) --><hr>
 </div>
 </div>
 <div id="asymptotic-properties-of-ols" class="section level2">
@@ -415,6 +414,7 @@
 <li><p>TS’.1, TS’.2 og TS’.3 <span class="math inline">\(\Rightarrow plim \hat{\beta_{j}}=\beta_{j} \text{ for} j=0,1,2,...,k\)</span> are consistent</p></li>
 <li><p>TS’.1, TS’.2, TS’.3, TS’.4 og TS’.5 <span class="math inline">\(\Rightarrow\)</span> OLS estimators asymptotically normally distributed <span class="math inline">\(\Rightarrow\)</span> OLS estimator, t-,F-,LM statics asympotically valid</p></li>
 </ol>
+<hr>
 </div>
 <div id="using-highly-persistent-time-series-i1---integrated-of-order-one-in-regression-analysis" class="section level2">
 <h2 class="hasAnchor">
@@ -439,6 +439,7 @@
 <li>Finding <span class="math inline">\(Corr(y_{t+h},y_{t})\)</span> implies</li>
 </ul>
 <p><span class="math inline">\(Corr(y_{t+h},y_{t})=\sqrt{t/(t+h)}\)</span>. Dependent on t (not constant)</p>
+<hr>
 </div>
 <div id="random-walk-with-drift" class="section level3">
 <h3 class="hasAnchor">
@@ -461,6 +462,7 @@
 <li>Finding <span class="math inline">\(Corr(y_{t+h},y_{t})\)</span> implies</li>
 </ul>
 <p><span class="math inline">\(Corr(y_{t+h},y_{t})=\sqrt{t/(t+h)}\)</span>. Dependent on t (not constant)</p>
+<hr>
 </div>
 <div id="differencing-a-highly-persistent-time-series" class="section level3">
 <h3 class="hasAnchor">
@@ -470,29 +472,34 @@
 <li><p>Formal tests exist (E.g. <a href="https://en.wikipedia.org/wiki/Dickey%E2%80%93Fuller_test">Dickey-Fuller test</a>), but not part of this curriculum</p></li>
 <li><p>Both unit root and trend may be elimaniting by differencing: <span class="math inline">\(\Delta y_{t}=y_{t}-y_{t-1}=e_{t}\)</span></p></li>
 </ul>
+<hr>
 </div>
 </div>
-<div id="dynamically-complete-models-and-the-absence-of-serial-correlation" class="section level2">
+<div id="the-dynamically-complete-models-and-the-absence-of-serial-correlation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#dynamically-complete-models-and-the-absence-of-serial-correlation" class="anchor"></a>Dynamically complete models and the absence of serial correlation</h2>
+<a href="#the-dynamically-complete-models-and-the-absence-of-serial-correlation" class="anchor"></a>The dynamically complete models and the absence of serial correlation</h2>
 <p>A model is said to be dynamically complete if enough lagged variables have been included as explanatory variables so that further lags do not help to explain the dependent variable: <span class="math inline">\(E(y_{t}|{\bf{x}_{t}}, {\bf{x}_{t-1}}, y_{t-1},...) = E(y_{t}|{\bf{x}}_{t})\)</span></p>
 <ul>
-<li>So once the explanatory variables <span class="math inline">\({\bf{x}_{t}}\)</span> in the model is controlled for, no further lags help to explain the current z</li>
-<li>Dynamic completness implies absence of serial correlation</li>
-<li>Sequential exogenity implies that causal effects will correctly estimated, even with the absence of serial correlation</li>
+<li>So once the explanatory variables <span class="math inline">\({\bf{x}_{t}}\)</span> in the model is controlled for, no further lags help to explain the current z.</li>
+<li>Dynamic completness implies absence of serial correlation.</li>
+<li>If sequential exogenity holds, causual effects will be correctly estimated, even with the presence of serial correlation in the error term.</li>
 </ul>
+<hr>
 </div>
 <div id="the-homoskedasticity-assumption-for-time-series-models" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-homoskedasticity-assumption-for-time-series-models" class="anchor"></a>The homoskedasticity assumption for time series models</h2>
 <p><span class="math inline">\(Var(u_{t}|{\bf{x_{t}}}) = Var(y_{t}|{\bf{x_{t}}}) = \sigma^{2}\)</span></p>
 <p>So even though <span class="math inline">\(y_{t}\)</span> is a linear function of <span class="math inline">\({\bf{x_{t}}}\)</span>, the <span class="math inline">\(Var(y_{t}|{\bf{x_{t}}})\)</span> must be constant.</p>
+<hr>
+<p>class: inverse, center, middle</p>
 </div>
 </div>
 <div id="serial-correlation-and-heteroskedasticity-in-time-series-regression" class="section level1">
 <h1 class="hasAnchor">
 <a href="#serial-correlation-and-heteroskedasticity-in-time-series-regression" class="anchor"></a>12: Serial correlation and heteroskedasticity in time series regression</h1>
 <p><a href="https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH12_Wooldridge_7e%20PPT_2pp.pptx">Wooldridge 12</a></p>
+<hr>
 <div id="properties-of-ols-under-serial-correlated-errors" class="section level2">
 <h2 class="hasAnchor">
 <a href="#properties-of-ols-under-serial-correlated-errors" class="anchor"></a>Properties of OLS under serial correlated errors</h2>
@@ -505,6 +512,7 @@
 </ul>
 </li>
 </ul>
+<hr>
 </div>
 <div id="testing-for-serial-correlation" class="section level2">
 <h2 class="hasAnchor">
@@ -519,7 +527,7 @@
 <li>
 <span class="math inline">\(H_{0}:\rho=0\)</span> No serial correlation</li>
 <li>
-<span class="math inline">\(H_{1}:\rho=0\)</span> Serial correlation</li>
+<span class="math inline">\(H_{1}:|\rho|&lt;1\)</span> Serial correlation</li>
 <li>Assume that
 <ul>
 <li><span class="math inline">\(E(e_{t}|u_{t}, u_{t-1}, u_{t-2})=0\)</span></li>
@@ -534,6 +542,7 @@
 <ul>
 <li>T-test is commonly considered to be better, so we will one consider t-test in this course.</li>
 </ul>
+<hr>
 </div>
 </div>
 <div id="without-strictly-exogenous-regressors-general-breusch-godfrey-test-for-arq-serial-correlation" class="section level3">
@@ -561,6 +570,7 @@
 <li>Se Woodford for AR(2)</li>
 <li>Harvey (1990) provides a general approach</li>
 </ul>
+<hr>
 </div>
 </div>
 <div id="correcting-for-serial-correlation-with-strictly-exogenous-regressors" class="section level2">
@@ -571,6 +581,7 @@
 <li><p>Goal: model with complete dynamics <span class="math inline">\(\Rightarrow\)</span> need to respecify the model. Ex. FGLS (either Cochrane-Orcutt or Prais Winsten)</p></li>
 <li><p>For model with incomplete dynamics <span class="math inline">\(\Rightarrow\)</span> find a way to carry out statistical inference. Ex. Serial Correlation-Robust Inference after OLS</p></li>
 </ul>
+<hr>
 </div>
 <div id="differencing-and-serial-correlation" class="section level2">
 <h2 class="hasAnchor">
@@ -580,6 +591,7 @@
 <li>If <span class="math inline">\(u_{t}\)</span> follows a random walk, differencing will imply that <span class="math inline">\(\delta u_{t}\)</span> is serially uncorrelated</li>
 <li>If <span class="math inline">\(u_{t}\)</span> do not follow a random walk, but the estimation of <span class="math inline">\(\rho\)</span> on its lagged value is high, differencing will eliminate most of the autocorrelation.</li>
 </ul>
+<hr>
 </div>
 <div id="serial-correlation-robust-inference-after-ols" class="section level2">
 <h2 class="hasAnchor">
@@ -605,17 +617,15 @@
 </ol></li>
 </ul>
 </li>
-<li>An implementation in R can be found <a href="https://www.r-econometrics.com/methods/hcrobusterrors/">here</a>
+<li>An implementation in R can be found <a href="https://www.econometrics-with-r.org/15-4-hac-standard-errors.html">here</a>
 </li>
 </ul>
+<hr>
 </div>
 <div id="heteroskedasticity-in-time-series-regression" class="section level2">
 <h2 class="hasAnchor">
 <a href="#heteroskedasticity-in-time-series-regression" class="anchor"></a>Heteroskedasticity in time series regression</h2>
 <p>In recent years, it has become more popular to estimate models by OLS but to correct the standard errors for fairly arbitrary forms of serial correlation (and heteroskedasticity).</p>
-<div id="correction" class="section level3">
-<h3 class="hasAnchor">
-<a href="#correction" class="anchor"></a>Correction</h3>
 <ul>
 <li>Receive less attention than serial correlation</li>
 <li>Heteroskedasticity-robust standard errors also work for time series
@@ -624,7 +634,6 @@
 </ul>
 </li>
 </ul>
-</div>
 <div id="testing" class="section level3">
 <h3 class="hasAnchor">
 <a href="#testing" class="anchor"></a>Testing</h3>
@@ -636,16 +645,19 @@
 </ul>
 </li>
 </ul>
+<hr>
+<p>class: inverse, center, middle</p>
 </div>
 </div>
 </div>
-<div id="simultanous-equations-models-sem" class="section level1">
+<div id="simultanous-equations-models-sem-only-for-msb104" class="section level1">
 <h1 class="hasAnchor">
-<a href="#simultanous-equations-models-sem" class="anchor"></a>16: Simultanous equations models (SEM)</h1>
+<a href="#simultanous-equations-models-sem-only-for-msb104" class="anchor"></a>16: Simultanous equations models (SEM) (only for MSB104)</h1>
 <p><a href="https://github.com/joernih/MSB104TimeSeries/blob/main/inst/docs/CH16_Wooldridge_7e%20PPT_2pp.pptx">Wooldridge 16</a></p>
-<div id="the-nature-of-simultanous-equations-models" class="section level2">
+<hr>
+<div id="the-nature-of-simultanous-equations-models-sem" class="section level2">
 <h2 class="hasAnchor">
-<a href="#the-nature-of-simultanous-equations-models" class="anchor"></a>The nature of simultanous equations models</h2>
+<a href="#the-nature-of-simultanous-equations-models-sem" class="anchor"></a>The nature of simultanous equations models (SEM)</h2>
 <p>Endogeneity problem:</p>
 <ul>
 <li><ol style="list-style-type: decimal">
@@ -658,6 +670,7 @@
 <li><strong>Simultaneity: one or more of the explanatory variables are jointly determined with the dependent variable</strong></li>
 </ol></li>
 </ul>
+<hr>
 <p>SEM model: each equation in the system should have a ceteris paribus, causal interpreation</p>
 <p>Example: Supply and labor demand</p>
 <p>Set of three equations:</p>
@@ -666,12 +679,14 @@
 <li><span class="math inline">\(h_{d}=\alpha_{2}w+\beta_{2}z_{2}+u_{2}\)</span></li>
 <li><span class="math inline">\(h_{s}=h_{d}=h\)</span></li>
 </ul>
-<p>Which can be combined into a set of two equations of a simultanous equations model (SEM):</p>
+<p>Which can be combined into a set of two equations of a simultaneous equations model (SEM):</p>
 <ul>
 <li><span class="math inline">\(h_{i}=\alpha_{1}w_{i}+\beta_{1}z_{i,1}+u_{i,1}\)</span></li>
 <li><span class="math inline">\(h_{i}=\alpha_{2}w_{i}+\beta_{2}z_{i,2}+u_{i,2}\)</span></li>
 </ul>
-<p>Endogenous:<span class="math inline">\(h_{i},w_{i}\)</span> Exogenous: <span class="math inline">\(z_{i,1}, z_{i,2}\)</span></p>
+<p>Endogenous: <span class="math display">\[h_i,w_i\]</span></p>
+<p>Exogenous: <span class="math display">\[z_{i,1}, z_{i,2}\]</span></p>
+<hr>
 </div>
 <div id="simultaneity-bias-in-ols" class="section level2">
 <h2 class="hasAnchor">
@@ -681,10 +696,11 @@
 <li><span class="math inline">\(y_{2}=\alpha_{2}y_{1}+\beta_{2}z_{2}+u_{2}\)</span></li>
 </ul>
 <p>Solve for the reduced form equation <span class="math inline">\(y_{22}\)</span> <span class="math inline">\(y_{2}=\alpha_{2}(\alpha_{1}y_{2}+\beta_{1}z_{1}+u_{1})+\beta_{2}z_{2}+u_{2}\)</span> <span class="math inline">\(y_{2}(1-\alpha_{2}\alpha_{1})=\alpha_{2}\beta_{1}z_{1}+\beta_{2}z_{2}+\alpha_{2}u_{1}+u_{2}\)</span></p>
-<p>Assume that <span class="math inline">\(\alpha_{2}\alpha_{1}\neq0\)</span></p>
+<p>Assume that <span class="math inline">\(\alpha_{2}\alpha_{1}\neq1\)</span></p>
 <p><span class="math inline">\(y_{2}=\pi_{21}z_{1}+\pi_{22}z_{2}+v_{2}\)</span></p>
 <p>Where the reduced form parameters and errors - <span class="math inline">\(\pi_{21}\equiv\frac{\alpha_{2}\beta_{1}}{(1-\alpha_{2}\alpha_{1})}\)</span></p>
 <p><span class="math inline">\(\alpha_{2} \neq 0 \rightarrow\)</span> simultaneity bias</p>
+<hr>
 </div>
 <div id="identifying-and-estimating-a-structural-equations" class="section level2">
 <h2 class="hasAnchor">
@@ -696,22 +712,26 @@
 <li><span class="math inline">\(h=\alpha_{2}w+u_{2}\)</span></li>
 </ul>
 <p>Given a random sample of (q,p,z), which of the equations (identified equation) above can be estimated by 2SLS</p>
-<p>z_{1} can be used as an IV-variable in the demand equation</p>
+<p><span class="math inline">\(z_1\)</span> can be used as an IV-variable in the demand equations</p>
+<hr>
 </div>
-<div id="system-with-more-than-two-equations" class="section level2">
+<div id="estimation-of-simultaneous-equation-systems-by-2sls" class="section level2">
 <h2 class="hasAnchor">
-<a href="#system-with-more-than-two-equations" class="anchor"></a>(System with more than two equations)</h2>
-<p>Not covered in this course</p>
-</div>
-<div id="simultanous-equations-models-with-time-series" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simultanous-equations-models-with-time-series" class="anchor"></a>(Simultanous equations models with time series)</h2>
-<p>Not covered in this course</p>
+<a href="#estimation-of-simultaneous-equation-systems-by-2sls" class="anchor"></a>Estimation of simultaneous equation systems by 2SLS</h2>
+<ul>
+<li>Given the identification condition holds, the parameters of a simultaneous equations system can be consistenly estimated by 2SLS.</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>For this, in a first stage, each endogenous variable is regressed on the full list of exogenous variables (reduced form regressions).</li>
+<li>In a second stage, the system equations are estimated by OLS but with the endogenous regressors being replaced by predictions from stage one.Not covered in this course</li>
+</ol>
+<hr>
 </div>
 <div id="simultanous-equations-models-with-panel-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simultanous-equations-models-with-panel-data" class="anchor"></a>(Simultanous equations models with panel data)</h2>
 <p>Not covered in this course</p>
+<hr>
 </div>
 </div>
   </div>
