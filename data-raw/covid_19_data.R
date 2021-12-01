@@ -11,8 +11,8 @@ library(ggplot2)
 sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','IND','JPN')
 all_data <- COVID19::covid19(country=sel_cou, level=1,verbose = T)
 unique(all_data$iso_alpha_3)
-# [1] "2b1b6cf9" "03dcf038"
-# [1] "2b1b6cf9" "03dcf038"
+#  [1] "GBR" "USA" "CZE" "JPN" "ISR" "SWE" "FIN"
+#  [8] "SVK" "ESP" "NOR" "IND" "CAN" "ITA"
 ###
 COVID19 <- all_data %>%  dplyr::filter(iso_alpha_3%in%sel_cou) %>%
 dplyr::mutate(year=as.factor(lubridate::year(date))) %>%
@@ -26,8 +26,8 @@ usethis::use_data(COVID19, overwrite = TRUE)
 covidts <- COVID19
 sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','JPN')
 covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='hosp')
-covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths')
-covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths_perc')
+#covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths')
+#covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths_perc')
 gridExtra::grid.arrange(grobs=covhos)
 ##covhos
 ###########################################################################################################################################################3
