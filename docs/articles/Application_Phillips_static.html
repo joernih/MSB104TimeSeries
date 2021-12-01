@@ -262,18 +262,20 @@ inf_{t} = \beta_{0} +\beta_{1}unem_{t} + u_{t}, t=1,2,...,n
 ## Multiple R-squared:  0.1037, Adjusted R-squared:  0.08679 
 ## F-statistic: 6.132 on 1 and 53 DF,  p-value: 0.0165</code></pre>
 </div>
-<div id="robust-hac-t-testing-1" class="section level2">
+<div id="robust-neweywest-t-testing" class="section level2">
 <h2 class="hasAnchor">
-<a href="#robust-hac-t-testing-1" class="anchor"></a>Robust <a href="https://www.r-econometrics.com/methods/hcrobusterrors/">(HAC)</a> t-testing</h2>
+<a href="#robust-neweywest-t-testing" class="anchor"></a>Robust <a href="https://cran.r-project.org/web/packages/sandwich/sandwich.pdf">(NeweyWest)</a> t-testing</h2>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Robust t test</span>
-<span class="fu"><a href="https://rdrr.io/pkg/lmtest/man/coeftest.html">coeftest</a></span><span class="op">(</span><span class="va">model_phc</span>, vcov <span class="op">=</span> <span class="fu"><a href="https://sandwich.R-Forge.R-project.org//reference/vcovHC.html">vcovHC</a></span><span class="op">(</span><span class="va">model_phc</span>, type <span class="op">=</span> <span class="st">"HC0"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="co">#coeftest(model_phc, vcov = vcovHC(model_phc, type = "HC0"))</span>
+<span class="co">#coeftest(model_phc, vcov = vcovHC(model_phc, type = "HC0"))</span>
+<span class="fu"><a href="https://rdrr.io/pkg/lmtest/man/coeftest.html">coeftest</a></span><span class="op">(</span><span class="va">model_phc</span>, vcov <span class="op">=</span><span class="fu"><a href="https://sandwich.R-Forge.R-project.org//reference/NeweyWest.html">NeweyWest</a></span><span class="op">(</span><span class="va">model_phc</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ## t test of coefficients:
 ## 
-##                    Estimate Std. Error t value Pr(&gt;|t|)  
-## (Intercept)         2.82820    1.42601  1.9833  0.05253 .
-## phillips_rdgp$unem -0.51765    0.22758 -2.2746  0.02700 *
+##                    Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept)         2.82820    0.96385  2.9343 0.0049321 ** 
+## phillips_rdgp$unem -0.51765    0.14717 -3.5173 0.0009031 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>

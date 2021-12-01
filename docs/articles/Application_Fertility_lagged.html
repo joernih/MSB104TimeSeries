@@ -278,20 +278,21 @@ gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-1
 ## Multiple R-squared:  0.2325, Adjusted R-squared:  0.1971 
 ## F-statistic: 6.563 on 3 and 65 DF,  p-value: 0.0006054</code></pre>
 </div>
-<div id="robust-t-testing-hac" class="section level4">
+<div id="robust-t-testing-neweywest-t-testing" class="section level4">
 <h4 class="hasAnchor">
-<a href="#robust-t-testing-hac" class="anchor"></a>Robust t-testing (HAC)</h4>
+<a href="#robust-t-testing-neweywest-t-testing" class="anchor"></a>Robust t-testing <a href="https://cran.r-project.org/web/packages/sandwich/sandwich.pdf">(NeweyWest)</a> t-testing</h4>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Robust t test</span>
-<span class="fu"><a href="https://rdrr.io/pkg/lmtest/man/coeftest.html">coeftest</a></span><span class="op">(</span><span class="va">model_ferdc</span>, vcov <span class="op">=</span> <span class="fu"><a href="https://sandwich.R-Forge.R-project.org//reference/vcovHC.html">vcovHC</a></span><span class="op">(</span><span class="va">model_ferdc</span>, type <span class="op">=</span> <span class="st">"HC0"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="co">#coeftest(model_ferdc, vcov = vcovHC(model_ferdc, type = "HC0"))</span>
+<span class="fu"><a href="https://rdrr.io/pkg/lmtest/man/coeftest.html">coeftest</a></span><span class="op">(</span><span class="va">model_ferdc</span>, vcov <span class="op">=</span><span class="fu"><a href="https://sandwich.R-Forge.R-project.org//reference/NeweyWest.html">NeweyWest</a></span><span class="op">(</span><span class="va">model_ferdc</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ## t test of coefficients:
 ## 
 ##                       Estimate Std. Error t value  Pr(&gt;|t|)    
-## (Intercept)          -0.963679   0.450703 -2.1382   0.03627 *  
-## fertility_rdgp$cpe   -0.036202   0.033268 -1.0882   0.28053    
-## fertility_rdgp$cpe_1 -0.013971   0.032601 -0.4285   0.66968    
-## fertility_rdgp$cpe_2  0.109990   0.026082  4.2171 7.816e-05 ***
+## (Intercept)          -0.963679   0.790861 -1.2185    0.2274    
+## fertility_rdgp$cpe   -0.036202   0.022838 -1.5852    0.1178    
+## fertility_rdgp$cpe_1 -0.013971   0.022108 -0.6319    0.5296    
+## fertility_rdgp$cpe_2  0.109990   0.014570  7.5488 1.848e-10 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>

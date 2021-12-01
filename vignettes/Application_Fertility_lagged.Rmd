@@ -124,9 +124,11 @@ bgtest(fertility_rdgp$gfr ~ fertility_rdgp$pe_1+fertility_rdgp$pe_2)
 summary(model_ferdc, robust=FALSE)
 ```
 
-#### Robust t-testing (HAC)
+#### Robust t-testing [(NeweyWest)](https://cran.r-project.org/web/packages/sandwich/sandwich.pdf) t-testing
+
 ```{r}
 # Robust t test
-coeftest(model_ferdc, vcov = vcovHC(model_ferdc, type = "HC0"))
+#coeftest(model_ferdc, vcov = vcovHC(model_ferdc, type = "HC0"))
+coeftest(model_ferdc, vcov =NeweyWest(model_ferdc))
 ```
 

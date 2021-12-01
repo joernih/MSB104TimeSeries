@@ -97,10 +97,13 @@ coeftest(model_ph, vcov = vcovHC(model_ph, type = "HC0"))
 summary(model_phc, robust=FALSE)
 ```
 
-## Robust [(HAC)](https://www.r-econometrics.com/methods/hcrobusterrors/) t-testing
+## Robust [(NeweyWest)](https://cran.r-project.org/web/packages/sandwich/sandwich.pdf) t-testing
 
 ```{r}
 # Robust t test
-coeftest(model_phc, vcov = vcovHC(model_phc, type = "HC0"))
-```
+#coeftest(model_phc, vcov = vcovHC(model_phc, type = "HC0"))
+#coeftest(model_phc, vcov = vcovHC(model_phc, type = "HC0"))
+coeftest(model_phc, vcov =NeweyWest(model_phc))
+```           
+           
 
