@@ -21,10 +21,11 @@ dplyr::select(iso_alpha_3,date,confirmed,deaths,hosp,dayofyear,year,population) 
 dplyr::mutate(c_deaths=deaths-dplyr::lag(deaths)) %>%
 dplyr::mutate(ma_deaths=round(rollmean(c_deaths,k=7, fill=NA)),digits=4) %>%
 dplyr::mutate(ma_deaths_perc=(ma_deaths/population)*100000)
-usethis::use_data(COVID19, overwrite = TRUE)
+#usethis::use_data(COVID19, overwrite = TRUE)
 ###########################################################################################################################################################3
 covidts <- COVID19
 sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','JPN')
+sel_cou <- c('JPN','CAN','GBR','USA')
 covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='hosp')
 #covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths')
 #covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths_perc')

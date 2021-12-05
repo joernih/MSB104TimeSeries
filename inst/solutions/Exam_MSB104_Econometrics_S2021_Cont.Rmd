@@ -1,14 +1,9 @@
 ---
-pdf_document: default
-title: '   '
 output:
   html_document:
     css: css/ON.css
     toc: no
     toc_depth: 3
-  pdf_document:
-    toc: no
-    toc_depth: '3'
 ---
 
 <script type="text/x-mathjax-config">
@@ -197,8 +192,6 @@ Solution:
 
 ```{r, child=c('application/Application_Phillips_static.Rmd')}
 ```
-
-
 
 ```{r include=FALSE}
 knitr::knit_exit()
