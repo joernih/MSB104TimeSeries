@@ -1,0 +1,12 @@
+---
+title: "Exam Econometrics (MSB104-continuation)"
+output:
+  html_notebook:
+    toc: true
+    toc_depth: 3
+---
+
+- [Lenke til PDF-versjon](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/solutions/)
+
+- [Lenke til PDF-versjon løsningsforslag](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/solutions/)
+

@@ -27,7 +27,6 @@ https://elastic-turing-41462a.netlify.app/
 ```
 
 ![](man/figures/ts.jpg)
-
 ### Schedule
 
 - Module I (week 44: Zoom/HGSD1077) 

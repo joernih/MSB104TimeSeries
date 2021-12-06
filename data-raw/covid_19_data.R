@@ -25,7 +25,7 @@ dplyr::mutate(ma_deaths_perc=(ma_deaths/population)*100000)
 ###########################################################################################################################################################3
 covidts <- COVID19
 sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','JPN')
-sel_cou <- c('JPN','CAN','GBR','USA')
+sel_cou <- c('NOR','CAN','GBR','USA')[1]
 covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='hosp')
 #covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths')
 #covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths_perc')
