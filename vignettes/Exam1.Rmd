@@ -7,9 +7,9 @@ output:
 ---
 
 
-- [Lenke til PDF-versjon](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/solutions/Exam_MSB104_Econometrics_S2021_Cont.solution.pdf)
+- [Lenke til PDF-versjon](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/solutions/Exam_MSB104_Econometrics_F2020.pdf)
 
-- [Lenke til PDF-versjon løsningsforslag](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/solutions/Exam_MSB104_Econometrics_S2021_Cont.pdf)
+- [Lenke til PDF-versjon løsningsforslag](https://github.com/joernih/MSB104TimeSeries/blob/main/inst/solutions/Exam_MSB104_Econometrics_F2020_Solution_Proposal.pdf)
 
 
 

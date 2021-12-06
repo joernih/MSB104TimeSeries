@@ -17,4 +17,4 @@ Econometrics (MSB104/ØSS114) Part II: Time Series Analysis
 
 ![](man/figures/rules.png)
 
-**Siste gang oppdatert: 2021-12-06 15:07:56**
+**Siste gang oppdatert: 2021-12-06 16:09:05**
