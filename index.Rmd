@@ -24,6 +24,7 @@ usethis::use_news_md()
 usethis::use_github_links()
 #git config credential.helper 'cache --timeout=3600'
 https://elastic-turing-41462a.netlify.app/
+data-raw/covid_19_data.R
 ```
 
 ![](man/figures/ts.jpg)

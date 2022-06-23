@@ -27,7 +27,7 @@ dplyr::mutate(ma_deaths_perc=(ma_deaths/population)*100000)
 ###########################################################################################################################################################3
 covidts <- COVID19
 sel_cou <- c('NOR','ITA','SWE','GBR','ISR','FIN','CZE','ESP','USA','CAN','SVK','JPN')
-sel_cou <- c('NOR','CAN','GBR','USA')[1]
+sel_cou <- c('SWE','CAN','GBR','USA')[1]
 covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='hosp')
 covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths')
 covhos <- plot19ts(sel_cou=sel_cou,covid19df=covidts,yvar='ma_deaths_perc')
@@ -51,12 +51,14 @@ ssbdoedec <- read.delim("abc.txt", header=FALSE) %>%
 	dplyr::mutate(Uke=as.numeric(Uke)) %>%
 	dplyr::mutate(Antall=as.numeric(Antall))
 
+View(ssbdoedec)
 alle_df <- ssbdoedec %>% dplyr::filter(Alder==-1) %>%
   dplyr::mutate(Aar=as.factor(Aar)) %>%
   dplyr::filter(Aar%in%c("2022","2020","2021","2019")) %>% dplyr::arrange(Aar)
 
 ggplot(dplyr::filter(alle_df,Kjonn=='Begge'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=22) + labs(x='ukenr',y='antall døde')
-ggplot(dplyr::filter(alle_df,Kjonn=='Kvinner'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=22) + labs(x='ukenr',y='antall døde')
+
+ggplot(dplyr::filter(alle_df,Kjonn=='Kvinner'), aes(x=Uke,y=Antall, color=Aar)) + geom_smooth() + geom_vline(xintercept=22) + labs(x='ukenr',y='antall døde') + ggplot2::them_classic()
 
 aldr_df2 <- ssbdoedec %>%
   # Filter
